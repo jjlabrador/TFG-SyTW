@@ -19,3 +19,6 @@ doc/
 
 # Kate project
 .kateproject*
+
+# Gemfile .lock
+Gemfile.lock
