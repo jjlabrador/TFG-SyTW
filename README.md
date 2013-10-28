@@ -4,9 +4,8 @@ Trabajo de Fin de Grado (TFG)
 Sistemas y Tecnologías Web (SyTW)
 ---------------------------------
 
-* Tutor: [Casiano Rodríguez León](https://github.com/crguezl)
-* Titulación: Grado en Ingeniería Informática
-* Escuela Técnica Superior de Ingeniería Informática: [ETSII](http://www.ull.es/view/centros/etsii/Inicio/es)
++ **Tutor**: [Casiano Rodríguez León](https://github.com/crguezl)
++ **Titulación**: Grado en Ingeniería Informática en la [Escuela Técnica Superior de Ingeniería Informática](http://www.ull.es/view/centros/etsii/Inicio/es) de la Universidad de La Laguna
 
 ### Descripción
 En este proyecto se persigue integrar los conocimientos adquiridos durante los estudios del Grado en Ingeniería Informática,
