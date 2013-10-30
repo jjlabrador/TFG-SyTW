@@ -1,7 +1,9 @@
 #encoding: utf-8
 require 'sinatra/base'
+require_relative 'helpers/myHelpers'
 
 class MyApp < Sinatra::Base
+  helpers Sinatra::MyHelpers
   
   configure do
     enable :logging, :dump_errors, :show_exceptions
@@ -12,8 +14,16 @@ class MyApp < Sinatra::Base
   end
   
   get '/' do
-    "Hello world!"
+    title "Index"
+    haml :index
   end
+
+=begin  
+  not_found do
+    title "Not Found!"
+    "no encontrado"
+  end
+=end
   
   # start the server if ruby file executed directly
   run! if app_file == $0

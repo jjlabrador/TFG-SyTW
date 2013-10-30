@@ -15,3 +15,8 @@ desc "run guard"
 task :guard do
   sh "bundle exec guard"
 end
+
+desc "run shotgun"
+task :shotgun do
+  sh "shotgun"
+end
