@@ -17,13 +17,11 @@ class MyApp < Sinatra::Base
     title "Index"
     haml :index
   end
-
-=begin  
+  
   not_found do
-    title "Not Found!"
-    "no encontrado"
+    title "Página no encontrada"
+    haml :'partials/errors/404/not_found'
   end
-=end
   
   # start the server if ruby file executed directly
   run! if app_file == $0
