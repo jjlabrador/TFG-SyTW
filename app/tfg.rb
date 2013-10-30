@@ -13,16 +13,17 @@ class MyApp < Sinatra::Base
     enable :absolute_redirects                        # para cumplir con la RFC 2616 (HTTP 1.1)
   end
   
-  get '/' do
-    title "Index"
-    haml :index
+  get '/nueva_pregunta' do
+    title "Nueva pregunta"
+    haml :'Preguntas/new_question'
   end
   
+  # usado para mostrar página de error 404
   not_found do
     title "Página no encontrada"
     haml :'partials/errors/404/not_found'
   end
   
-  # start the server if ruby file executed directly
+  # arranca el server si se ejecuta el fichero ruby directamente
   run! if app_file == $0
 end
