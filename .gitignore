@@ -19,7 +19,7 @@ doc/
 
 # Kate
 .kateproject*
-.+.kate-swp
+.*.kate-swp
 
 # Gemfile .lock
 Gemfile.lock
