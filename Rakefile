@@ -20,3 +20,8 @@ desc "run shotgun"
 task :shotgun do
   sh "shotgun"
 end
+
+desc "run the tests"
+task :test do
+  sh "ruby app/test/request/questions_test.rb"
+end

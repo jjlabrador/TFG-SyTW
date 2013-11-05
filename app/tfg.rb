@@ -1,6 +1,6 @@
 #encoding: utf-8
 require 'sinatra/base'
-require_relative 'helpers/myHelpers'
+require File.dirname(__FILE__) + "/helpers/myHelpers"
 
 class MyApp < Sinatra::Base
   helpers Sinatra::MyHelpers
@@ -13,9 +13,9 @@ class MyApp < Sinatra::Base
     enable :absolute_redirects                        # para cumplir con la RFC 2616 (HTTP 1.1)
   end
   
-  get '/nueva_pregunta' do
+  get '/new_question' do
     title "Nueva pregunta"
-    haml :'Preguntas/new_question'
+    haml :'Questions/new_question'
   end
   
   # usado para mostrar página de error 404
