@@ -17,8 +17,9 @@ tmp
 _yardoc
 doc/
 
-# Kate project
+# Kate
 .kateproject*
+.+.kate-swp
 
 # Gemfile .lock
 Gemfile.lock
