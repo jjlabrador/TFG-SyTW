@@ -24,4 +24,5 @@ end
 desc "run the tests"
 task :test do
   sh "ruby app/test/request/questions_test.rb"
+  sh "ruby app/test/helpers/application_helper.rb"
 end
