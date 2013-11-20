@@ -2,6 +2,7 @@
 ENV['RACK_ENV'] = 'test'
 
 require_relative '../../tfg'
+require_relative '../../controllers/questions_controller'
 require File.dirname(MyApp.settings.root) + "/app/test/rack_helper"
 
 class MyAppTest < Test::Unit::TestCase
