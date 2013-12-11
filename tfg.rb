@@ -1,5 +1,4 @@
 #encoding: utf-8
-require 'sinatra/base'
 require_relative 'helpers/myHelpers'
 require_relative 'controllers/questions_controller'
 

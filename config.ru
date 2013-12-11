@@ -1,2 +1,2 @@
-require './app/tfg'
+require './tfg'
 run MyApp

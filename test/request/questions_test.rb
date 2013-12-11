@@ -1,14 +1,21 @@
 #encoding: utf-8
+require 'test/unit'
+require 'rack/test'
+
 ENV['RACK_ENV'] = 'test'
 
 require_relative '../../tfg'
-require_relative '../../controllers/questions_controller'
-require File.dirname(MyApp.settings.root) + "/app/test/rack_helper"
+require MyApp.settings.root + '/controllers/questions_controller'
+require MyApp.settings.root + '/helpers/myHelpers'
+require MyApp.settings.root + '/test/helpers/application_helper'
+require MyApp.settings.root + '/test/rack_helper'
 
 class MyAppTest < Test::Unit::TestCase
   
   def app
-    MyApp
+    Rack::Builder.new do
+      run MyApp.new
+    end.to_app
   end
   
   def test_it_include_nueva_pregunta

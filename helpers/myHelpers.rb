@@ -7,6 +7,6 @@ module Sinatra
       @title ? "MyApp | #{@title}" : "MyApp"
     end
   end
-  
+
   helpers MyHelpers
 end

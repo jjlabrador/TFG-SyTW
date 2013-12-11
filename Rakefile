@@ -10,12 +10,7 @@ task :rack do
   sh "rackup"
 end
 
-# Usamos Guard ya que la última versión de Shotgun no muestra los logs
-desc "run guard"
-task :guard do
-  sh "bundle exec guard"
-end
-
+# Esta última versión de Shotgun no muestra los logs
 desc "run shotgun"
 task :shotgun do
   sh "shotgun"
@@ -23,6 +18,5 @@ end
 
 desc "run the tests"
 task :test do
-  sh "ruby app/test/request/questions_test.rb"
-  sh "ruby app/test/helpers/application_helper.rb"
+  sh "ruby test/request/questions_test.rb"
 end
