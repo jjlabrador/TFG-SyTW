@@ -13,3 +13,6 @@ en especial del itinerario de Tecnologías de la Información, aproximando al al
 y favoreciendo el desarrollo de destrezas propias de la Ingeniería Web. Las tareas a realizar comprenden la revisión bibliográfica
 así como la realización de una aplicación Web en la que deberán existir diversos roles y se deberán resolver los problemas de 
 Autentificación y Seguridad.
+
+>
+   Realizado por: [Juan José Labrador González](jjlabradorglez@gmail.com)
