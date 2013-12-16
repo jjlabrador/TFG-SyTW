@@ -1,3 +1,5 @@
+require 'rspec/core/rake_task'
+
 task :default => :server
 
 desc "run thin server in port 4567"
@@ -16,7 +18,6 @@ task :shotgun do
   sh "shotgun"
 end
 
-desc "run the tests"
-task :test do
-  sh "ruby test/request/questions_test.rb"
+RSpec::Core::RakeTask.new :test do |task|
+  task.pattern = Dir["test/**/*_test.rb"]
 end
