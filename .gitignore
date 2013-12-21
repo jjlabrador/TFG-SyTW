@@ -24,3 +24,5 @@ doc/
 # Gemfile .lock
 Gemfile.lock
 
+# uploads folder's content
+uploads/*.html
