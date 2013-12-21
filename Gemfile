@@ -9,6 +9,7 @@ end
 group :test do
   gem 'rack-test'
   gem 'rspec'
+  gem 'capybara'
 end
 
 group :production do

@@ -1,7 +1,4 @@
 #encoding: utf-8
-require 'rspec'
-require 'rack/test'
-
 require_relative '../../tfg'
 require MyApp.settings.root + '/test/rspec_helper'
 
