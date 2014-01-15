@@ -1,7 +1,5 @@
 #encoding: utf-8
-require 'tfg'
-require 'helpers/myHelpers'
-require 'test/rspec_helper'
+require 'spec/rspec_helper'
 
 describe "My helpers" do
   

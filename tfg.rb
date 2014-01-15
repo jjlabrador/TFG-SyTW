@@ -1,6 +1,5 @@
 #encoding: utf-8
-require 'helpers/myHelpers'
-require 'controllers/questions_controller'
+Dir.glob('./{helpers,controllers}/*.rb').each {|file| require file }
 
 class MyApp < Sinatra::Base
   helpers Sinatra::MyHelpers
@@ -11,7 +10,7 @@ class MyApp < Sinatra::Base
     set :raise_errors, false
     set :root, File.dirname(__FILE__)
     enable :protection
-    enable :absolute_redirects                        # para cumplir con la RFC 2616 (HTTP 1.1)
+    enable :absolute_redirects      # para cumplir con la RFC 2616 (HTTP 1.1)
   end
   
   # usado para mostrar página de error 404

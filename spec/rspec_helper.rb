@@ -1,18 +1,17 @@
 require 'rspec'
-require 'rack/test'
 require 'capybara/rspec'
+
+require 'tfg'
+Dir.glob('./{helpers,controllers}/*.rb').each {|file| require file }
 
 ENV['RACK_ENV'] = 'test'
 
 RSpec.configure do |conf|
   conf.include Capybara::DSL
-  conf.include Rack::Test::Methods
   conf.include Sinatra::MyHelpers
   conf.color_enabled = true
+  conf.formatter = :documentation   # default: progress
   conf.order = "random"
 end
 
-def app
-  #MyApp
-  Capybara.app = MyApp
-end
+Capybara.app = MyApp

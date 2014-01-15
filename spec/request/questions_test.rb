@@ -1,7 +1,5 @@
 #encoding: utf-8
-require_relative '../../tfg'
-require MyApp.settings.root + '/controllers/questions_controller'
-require MyApp.settings.root + '/test/rspec_helper'
+require 'spec/rspec_helper'
 
 describe "Questions routes" do
   
@@ -13,7 +11,6 @@ describe "Questions routes" do
     end
     
     it "should upload the html file of questions" do
-      post 'new_question'
       Dir['uploads/*'].should include('uploads/test_upload_file.html')
     end
   end
