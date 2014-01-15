@@ -1,0 +1,2 @@
+require 'tfg'
+run MyApp

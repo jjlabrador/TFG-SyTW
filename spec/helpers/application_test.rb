@@ -3,7 +3,7 @@ require 'spec/rspec_helper'
 
 describe "My helpers" do
   
-  describe "title" do
+  describe "page title" do
     it "should include page title" do
       title("foo").match /foo/
     end

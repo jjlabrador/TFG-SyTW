@@ -1,8 +1,7 @@
 require 'rspec'
 require 'capybara/rspec'
 
-require 'tfg'
-Dir.glob('./{helpers,controllers}/*.rb').each {|file| require file }
+Dir[File.join(File.dirname(__FILE__), '..', 'lib', '{.,helpers,controllers}/*.rb')].each { |file| require file }
 
 ENV['RACK_ENV'] = 'test'
 
