@@ -1,7 +1,7 @@
 #encoding: utf-8
-require_relative '../../tfg'
-require MyApp.settings.root + '/helpers/myHelpers'
-require MyApp.settings.root + '/test/rspec_helper'
+require 'tfg'
+require 'helpers/myHelpers'
+require 'test/rspec_helper'
 
 describe "My helpers" do
   

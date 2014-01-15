@@ -1,6 +1,6 @@
 #encoding: utf-8
-require_relative 'helpers/myHelpers'
-require_relative 'controllers/questions_controller'
+require 'helpers/myHelpers'
+require 'controllers/questions_controller'
 
 class MyApp < Sinatra::Base
   helpers Sinatra::MyHelpers
