@@ -1,2 +1,4 @@
 require 'tfg'
-run MyApp
+
+map('/question/') { run Question }
+map('/') { run StaticPages }

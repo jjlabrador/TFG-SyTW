@@ -1,6 +1,6 @@
 %h1 Nueva pregunta
 %p
   Cargue el fichero que contiene la pregunta
-%form{:method => "post", :action => "/new_question", :enctype => "multipart/form-data"}
+%form{:method => "post", :action => "/question/new_question", :enctype => "multipart/form-data"}
   %input{:type => "file", :name => "file_html", :id => "file_html"}
   %input{:type => "submit", :value => "Añadir"}

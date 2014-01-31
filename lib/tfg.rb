@@ -1,9 +1,9 @@
 #encoding: utf-8
-Dir[File.join(File.dirname(__FILE__), '{helpers,controllers}/*.rb')].each { |file| require file }
+require 'sinatra/base'
 
 class MyApp < Sinatra::Base
-  helpers Sinatra::MyHelpers
-  use Question
+  Dir[File.join(File.dirname(__FILE__), '{helpers,controllers}/*.rb')].each { |file| require file }
+  helpers MyHelpers
   
   configure do
     enable :logging, :dump_errors, :show_exceptions

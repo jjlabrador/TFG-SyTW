@@ -5,7 +5,7 @@ describe "Questions routes" do
   
   describe "New question" do
     it "should show the new question's form" do
-      visit '/new_question'
+      visit '/question/new_question'
       attach_file('file_html', 'lib/fixtures/test_upload_file.html')
       click_on('Añadir')
     end

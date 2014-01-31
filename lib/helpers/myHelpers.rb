@@ -1,13 +1,8 @@
-require 'sinatra/base'
-
-module Sinatra
+module MyHelpers
   
-  module MyHelpers
-    def title(value = nil)
-      @title = value if value
-      @title ? "MyApp | #{@title}" : "MyApp"
-    end
+  def title(value = nil)
+    @title = value if value
+    @title ? "MyApp | #{@title}" : "MyApp"
   end
-
-  helpers MyHelpers
+  
 end
