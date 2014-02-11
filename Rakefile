@@ -23,3 +23,8 @@ RSpec::Core::RakeTask.new :test do |task|
   task.pattern = Dir["spec/**/*_test.rb"]
   task.ruby_opts = "-I. -Ilib -Ilib/helpers -Ilib/controllers -Ispec/helpers -Ispec/request -Ispec"
 end
+
+desc "generate the documentation"
+task :yard do
+  sh "yardoc"
+end

@@ -1,6 +1,7 @@
 #encoding: utf-8
 require 'sinatra/base'
 
+# Base class
 class MyApp < Sinatra::Base
   Dir[File.join(File.dirname(__FILE__), '{helpers,controllers}/*.rb')].each { |file| require file }
   helpers MyHelpers
@@ -10,15 +11,17 @@ class MyApp < Sinatra::Base
     set :raise_errors, false
     set :root, File.dirname(__FILE__)
     enable :protection
-    enable :absolute_redirects      # para cumplir con la RFC 2616 (HTTP 1.1)
+    enable :absolute_redirects
   end
   
-  # usado para mostrar página de error 404
+  # @method get_unknowPath
+  # @overload get '/unknow_path'
+  # 404 error. Render the not found page
   not_found do
-    title "Página no encontrada"
+    title("Página no encontrada")
     haml :'partials/errors/404/not_found'
   end
   
-  # arranca el server si se ejecuta el fichero ruby directamente
+  # Start the server if the ruby file is executed
   run! if app_file == $0
 end
