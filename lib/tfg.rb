@@ -7,7 +7,8 @@ class MyApp < Sinatra::Base
   helpers MyHelpers
   
   configure do
-    enable :logging, :dump_errors, :show_exceptions
+    enable :logging, :dump_errors
+    disable :show_exceptions
     set :raise_errors, false
     set :root, File.dirname(__FILE__)
     enable :protection
@@ -20,6 +21,14 @@ class MyApp < Sinatra::Base
   not_found do
     title("Página no encontrada")
     haml :'partials/errors/404/not_found'
+  end
+  
+  # @method get_internalServerError
+  # @overload get '/internal_server_error'
+  # 500 error. Render the internal server error page
+  error 500..510 do
+    title("Internal Server Error")
+    haml :'partials/errors/500/internal_server'
   end
   
   # Start the server if the ruby file is executed

@@ -18,4 +18,9 @@ describe "Static pages routes" do
     page.status_code.should be(200)
   end
   
+  it "should render the internal server error page" do
+    visit '/error'
+    page.status_code.should be(500)
+  end
+  
 end

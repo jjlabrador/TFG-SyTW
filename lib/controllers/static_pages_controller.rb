@@ -16,4 +16,8 @@ class StaticPages < MyApp
     haml :'Static_Pages/home'
   end
   
+  get '/error' do
+    foo
+  end
+  
 end
