@@ -28,6 +28,7 @@ class Question < MyApp
       f.close
     end
     
+    #`ruql lib/uploads/#{file[:filename]} HtmlForm`
     haml :'Questions/view_question', :locals => {:question => content}
   end
   
