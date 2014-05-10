@@ -1,5 +1,5 @@
 *
 !.gitignore
-!.html
-!.css
-!.png
+!*.html
+!*.css
+!*.png
