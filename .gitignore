@@ -25,7 +25,7 @@ doc/
 Gemfile.lock
 
 # uploads folder's content
-uploads/*.html
+lib/uploads/*.*
 
 # LaTeX
 *.aux
