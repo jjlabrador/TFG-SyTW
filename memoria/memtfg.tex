@@ -9,6 +9,7 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{multirow}
+\usepackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -105,11 +106,11 @@
 
 \HRule
 \begin{flushright}
-        {\Huge Título} \\[2.5mm] 
-        {\Huge Subtítulo.} \\[2.5mm]
+        {\Huge T\'{\i}tulo} \\[2.5mm] 
+        {\Huge Subt\'{\i}tulo.} \\[2.5mm]
         {\Large \textit{Title in English} .} \\[5mm]
-        {\Large Autor} \\[5mm]
-        Dpto. Nombre del Departamento \\[5mm]
+        {\Large Juan Jos\'e Labrador Gonz\'alez} \\[5mm]
+        Estad\'{\i}stica, Investigaci\'on Operativa y Computaci\'on \\[5mm]
         Escuela T\'ecnica Superior de Ingenier\'{\i}a Inform\'atica \\[5mm]
         
         Trabajo de Fin de Grado \\
@@ -129,11 +130,11 @@
 \cleardoublepage
 \thispagestyle{empty}
 
-D. {\bf Nombre Apellido1 Apellido2}, con N.I.F. 12.345.678-X 
+D. {\bf Casiano Rodr\'{\i}guez Le\'on}, con N.I.F. 42.020.072-S 
 profesor
 Titular de Universidad 
 adscrito al Departamento 
-de Nombre del Departamento 
+de Estad\'{\i}stica, Investigaci\'on Operativa y Computaci\'on 
 de la Universidad de La Laguna
 
 \bigskip
@@ -149,19 +150,19 @@ de la Universidad de La Laguna
 Que la presente memoria titulada:
 
 \bigskip
-``{\it Titulo del Trabajo.}''
+``{\it T\'{\i}tulo del Trabajo.}''
 
 \bigskip
 \bigskip
 \bigskip
 
-\noindent ha sido realizada bajo su dirección por D. {\bf Nombre Apellido1 Apellido2},
-con N.I.F. 12.345.678-X.
+\noindent ha sido realizada bajo su direcci\'on por D. {\bf Juan Jos\'e Labrador Gonz\'alez},
+con N.I.F. 78.729.778-L.
 
 \bigskip
 \bigskip
 
-Y para que así conste, en cumplimiento de la legislación vigente y a los efectos
+Y para que as\'{\i} conste, en cumplimiento de la legislaci\'on vigente y a los efectos
 oportunos firman la presente en La Laguna a \today 
 
 \cleardoublepage
@@ -180,18 +181,24 @@ Agradecimientos
 
 
 \hspace{3mm}
-XXX
+La realizaci\'on de esta asignatura de Trabajo de Fin de Grado no hubiera sido posible sin 
+la ayuda de la Escuela T\'ecnica Superior de Ingenier\'{\i}a Inform\'atica que ha llevado a 
+cabo todos los tr\'amites necesarios.
+\bigskip
 
 \hspace{3mm}
-XXX
-
-
-\hspace{3mm}
-XXX
-
+Por otra parte, agradecer a Gara Miranda Valladares su labor, como Coordinadora de la 
+asignatura de Trabajo de Fin de Grado, en el asesoramiento a los tutores y alumnos sobre 
+los tr\'amites y documentos a realizar, as\'{\i} como las fechas l\'{\i}mite para sus entregas.
+\bigskip
 
 \hspace{3mm}
-XXX
+Y por \'ultimo, especialmente agradecer a Casiano Rodr\'{\i}guez Le\'on su labor como tutor del 
+Trabajo de Fin de Grado. Junto a \'el he aprendido nuevas tecnolog\'{\i}as, conceptos y procedimientos
+a la hora de implementar aplicaciones. Me ha aconsejado, animado, motivado y resuelto mis 
+dudas de manera incansable en la realización del Trabajo de Fin de Grado. Ha sido un verdadero 
+placer gozar de su conocimiento y experiencia. Estoy seguro de que la experiencia adquirida 
+me ayudar\'a en mis pr\'oximas etapas.
 
 
 \end{large}
@@ -203,18 +210,20 @@ XXX
 \begin{abstract}
 {\em 
 
-El objetivo de este trabajo ha sido .... 
-%
-bla, bla, bla
-%
-bla, bla, bla
-%
-bla, bla, bla
+El objetivo de este trabajo ha sido integrar los conocimientos adquiridos durante los estudios del Grado y,
+en especial, del itinerario de Tecnolog\'{\i}as de la Informaci\'on, aproximando al alumno a la resoluci\'on de 
+problemas de aplicaciones Web y favoreciendo el desarrollo de destrezas propias de la Ingenier\'{\i}a Web.
+
+En este Trabajo de Fin de Grado se propone, en concreto, el desarrollo de una aplicaci\'on web para la 
+elaboraci\'on y despliegue de cuestionarios en la que se consideran diversos roles de usuarios y los problemas 
+de seguridad asociados. Además, para su desarrollo, se ha hecho uso de un Lenguaje de Dominio Espec\'{\i}fico 
+(DSL) implementado en Ruby por Armando Fox denominado \href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} 
+(RuQL).
 
 }
 
 \begin{palabrasClave}
-Palabra reservada1, Palabra reservada2, ...
+Cuestionario, Lenguaje de Dominio Espec\'{\i}fico, DSL, Ruby, RuQL
 \end{palabrasClave}
 
 \end{abstract}
@@ -247,7 +256,7 @@ Keyword1, Keyword2, Keyword2, ...
 % No funciona bien \markboth sin "twoside" en \documentclass, pero al
 % ponerlo se dan un montón de errores de underfull \vbox, con lo que no se
 % ha puesto.
-\markboth{Nombre del alumno}{Título del proyecto}
+\markboth{Juan Jos\'e Labrador Gonz\'alez}{Título del proyecto}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Numeracion en romanos
@@ -277,14 +286,14 @@ Keyword1, Keyword2, Keyword2, ...
 \setcounter{page}{1}
 
 
-\chapter{Introducción}
+\chapter{Introducci\'on}
 \label{chapter:intro}
 
 \input{cap1.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Título del Capítulo Dos}
+\chapter{Desarrollo}
 \label{chapter:dos}
 
 \input{cap2.tex}
@@ -293,17 +302,10 @@ Keyword1, Keyword2, Keyword2, ...
 \newpage{\pagestyle{empty}\cleardoublepage}
 \thispagestyle{empty}
 
-\chapter{Título del Capítulo Tres}
+\chapter{Resultados}
 \label{chapter:tres}
 
 \input{cap3.tex}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{Título del Capítulo Cuatro}
-\label{chapter:cuatro}
-
-\input{cap4.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage{\pagestyle{empty}\cleardoublepage}
@@ -339,13 +341,17 @@ Keyword1, Keyword2, Keyword2, ...
 \thispagestyle{empty}
 \begin{appendix}
 
-\chapter{Título del Apéndice 1}
+\chapter{Glosario de t\'erminos}
 \label{appendix:1}
 \input{apendice1.tex}
 
-\chapter{Título del Apéndice 2}
+\chapter{Guía de usuario final}
 \label{appendix:2}
 \input{apendice2.tex}
+
+\chapter{Guía del desarrollador}
+\label{appendix:2}
+\input{apendice3.tex}
 
 \end{appendix}
 
