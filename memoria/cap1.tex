@@ -6,23 +6,121 @@
 \section{¿Qu\'e es?}
 \label{1:sec:1}
 
-Bla, bla, bla
+Esta aplicaci\'on de generaci\'on y despliegue de cuestionarios forma parte de una
+gema de Ruby creada por \href{http://www.armandofox.com/geek}{Armando Fox} denominada 
+\href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} (RuQL).
+
+Inicialmente, esta gema permit\'{\i}a generar un cuestionario partiendo de un fichero {\bfseries Ruby}, 
+donde se redactaban las preguntas y respuestas haciendo uso de un {\bfseries DSL}.
+
+Pose\'{\i}a una serie de \textit{renderers} que permiti\'{\i}an generar los cuestionario en los siguientes formatos:
+\begin{itemize}
+  \item \href{http://code.edx.org/}{Open EdX}: formato \textit{open source} listo para importar en plataformas de aprendizaje online como {\bfseries EdX}.
+  \item Versi\'on HTML 5 imprimible: lista para ser impresa y rellenada por los usuarios.
+  \item \href{http://home.gna.org/auto-qcm}{AutoQCM}: formato listo para importar a {\bfseries AMC} (\textit{Auto Multiple Choice}), software libre
+  que permite elaborar cuestionarios multirrespuesta.
+\end{itemize}
+
+Para el renderer de HTML5 se le pod\'{\i}a pasar como argumento el path de una hoja de estilo para incorporarla al HTML de salida. Del mismo modo, se
+pod\'{\i}a especificar el path de un template predefinido por el usuario de modo que las preguntas se renderizaran en el mismo.
+
+Los tipos de preguntas que se pod\'{\i}an especificar eran:
+\begin{itemize}
+  \item {\bfseries Preguntas de completar}: en las cuales los usuarios deben rellenar los espacios en blanco. Admit\'{\i}a respuestas de tipo \textit{string} o
+  \textit{regexp}. Si exist\'{\i}an m\'ultiples espacios para rellenar, se especificaban las respuestas en forma de \textit{array}, indicando adem\'as
+  si el orden de las mismas influ\'{\i}a.
+  Permit\'{\i}a adem\'as especificar respuestas falsas (\textit{distractors}) con una explicaci\'on de la misma, de modo que si el 
+  alumno escrib\'{\i}a dicho \textit{distractor}, le apareciera la explicaci\'on de por qu\'e esa respuesta es incorrecta.
+  
+  [foto]
+  
+  \item {\bfseries Preguntas multirrespuesta con una  \'unica respuesta correcta}: las cl\'asicas preguntas tipo test. Se pode\'{\i}a aleatorizar el orden
+  de las respuestas definido en el fichero de preguntas y asignarles explicaciones a los \textit{distractors} de manera individual o asignar una explicaci\'on
+  general para todos los \textit{distractors}.
+  
+  [foto]
+  
+  Especificando adem\'as la opci\'on \textit{raw} a la pregunta, permit\'{\i}a incrustar dicho texto entre etiquetas \textless pre\textgreater \space HTML.
+  
+  [foto]
+  
+  \item {\bfseries Preguntas multirrespuesta con una  m\'ultiples respuestas correctas}: iguales a las multirrespuesta de opci\'on \'unica con la diferencia de 
+  que existe m\'as de una respuesta correcta.
+  
+  [foto]
+  
+  \item {\bfseries Preguntas de verdadero o falso}: caso particular de las preguntas multirrespuesta de opci\'on \'unica.
+  
+  [foto]
+  
+\end{itemize}
+
+Para todos los tipos de preguntas era posible especificar un comentario opcional que acompañar\'{\i}a al texto de la pregunta.
 
 %---------------------------------------------------------------------------------
-\section{Objetivos}
+\section{Objetivos y actividades a realizar}
 \label{1:sec:2}
 
+Los objetivos propuestos para alcanzar en este Trabajo de Fin de Grado ha sido los siguientes:
 \begin{itemize}
-  \item Item 1
-  \item Item 2
-  \item Item 3
+  \item Conocer, dominar y practicar con lenguajes y herramientas de desarrollo de aplicaciones web en el {\bfseries servidor}.
+  \item Conocer, dominar y practicar con diferentes lenguajes y librer\'{\i}as en el {\bfseries cliente}.
+  \item Conocer, practicar y dominar de herramientas de {\bfseries desarrollo dirigido por pruebas} (\textit{TDD}) en entornos web.
+  \item Conocer, practicar y dominar diferentes lenguajes de marcas y de estilo.
+  \item Conocer, practicar y dominar diferentes mecanismos de despliegue.
+  \item Conocer, practicar y familiarizarse con diferentes mecanismos de seguridad, autentificaci\'on y autorizaci\'on.
+  \item Conocer, practicar y dominar diferentes herramientas colaborativas y de {\bfseries control de versiones} (\textit{CVS}).
+  \item Conocer, practicar y dominar {\bfseries metodolog\'{\i}as \'agiles} de desarrollo de software.
+  \item Desarrollar una aplicaci\'on web para la elaboraci\'on y despliegue de cuestionarios.
 \end{itemize}
+\bigskip
+
+Y las actividades a realizar en el mismo, tal cual est\'an descritas en la propuesta de Proyecto de Trabajo de Fin de Grado firmada por 
+el director y el alumno en la actividad 2 de la asignatura, son las que se describen a continuaci\'on:
+\begin{itemize}
+  \item Revisi\'on bibliogr\'afica.
+  \item Realizaci\'on de una aplicaci\'on web en la que:
+  \begin{itemize}
+    \item Se proporciona soporte mediante una aplicaci\'on web a los procesos de evaluaci\'on.
+    \item Se proporciona/extiende un {\bfseries Lenguaje de Dominio Espec\'{\i}fico} (\textit{DSL}) para la elaboraci\'on de cuestionarios.
+    \item Se deber\'a considerar c\'omo resolver los problemas de seguridad asociados.
+    \item Redacci\'on de la memoria.
+  \end{itemize}
+  \item Preparaci\'on de las presentaciones.
+\end{itemize}
+
+
 
 %---------------------------------------------------------------------------------
 \section{Tecnolog\'{\i}a usada}
 \label{1:sec:3}
 
-Bla, bla, bla
+Debido a que este Trabajo de Fin de Grado es una extensi\'on de una gema de {\bfseries Ruby}, se ha utilizado \'este como lenguaje de
+programaci\'on.
+
+Adem\'as, se ha hecho uso de un numeroso conjunto de gemas y de otras tecnolog\'{\i}as enumeradas a continuaci\'on:
+\begin{itemize}
+  \item HTML5: haciendo uso de funcionalidades como {\bfseries Local Storage} y {\bfseries Drag and Drop}.
+  \item CSS3
+  \item JavaScript
+  \item \href{http://getbootstrap.com/}{Bootstrap}
+  \item \href{https://jquery.com/}{jQuery}
+  \item \href{http://xregexp.com/}{XRegExp}
+  \item \href{http://www.mathjax.org/}{MathJax}
+  \item \href{http://codemirror.net/}{CodeMirror}
+  \item \href{https://visionmedia.github.io/mocha/}{Mocha}
+  \item \href{http://chaijs.com/}{Chai}
+  \item \href{https://karma-runner.github.io/0.12/index.html}{Karma}
+  \item \href{http://www.sinatrarb.com/}{Sinatra}
+  \item \href{https://github.com}{GitHub}
+  \item \href{https://www.heroku.com/}{Heroku}
+  \item \href{http://oauth.net/2/}{OAuth 2.0}
+  \item \href{https://drive.google.com}{Google Drive}
+  
+  \bigskip
+  [Iconos]
+\end{itemize}
+
 
 %------------------------------------------------------------------------------
 \begin{figure}[!th]

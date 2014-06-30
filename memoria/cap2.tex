@@ -1,24 +1,60 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Chapter 2: Título del capítulo 2
+% Chapter 2: Desarrollo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-En el capítulo anterior se ha introducido bla, bla, bla .... 
+En el cap\'{\i}tulo anterior se ha definido el Trabajo de Fin de Grado, especificado los objetivos y actividades
+a desarrollar y mencionado las tecnolog\'{\i}as empleadas para su desarrollo. A continuaci\'on, se describir\'a 
+la metodolog\'{\i}a de trabajo seguida y los problemas hallados durante el desarrollo junto con las soluciones
+alcanzadas.
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \section{Metodolog\'{\i}a usada}
 \label{sec:1}
 
-Bla, bla, bla
+La metodolog\'{\i}a que se ha seguido ha sido \textit{\'agil}: con iteraciones semanales en las que se defin\'{\i}an una serie
+de tareas u objetivos y que se presentaban la siguiente semana. De este modo, con la entrega de prototipos funcionales
+de la aplicaci\'on, se han ido testeando, corrigiendo y mejorando las funcionalidades, al mismo tiempo que detectando 
+problemas no contemplados en las fases previas de diseño. 
+\bigskip
+
+Esta metodolog\'{\i}a, adem\'as, ha propiciado la generaci\'on de ideas que se han traducido en nuevas caracter\'{\i}sticas.
+
 
 %---------------------------------------------------------------------------------
 \section{Problemas encontrados y soluciones}
 \label{sec:2}
 
+A continuaci\'n se detallan los problemas encontrados durante la implementaci\'on del Trabajo de Fin de Grado y las soluciones
+encontradas para los mismos.
+
+\subsection{Entender el funcionamiento del c\'odigo de la gema}
+\label{subsec:2.1}
+\bigskip
+
+{\normalsize {\bfseries Soluci\'on}}
+
+Leer la documentaci\'on de la gema, generar cuestionarios de pruebas y estudiar el c\'odigo fuente.
+
+\subsection{Corregir tests y funcionalidades de la gema}
+\label{subsec:2.2}
+\bigskip
+
+{\normalsize {\bfseries Soluci\'on}}
+
+Tras realizar el correspondiente \textit{fork} en GitHub para empezar a implementar mis modificaciones, ejecut\'e los tests de la 
+gema original para comprobar la ausencia de fallos. Al finalizar, algunos tests fallaron por lo que decid\'{\i} corregirlos. Del 
+mismo modo, algunas gemas de testing existentes en el Gemfile presentaban incompatibilidades con las nuevas versiones de Ruby, por
+lo que tambi\'en se corrig\'{\i}o.
+\bigskip
+
+Del mismo modo, las siguientes funcionalidades de la gema fueron corregidas ya que no funcionaban correctamente:
 \begin{itemize}
-  \item Item 1
-  \item Item 2
-  \item Item 3
+  \item La opci\'on que permite indicar si el orden de las respuestas en las preguntas de completar espacios en blaco importa o no.
+  \item La opci\'on de añadir comentarios opcionales a los textos de las preguntas.
+  \item La opci\'on \textit{raw} que permite incrustar el texto de las preguntas entre etiquetas \textless pre\textgreater \space HTML.
+  \item La opci\'on de explicaci\'on global para todos los \textit{distractors} no funcionaba.
 \end{itemize}
+

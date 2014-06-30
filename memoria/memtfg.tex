@@ -106,9 +106,9 @@
 
 \HRule
 \begin{flushright}
-        {\Huge T\'{\i}tulo} \\[2.5mm] 
-        {\Huge Subt\'{\i}tulo.} \\[2.5mm]
-        {\Large \textit{Title in English} .} \\[5mm]
+        {\Huge Sistemas y Tecnolog\'{\i}as Web (SyTW)} \\[2.5mm] 
+        {\Huge Aplicaci\'on para la elaboraci\'on y despliegue de cuestionarios.} \\[2.5mm]
+        {\Large \textit{Application for the generation and deployment of questionaries}.} \\[5mm]
         {\Large Juan Jos\'e Labrador Gonz\'alez} \\[5mm]
         Estad\'{\i}stica, Investigaci\'on Operativa y Computaci\'on \\[5mm]
         Escuela T\'ecnica Superior de Ingenier\'{\i}a Inform\'atica \\[5mm]
@@ -150,7 +150,7 @@ de la Universidad de La Laguna
 Que la presente memoria titulada:
 
 \bigskip
-``{\it T\'{\i}tulo del Trabajo.}''
+``{\it Sistemas y Tecnolog\'{\i}as Web. Aplicaci\'on para la elaboraci\'on y despliegue de cuestionarios.}''
 
 \bigskip
 \bigskip
@@ -193,12 +193,17 @@ los tr\'amites y documentos a realizar, as\'{\i} como las fechas l\'{\i}mite par
 \bigskip
 
 \hspace{3mm}
+Menci\'on especial para mi familia y amigos, que han caminado junto a m\'{\i} durante todo este
+tiempo y me han alentado para no rendirme y lograr mis objetivos.
+\bigskip
+
+\hspace{3mm}
 Y por \'ultimo, especialmente agradecer a Casiano Rodr\'{\i}guez Le\'on su labor como tutor del 
 Trabajo de Fin de Grado. Junto a \'el he aprendido nuevas tecnolog\'{\i}as, conceptos y procedimientos
 a la hora de implementar aplicaciones. Me ha aconsejado, animado, motivado y resuelto mis 
-dudas de manera incansable en la realización del Trabajo de Fin de Grado. Ha sido un verdadero 
-placer gozar de su conocimiento y experiencia. Estoy seguro de que la experiencia adquirida 
-me ayudar\'a en mis pr\'oximas etapas.
+dudas de manera incansable en la realización del Trabajo de Fin de Grado. Ha sido placer gozar de su 
+conocimiento y experiencia. Estoy seguro de que la experiencia adquirida me ayudar\'a en mis pr\'oximas 
+etapas profesionales.
 
 
 \end{large}
@@ -213,17 +218,21 @@ me ayudar\'a en mis pr\'oximas etapas.
 El objetivo de este trabajo ha sido integrar los conocimientos adquiridos durante los estudios del Grado y,
 en especial, del itinerario de Tecnolog\'{\i}as de la Informaci\'on, aproximando al alumno a la resoluci\'on de 
 problemas de aplicaciones Web y favoreciendo el desarrollo de destrezas propias de la Ingenier\'{\i}a Web.
+\bigskip
 
-En este Trabajo de Fin de Grado se propone, en concreto, el desarrollo de una aplicaci\'on web para la 
-elaboraci\'on y despliegue de cuestionarios en la que se consideran diversos roles de usuarios y los problemas 
-de seguridad asociados. Además, para su desarrollo, se ha hecho uso de un Lenguaje de Dominio Espec\'{\i}fico 
-(DSL) implementado en Ruby por Armando Fox denominado \href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} 
-(RuQL).
+En este Trabajo de Fin de Grado se propone el desarrollo de una gema de Ruby que facilite la elaboraci\'on y despliegue
+de cuestionarios autoevaluables. \'Estos, adem\'as de poseer las t\'{\i}picas preguntas tipo test de respuesta \'unica y 
+multirespuesta, cuentan con la posibilidad de añadir preguntas de programaci\'on.
+\bigskip
+
+Para su desarrollo se ha partido de un Lenguaje de Dominio Espec\'{\i}fico (DSL) implementado en Ruby por \href{http://www.armandofox.com/geek}{Armando Fox} 
+denominado \href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} (RuQL).
+\bigskip
 
 }
 
 \begin{palabrasClave}
-Cuestionario, Lenguaje de Dominio Espec\'{\i}fico, DSL, Ruby, RuQL
+Generaci\'on de cuestionarios, Lenguaje de Dominio Espec\'{\i}fico, DSL, Ruby, RuQL, Sinatra.
 \end{palabrasClave}
 
 \end{abstract}
@@ -256,7 +265,7 @@ Keyword1, Keyword2, Keyword2, ...
 % No funciona bien \markboth sin "twoside" en \documentclass, pero al
 % ponerlo se dan un montón de errores de underfull \vbox, con lo que no se
 % ha puesto.
-\markboth{Juan Jos\'e Labrador Gonz\'alez}{Título del proyecto}
+\markboth{Juan Jos\'e Labrador Gonz\'alez}{SyTW. Aplicaci\'on para la elaboraci\'on y despliegue de cuestionarios}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Numeracion en romanos
