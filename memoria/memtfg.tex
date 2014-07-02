@@ -1,4 +1,4 @@
-\documentclass[spanish,a4paper,11pt,twoside]{report}
+\documentclass[spanish,a4paper,12pt,twoside]{report}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[dvips]{graphicx}
@@ -101,7 +101,8 @@
 \vspace*{\stretch{1}}
 
 \begin{center}
-\includegraphics[width=0.2\textwidth]{images/logotipo-secundario-ULL}\\[0.25cm]
+%\includegraphics[width=0.2\textwidth]{images/logotipo-secundario-ULL}\\[0.25cm]
+\includegraphics[width=0.25\textwidth]{images/logo_vertical}\\[0.25cm]
 \end{center}
 
 \HRule
@@ -110,8 +111,8 @@
         {\Huge Aplicaci\'on para la elaboraci\'on y despliegue de cuestionarios.} \\[2.5mm]
         {\Large \textit{Application for the generation and deployment of questionaries}.} \\[5mm]
         {\Large Juan Jos\'e Labrador Gonz\'alez} \\[5mm]
-        Estad\'{\i}stica, Investigaci\'on Operativa y Computaci\'on \\[5mm]
-        Escuela T\'ecnica Superior de Ingenier\'{\i}a Inform\'atica \\[5mm]
+        Ingenier\'{\i}a Inform\'atica y de Sistemas \\[5mm]
+        Escuela Superior de Ingenier\'{\i}a y Tecnolog\'{\i}a \\[5mm]
         
         Trabajo de Fin de Grado \\
 \end{flushright}
@@ -134,7 +135,7 @@ D. {\bf Casiano Rodr\'{\i}guez Le\'on}, con N.I.F. 42.020.072-S
 profesor
 Titular de Universidad 
 adscrito al Departamento 
-de Estad\'{\i}stica, Investigaci\'on Operativa y Computaci\'on 
+de Ingenier\'{\i}a Inform\'atica y de Sistemas
 de la Universidad de La Laguna
 
 \bigskip
@@ -182,8 +183,8 @@ Agradecimientos
 
 \hspace{3mm}
 La realizaci\'on de esta asignatura de Trabajo de Fin de Grado no hubiera sido posible sin 
-la ayuda de la Escuela T\'ecnica Superior de Ingenier\'{\i}a Inform\'atica que ha llevado a 
-cabo todos los tr\'amites necesarios.
+la ayuda de la Secci\'on de Ingenier\'{\i}a Inform\'atica de la Escuela Superior de Ingenier\'{\i}a 
+y Tecnolog\'{\i}a  que ha llevado a cabo todos los tr\'amites necesarios.
 \bigskip
 
 \hspace{3mm}
@@ -360,14 +361,19 @@ Keyword1, Keyword2, Keyword2, ...
 \input{apendice2.tex}
 
 \chapter{Guía del desarrollador}
-\label{appendix:2}
+\label{appendix:3}
 \input{apendice3.tex}
+
+\chapter{Enlaces}
+\label{appendix:4}
+\input{apendice4.tex}
 
 \end{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addcontentsline{toc}{chapter}{Bibliografía}
-\bibliographystyle{plain}
+%\bibliographystyle{plain}
+\bibliographystyle{ieeetr}
 
 \bibliography{memtfg}
 \nocite{*}
