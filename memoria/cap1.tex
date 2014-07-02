@@ -38,14 +38,15 @@ Otro problema que presenta es su dif\'{\i}cil portabilidad. Estamos hablando de 
 esquema {\bfseries cliente-servidor}, que no es f\'acilmente migrable a otras m\'aquinas.
 \bigskip
 
-Estas desventajas se ven resueltas con la {\bfseries Aplicaci\'on para la Elaboraci\'on y Despliegue de Cuestionarios} que se presentar\'a
-en esta memoria.
+Estas desventajas se ven resueltas, haciendo uso de {\bfseries RuQL}, en la {\bfseries Aplicaci\'on para la Elaboraci\'on y Despliegue de Cuestionarios} que se presentar\'a
+en esta memoria. Dicha aplicaci\'on est\'a destinada a profesores con ciertos conocimientos en el \'ambito de la programaci\'on y de la inform\'atica, 
+aunque la curva de aprendizaje no es excesiva para el resto del profesorado.
 
 %---------------------------------------------------------------------------------
 \section{¿Qu\'e es RuQL?}
 \label{1:sec:2}
 
-Esta aplicaci\'on de generaci\'on y despliegue de cuestionarios forma parte de una
+Esta aplicaci\'on de generaci\'on y despliegue de cuestionarios hace uso de una
 gema de Ruby creada por \href{http://www.armandofox.com/geek}{Armando Fox} denominada 
 \href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} (RuQL).
 
@@ -61,6 +62,7 @@ Pose\'{\i}a una serie de \textit{renderers} que permit\'{\i}an generar los cuest
   \item \href{http://home.gna.org/auto-qcm}{AutoQCM}: formato listo para importar a {\bfseries AMC} (\textit{Auto Multiple Choice}), software libre
   que permite elaborar cuestionarios multirrespuesta.
 \end{itemize}
+\bigskip
 
 Los tipos de preguntas que se pod\'{\i}an especificar eran:
 \begin{itemize}
@@ -70,30 +72,76 @@ Los tipos de preguntas que se pod\'{\i}an especificar eran:
   Permit\'{\i}a adem\'as especificar respuestas falsas (\textit{distractors}) con una explicaci\'on de la misma, de modo que si el 
   alumno escrib\'{\i}a dicho \textit{distractor}, le apareciera la explicaci\'on de por qu\'e esa respuesta era incorrecta.
   
-  [foto]
+  \begin{figure}[!th]
+  \begin{center}
+  \includegraphics[width=0.5\textwidth]{images/fill_in1.eps}
+  \caption{Pregunta de completar simple}
+  \label{fig:fill_in1}
+  \end{center}
+  \end{figure}
+  
+  \begin{figure}[!th]
+  \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/fill_in2.eps}
+  \caption{Pregunta de completar con distractor y explicaci\'on}
+  \label{fig:fill_in2}
+  \end{center}
+  \end{figure}
   
   \item {\bfseries Preguntas multirrespuesta con una  \'unica respuesta correcta}: las cl\'asicas preguntas tipo test. Se pod\'{\i}a aleatorizar el orden
   de las respuestas definido en el fichero de preguntas y asignarles explicaciones a los \textit{distractors} de manera individual o asignar una explicaci\'on
   general para todos los \textit{distractors}.
+  \bigskip
   
-  [foto]
+  \begin{figure}[!th]
+  \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/choice_answer1.eps}
+  \caption{Pregunta multirrespuesta con una  \'unica respuesta correcta}
+  \label{fig:choice_answer1}
+  \end{center}
+  \end{figure}
   
   Especificando adem\'as la opci\'on \textit{raw} a la pregunta, permit\'{\i}a incrustar dicho texto entre etiquetas \textless pre\textgreater \space HTML.
   
-  [foto]
+  [foto] Falla y se coloca al final de la lista de items
+%   \begin{figure}[!th]
+%   \begin{center}
+%   \includegraphics[width=0.9\textwidth]{images/choice_answer2.eps}
+%   \caption{Pregunta multirrespuesta con una  \'unica respuesta correcta usando la opci\'on \textit{raw}}
+%   \label{fig:choice_answer2}
+%   \end{center}
+%   \end{figure}
   
   \item {\bfseries Preguntas multirrespuesta con una  m\'ultiples respuestas correctas}: iguales a las preguntas multirrespuesta de opci\'on \'unica con la diferencia de 
   que existe m\'as de una respuesta correcta.
   
-  [foto]
+  [foto] Falla y se coloca al final de la lista de items
+%   \begin{figure}[!th]
+%   \begin{center}
+%   \includegraphics[width=0.7\textwidth]{images/select_multiple.eps}
+%   \caption{Pregunta multirrespuesta con una  m\'ultiples respuestas correctas}
+%   \label{fig:select_multiple}
+%   \end{center}
+%   \end{figure}
   
   \item {\bfseries Preguntas de verdadero o falso}: caso particular de las preguntas multirrespuesta de opci\'on \'unica.
   
-  [foto]
+  \begin{figure}[!th]
+  \begin{center}
+  \includegraphics[width=0.9\textwidth]{images/truefalse.eps}
+  \caption{Pregunta de verdadero o falso}
+  \label{fig:truefalse}
+  \end{center}
+  \end{figure}
   
 \end{itemize}
 
 Para todos los tipos de preguntas era posible especificar un comentario opcional que acompañar\'{\i}a al texto de la pregunta.
+\bigskip
+
+\subsection{C\'odigo de ejemplo para realizar un cuestionario HTML5}
+\label{subsec:1.2.1}
+\input{ruql2013.tex}
 
 %---------------------------------------------------------------------------------
 \section{Objetivos y actividades a realizar}
@@ -136,37 +184,27 @@ el director y el alumno en la actividad 2 de la asignatura, son las que se descr
 Debido a que este Trabajo de Fin de Grado es una extensi\'on de una gema de {\bfseries Ruby}, se ha utilizado \'este como lenguaje de
 programaci\'on.
 
+\begin{center}
+\includegraphics{images/ruby.eps}
+\end{center}
+  
 Adem\'as, se ha hecho uso de un numeroso conjunto de gemas y de otras tecnolog\'{\i}as enumeradas a continuaci\'on:
 \begin{itemize}
-  \item HTML5: haciendo uso de funcionalidades como {\bfseries Local Storage} y {\bfseries Drag and Drop}.
-  \item CSS3
-  \item JavaScript
-  \item \href{http://getbootstrap.com/}{Bootstrap}
-  \item \href{https://jquery.com/}{jQuery}
-  \item \href{http://xregexp.com/}{XRegExp}
-  \item \href{http://www.mathjax.org/}{MathJax}
-  \item \href{http://codemirror.net/}{CodeMirror}
-  \item \href{https://visionmedia.github.io/mocha/}{Mocha}
-  \item \href{http://chaijs.com/}{Chai}
-  \item \href{https://karma-runner.github.io/0.12/index.html}{Karma}
-  \item \href{http://www.sinatrarb.com/}{Sinatra}
-  \item \href{https://github.com}{GitHub}
-  \item \href{https://www.heroku.com/}{Heroku}
-  \item \href{http://oauth.net/2/}{OAuth 2.0}
-  \item \href{https://drive.google.com}{Google Drive}
-  
-  \bigskip
-  [Iconos]
+  \item HTML5       \includegraphics[width=0.13\textwidth]{images/HTML5.eps}
+  \item CSS3 \includegraphics[width=0.1\textwidth]{images/css3.eps}
+  \item JavaScript \includegraphics[width=0.1\textwidth]{images/js.eps}
+  \item \href{http://getbootstrap.com/}{Bootstrap} \includegraphics[width=0.1\textwidth]{images/bootstrap.eps}
+  \item \href{https://jquery.com/}{jQuery} \includegraphics[width=0.2\textwidth]{images/jquery.eps}
+  \item \href{http://xregexp.com/}{XRegExp} \includegraphics[width=0.2\textwidth]{images/xregexp.eps}
+  \item \href{http://www.mathjax.org/}{MathJax} \includegraphics[width=0.2\textwidth]{images/mathjax.eps}
+  \item \href{http://codemirror.net/}{CodeMirror} \includegraphics[width=0.1\textwidth]{images/codemirror.eps}
+  \item \href{https://visionmedia.github.io/mocha/}{Mocha} \includegraphics[width=0.1\textwidth]{images/mocha.eps}
+  \item \href{http://chaijs.com/}{Chai} \includegraphics[width=0.1\textwidth]{images/chai.eps}
+  \item \href{https://karma-runner.github.io/0.12/index.html}{Karma} \includegraphics[width=0.1\textwidth]{images/karma.eps}
+  \item \href{http://www.sinatrarb.com/}{Sinatra} \includegraphics[width=0.1\textwidth]{images/sinatra.eps}
+  \item \href{https://github.com}{GitHub} \includegraphics[width=0.1\textwidth]{images/github.eps}
+  \item \href{https://www.heroku.com/}{Heroku} \includegraphics[width=0.1\textwidth]{images/heroku.eps}
+  \item \href{http://oauth.net/2/}{OAuth 2.0} \includegraphics[width=0.1\textwidth]{images/oauth.eps}
+  \item \href{https://drive.google.com}{Google Drive} \includegraphics[width=0.1\textwidth]{images/google_drive.eps}
 \end{itemize}
-
-
-%------------------------------------------------------------------------------
-\begin{figure}[!th]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{images/arbolbinario.eps}
-\caption{Ejemplo}
-\label{fig:ArbolBinario}
-\end{center}
-\end{figure}
-%------------------------------------------------------------------------------
 

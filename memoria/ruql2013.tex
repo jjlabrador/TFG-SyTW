@@ -1,0 +1,70 @@
+Instalamos la gema:
+
+\begin{verbatim}
+[~]$ gem install ruql
+Fetching: ruql-0.0.4.gem (100%)
+Successfully installed ruql-0.0.4
+1 gem installed
+\end{verbatim}
+
+Creamos el fichero Ruby que contendr\'a las preguntas:
+
+\begin{verbatim}
+[~]$ cd tmp
+[~/tmp]$ mkdir example
+[~/tmp]$ vi example.rb
+[~/tmp]$ cat example.rb 
+\end{verbatim}
+
+\begin{lstlisting}
+quiz 'Example quiz' do
+  
+  fill_in :points => 2 do
+    text 'The capital of California is ---'
+    answer 'sacramento'
+  end
+  
+  choice_answer :randomize => true do
+    text  "What is the largest US state?"
+    explanation "Not big enough." # for distractors without their own explanation
+    answer 'Alaska'
+    distractor 'Hawaii'
+    distractor 'Texas', :explanation => "That's pretty big, but think colder."
+  end
+  
+  select_multiple do
+    text "Which are American political parties?"
+    answer "Democrats"
+    answer "Republicans"
+    answer "Greens", :explanation => "Yes, they're a party!"
+    distractor "Tories", :explanation => "They're British"
+    distractor "Social Democrats"
+  end
+  
+  select_multiple do
+    text "Which are American political parties?"
+    answer "Democrats"
+    answer "Republicans"
+    answer "Greens", :explanation => "Yes, they're a party!"
+    distractor "Tories", :explanation => "They're British"
+    distractor "Social Democrats"
+  end
+  
+  truefalse 'The week has 7 days.', true
+  truefalse 'The earth is flat.', false, :explanation => 'No, just looks that way'
+\end{lstlisting}
+\bigskip
+
+Para generar el HTML versi\'on imprimible, ejecutamos el siguiente comando:
+
+\begin{verbatim}
+[~/tmp]$ ruql example.rb Html5 > example.html
+\end{verbatim}
+
+Si deseamos que nuestras preguntas se rendericen usando nuestro propio template, debemos especificarlo con la opci\'on -t:
+
+\begin{verbatim}
+[~/tmp]$ ruql example.rb Html5 -t template.html.erb > example.html
+\end{verbatim}
+
+Las especificaciones de c\'omo crear nuestro propio template se encuentran en el apartado de Gu\'{\i}a de usuario (v\'ease Ap\'endice \ref{Apendice2}).
