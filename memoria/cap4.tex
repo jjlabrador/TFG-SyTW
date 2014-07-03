@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter 4: HtmlForm renderer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+objetivos
+desarrollo
+resultados
+problemas encontrados y soluciones
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Creaci\'on del renderer HtmlForm}
+\label{3:sec2}
+
+Este renderer permite generar un documento HTML5 con un formulario en el que se encuentran todas las
+preguntas listas para ser completadas desde el navegador. A continuaci\'on se enumerar\'an todas sus 
+caracter\'{\i}sticas:
+
+\begin{itemize}
+  \item A\~{n}adida la opci\'on de a\~{n}adir uno o m\'as JavaScripts al cuestionario que se generar\'a.
+  \item A\~{n}adida la opci\'on de a\~{n}adir uno o m\'as ficheros de fragmentos de c\'odigo HTML en la cabecera 
+  del cuestionario que se generar\'a.
+  \item A\~{n}adida la opci\'on de a\~{n}adir m\'as de una hoja de estilo CSS al cuestionario que se generar\'a.
+  \item A\~{n}adida la opci\'on de a\~{n}adir un header y un footer personalizado al cuestionario que se generar\'a.
+  Se puede especificar como un \textit{string} o indicar el path donde se encuentra el fichero que contiene 
+  dicho c\'odigo HTML.
+  \item Los textos de las preguntas admiten ahora caracteres HTML escapados.
+  \item El cuestionario es capaz de renderizar expresiones escritas en {\bfseries LaTeX}.
+  
+  [foto]
+  
+  \item Las preguntas de completar permiten ahora respuestas n\'umericas y de c\'odigo JavaScript.
+  
+  [foto]
+  
+  \item Las espacios para rellenar las respuestas de las preguntas de completar se ajustan al tama\~{n}o de dicha respuesta.
+  
+  [foto]
+  
+  \item Dos nuevas maneras simplificadas de escribir preguntas de completar.
+  
+  [foto]
+  
+  \item Se han a\~{n}adido dos nuevos tipos de preguntas:
+  \begin{itemize}
+    \item Preguntas de {\bfseries Drag and Drop}: para preguntas de completar y preguntas tipo test (de respuesta \'unica
+    y multirrespuesta)
+    
+    [foto]
+    \bigskip
+    
+    \item Preguntas de {\bfseries programaci\'on}:
+    \begin{itemize}
+      \item Este tipo de preguntas s\'olo admite c\'odigo JavaScript debido a que la correcci\'on de preguntas tambi\'en 
+      tiene lugar en el navegador cliente.
+      \item Se crear\'a un \textit{textarea} de unas dimensiones definidas por defecto que tambi\'en se pueden personalizar
+      y se colorear\'a el c\'odigo escrito para facilitar su lectura.
+      \item La respuesta asignada a este tiempo de preguntas debe ser un c\'odigo JavaScript que valide la respuesta introducida
+      por el alumno. Este c\'odigo puede escribirse en notaci\'on de \textit{string} o especificar el path donde se encuentra el
+      fichero que contiene dicho c\'odigo.
+      
+      [foto]
+    \end{itemize}
+  \end{itemize}
+  
+  \item Validaci\'on autom\'atica de respuestas mediante JavaScript que muestra la nota obtenida al instante.
+  \item Almacenamiento local de las respuestas introducidas usando {\bfseries Local Storage} de HTML5
+  \item Men\'u contextual al hacer click derecho sobre el campo de respuesta para ver la respuesta correcta de dicha pregunta.
+  Esta funcionalidad s\'olo est\'a disponible para preguntas de completar, cuyas respuestas sean \textit{strings},
+  \textit{regexps} o num\'ericas.
+  
+  \bigskip
+  [foto]
+  \bigskip
+  
+  Para las preguntas tipo test existe un bot\'on que marca las respuestas correctas.
+  
+  [foto]
+  
+  \item Internacionalizaci\'on: la gema comprueba el idioma del sistema para ofrecer la traducci\'on adecuada al idioma del usuario
+  Actualmente solo soporta ingl\'es y espa\~{n}ol. Para cualquier otro idioma, se utiliza el ingl\'es por defecto.
+  
+  [foto]
+
+\end{itemize}
+
+Adem\'as, se han creado test para comprobar el funcionamiento del renderer (usando Spec) y el cuestionario generado, usando Mocha, Chai y Karma.
+
+%---------------------------------------------------------------------------------
+% \section{Problemas encontrados y soluciones}
+% \label{sec:2}
+
+% \subsection{Correcci\'on de preguntas de Ruby en JavaScript}
+% \label{subsec:2.3}
+% \bigskip
+% 
+% bla, bla, bla
+% 

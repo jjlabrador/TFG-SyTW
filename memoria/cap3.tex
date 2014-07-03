@@ -1,15 +1,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Chapter 3: Resultados
+% Chapter 3: Mejoras del DSL original
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+objetivos
+desarrollo
+resultados
+problemas encontrados y soluciones
 
-Tras explicar en el cap\'{\i}tulo anterior la metodolog\'{\i}a empleada, los problemas encontrados
-durante la fase de desarrollo e implementaci\'on y las soluciones halladas, a continuaci\'on se
-detallar\'an todos los resultados obtenidos durante la fase de desarrollo del Trabajo de Fin de Grado: 
-por un lado se encuentran las mejoras realizadas al DSL original de la gema y por otro, el enriquecimiento
-de la misma con dos nuevos \textit{renderers}.
+% Tras explicar en el cap\'{\i}tulo anterior la metodolog\'{\i}a empleada, los problemas encontrados
+% durante la fase de desarrollo e implementaci\'on y las soluciones halladas, a continuaci\'on se
+% detallar\'an todos los resultados obtenidos durante la fase de desarrollo del Trabajo de Fin de Grado: 
+% por un lado se encuentran las mejoras realizadas al DSL original de la gema y por otro, el enriquecimiento
+% de la misma con dos nuevos \textit{renderers}.
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \section{Mejoras del DSL original}
@@ -26,154 +30,38 @@ de la misma efectuando diversos cambios:
   \item A\~{n}adida la opci\'on en l\'inea de comandos \textit{--help} para ver la ayuda. 
 \end{itemize}
 
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Creaci\'on del renderer HtmlForm}
-\label{3:sec2}
-
-Este renderer permite generar un documento HTML5 con un formulario en el que se encuentran todas las
-preguntas listas para ser completadas desde el navegador. A continuaci\'on se enumerar\'an todas sus 
-caracter\'{\i}sticas:
-
-\begin{itemize}
-  \item A\~{n}adida la opci\'on de a\~{n}adir uno o m\'as JavaScripts al cuestionario que se generar\'a.
-  \item A\~{n}adida la opci\'on de a\~{n}adir uno o m\'as ficheros de fragmentos de c\'odigo HTML en la cabecera 
-  del cuestionario que se generar\'a.
-  \item A\~{n}adida la opci\'on de a\~{n}adir m\'as de una hoja de estilo CSS al cuestionario que se generar\'a.
-  \item A\~{n}adida la opci\'on de a\~{n}adir un header y un footer personalizado al cuestionario que se generar\'a.
-  Se puede especificar como un \textit{string} o indicar el path donde se encuentra el fichero que contiene 
-  dicho c\'odigo HTML.
-  \item Los textos de las preguntas admiten ahora caracteres HTML escapados.
-  \item El cuestionario es capaz de renderizar expresiones escritas en {\bfseries LaTeX}.
-  
-  [foto]
-  
-  \item Las preguntas de completar permiten ahora respuestas n\'umericas y de c\'odigo JavaScript.
-  
-  [foto]
-  
-  \item Las espacios para rellenar las respuestas de las preguntas de completar se ajustan al tama\~{n}o de dicha respuesta.
-  
-  [foto]
-  
-  \item Dos nuevas maneras simplificadas de escribir preguntas de completar.
-  
-  [foto]
-  
-  \item Se han a\~{n}adido dos nuevos tipos de preguntas:
-  \begin{itemize}
-    \item Preguntas de {\bfseries Drag and Drop}: para preguntas de completar y preguntas tipo test (de respuesta \'unica
-    y multirrespuesta)
-    
-    [foto]
-    \bigskip
-    
-    \item Preguntas de {\bfseries programaci\'on}:
-    \begin{itemize}
-      \item Este tipo de preguntas s\'olo admite c\'odigo JavaScript debido a que la correcci\'on de preguntas tambi\'en 
-      tiene lugar en el navegador cliente.
-      \item Se crear\'a un \textit{textarea} de unas dimensiones definidas por defecto que tambi\'en se pueden personalizar
-      y se colorear\'a el c\'odigo escrito para facilitar su lectura.
-      \item La respuesta asignada a este tiempo de preguntas debe ser un c\'odigo JavaScript que valide la respuesta introducida
-      por el alumno. Este c\'odigo puede escribirse en notaci\'on de \textit{string} o especificar el path donde se encuentra el
-      fichero que contiene dicho c\'odigo.
-      
-      [foto]
-    \end{itemize}
-  \end{itemize}
-  
-  \item Validaci\'on autom\'atica de respuestas mediante JavaScript que muestra la nota obtenida al instante.
-  \item Almacenamiento local de las respuestas introducidas usando {\bfseries Local Storage} de HTML5
-  \item Men\'u contextual al hacer click derecho sobre el campo de respuesta para ver la respuesta correcta de dicha pregunta.
-  Esta funcionalidad s\'olo est\'a disponible para preguntas de completar, cuyas respuestas sean \textit{strings},
-  \textit{regexps} o num\'ericas.
-  
-  \bigskip
-  [foto]
-  \bigskip
-  
-  Para las preguntas tipo test existe un bot\'on que marca las respuestas correctas.
-  
-  [foto]
-  
-  \item Internacionalizaci\'on: la gema comprueba el idioma del sistema para ofrecer la traducci\'on adecuada al idioma del usuario
-  Actualmente solo soporta ingl\'es y espa\~{n}ol. Para cualquier otro idioma, se utiliza el ingl\'es por defecto.
-  
-  [foto]
-
-\end{itemize}
-
-Adem\'as, se han creado test para comprobar el funcionamiento del renderer (usando Spec) y el cuestionario generado, usando Mocha, Chai y Karma.
-
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Creaci\'on del renderer Sinatra}
-\label{:sec3}
-
-Este otro renderer genera una aplicaci\'on Sinatra con todo lo necesario para ser desplegada en {\bfseries Heroku} o ejecutar localmente. 
-\bigskip
-
-\begin{enumerate}
-  \item Esta aplicaci\'on guardar\'a todos los datos del cuestionario y de los alumnos permitidos para realizarlo en una hoja de c\'alculo de {\bfseries Google Drive}
-  en la cuenta del profesor.
-
-\item Posteriormente, servir\'a el cuestionario a los alumnos especificados (durante un periodo de tiempo establecido previamente). Una vez que los alumnos hayan
-  completado el cuestionario, sus respuestas se guardar\'an en una copia del cuestionario solo visible para los profesores a trav\'es de Google Drive y su
-  nota se guardar\'a adem\'as en la hoja de c\'alculo de Google Drive. De este modo, quedar\'a constancia de la realizaci\'on del mismo.
-  \bigskip
-
-\item Los alumnos podr\'an reintentar el cuestionario todas las veces que deseen mientras se encuentre activo.
-
-\end{enumerate}
-
-{\bfseries NOTA}: Es responsabilidad del profesor facilitar la nota a los alumnos en el momento que estime oportuno.
-\bigskip
-
-En el fichero del examen que recibe como entrada la gema, adem\'as de definir las preguntas, se debe especificar a los usuarios que har\'an
-uso de la aplicaci\'on:
-
-\begin{itemize}
-  \item Por un lado, se deben indicar a los profesores que podr\'an desplegar el examen o consultar las notas de los alumnos. Se indicar\'a
-  su email de Google en forma de \textit{string}. En caso de ser m\'ultiples profesores, se usar\'a una notaci\'on de \textit{array}.
-  
-  [foto]
-  
-  \item Por otra parte, se deber\'an indicar los alumnos permitidos para realizar el cuestionario. Se puede usar un \textit{Hash} con 
-  la informaci\'on necesaria de ellos, o indicar el path de un fichero {\bfseries CSV} con los datos de los mismos.
-  
-  [foto]
-  \bigskip
-  
-  El formato del fichero CSV debe ser del siguiente modo:
-  
-  [tabla]
-  
-\end{itemize}
-
-Para resolver el gran problema de la autentificaci\'on de usuarios, se hace uso de OAuth. De este modo, delegamos todo el servicio a Google y evitamos, por tanto,
-posibles brechas de seguridad que den lugar a suplantaciones de identidad o exposici\'on de datos sensibles de los usuarios a terceras personas.
-\bigskip
-
-Adem\'as, es necesario especificar un fichero \textit{config.yml} que contiene la ventana temporal en la cual estar\'a disponible
-el cuestionario, el nombre del subdominio de Heroku que se desea usar para desplegar el cuestionario y la informaci\'on relativa a Google Drive:
-\begin{itemize}
-  \item Nombre de la hoja de c\'alculo donde se guardar\'an los datos de alumnos y preguntas y respuestas.
-  \item Nombre de la carpeta que contendr\'a dicha hoja de c\'alculo.
-  \item Path donde queremos que se cree la carpeta y la hoja de c\'alculo (si no existe alguna carpeta del path, se crear\'a tambi\'en).
-  \item API keys necesarias para poder usar los servicios de Google, tanto la autenticaci\'on con OAuth como la escritura en Google Drive.
-\end{itemize}
-
-[foto de config.yml]
-\bigskip
-
-Finalmente, los ficheros que genera este renderer son:
-\begin{itemize}
-  \item El c\'odigo Ruby del servidor.
-  \item Las vistas necesarias (incluyendo el cuestionario generado en HTML y un template ERB que se usar\'a para crear las copias de los cuestionarios
-  realizados por los alumnos).
-  \item Un Gemfile con las dependencias necesarias.
-  \item Un Rakefile para automatizar tareas (de ejecuci\'on y despliegue de la aplicaci\'on).
-  \item Una carpeta denominada \textit{config} con los datos de alumnos, profesores, las preguntas y respuestas y una copia del fichero \textit{config.yml}
-  del cual se hara una lectura de los par\'ametros. De este modo, evitamos que las variables existentes en el c\'odigo contengan la informaci\'on sensible.
-\end{itemize}
-
-[foto del arbol de directorios y ficheros]
-
+%---------------------------------------------------------------------------------
+% \section{Problemas encontrados y soluciones}
+% \label{sec:2}
+% 
+% A continuaci\'on se detallan los problemas encontrados durante la implementaci\'on del Trabajo de Fin de Grado y las soluciones
+% encontradas para los mismos.
+% 
+% \subsection{Entender el funcionamiento del c\'odigo de la gema}
+% \label{subsec:2.1}
+% \bigskip
+% 
+% {\normalsize {\bfseries Soluci\'on}}
+% 
+% Leer la documentaci\'on de la gema, generar cuestionarios de pruebas y estudiar el c\'odigo fuente.
+% 
+% \subsection{Corregir tests y funcionalidades de la gema}
+% \label{subsec:2.2}
+% \bigskip
+% 
+% {\normalsize {\bfseries Soluci\'on}}
+% 
+% Tras realizar el correspondiente \textit{fork} en GitHub para empezar a implementar mis modificaciones, ejecut\'e los tests de la 
+% gema original para comprobar la ausencia de fallos. Al finalizar, algunos tests fallaron por lo que decid\'{\i} corregirlos. Del 
+% mismo modo, algunas gemas de testing existentes en el Gemfile presentaban incompatibilidades con las nuevas versiones de Ruby, por
+% lo que tambi\'en se corrig\'{\i}o.
+% \bigskip
+% 
+% Del mismo modo, las siguientes funcionalidades de la gema fueron corregidas ya que no funcionaban correctamente:
+% \begin{itemize}
+%   \item La opci\'on que permite indicar si el orden de las respuestas en las preguntas de completar espacios en blaco importa o no.
+%   \item La opci\'on de añadir comentarios opcionales a los textos de las preguntas.
+%   \item La opci\'on \textit{raw} que permite incrustar el texto de las preguntas entre etiquetas \textless pre\textgreater \space HTML.
+%   \item La opci\'on de explicaci\'on global para todos los \textit{distractors} no funcionaba.
+% \end{itemize}
+% 
