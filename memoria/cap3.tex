@@ -4,64 +4,51 @@
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-objetivos
-desarrollo
-resultados
-problemas encontrados y soluciones
-
-% Tras explicar en el cap\'{\i}tulo anterior la metodolog\'{\i}a empleada, los problemas encontrados
-% durante la fase de desarrollo e implementaci\'on y las soluciones halladas, a continuaci\'on se
-% detallar\'an todos los resultados obtenidos durante la fase de desarrollo del Trabajo de Fin de Grado: 
-% por un lado se encuentran las mejoras realizadas al DSL original de la gema y por otro, el enriquecimiento
-% de la misma con dos nuevos \textit{renderers}.
-
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Mejoras del DSL original}
-\label{3:sec1}
-
-Fruto del estudio del c\'odigo y de ejecuciones sucesivas de la gema, se ha mejorado el funcionamiento
-de la misma efectuando diversos cambios:
+Fruto del estudio del c\'odigo y de ejecuciones sucesivas de la gema se detectaron una serie de errores de funcionamiento,
+por lo que antes de implementar mis mejoras propias era conveniente solucionar los problemas existentes.
+Adem\'as, se a\~{n}adieron algunos cambios para mejorar el funcionamiento de la gema. A continuaci\'on se detallan las mejoras
+realizadas:
 
 \begin{itemize}
-  \item Correcci\'on de errores en el funcionamiento de la gema (enumerados en el cap\'{\i}tulo 2).
-  \item Refactorizaci\'on de c\'odigo.
+  \item Correcci\'on de errores en el funcionamiento de la gema. Las opciones enumeradas a continuaci\'on no funcionaban correctamente:
+  \begin{itemize}
+    \item La opci\'on que permite indicar si el orden de las respuestas en las preguntas de completar espacios en blaco importa o no.
+    \item La opci\'on de a\~{n}adir comentarios opcionales a los textos de las preguntas.
+    \item La opci\'on \textit{raw} que permite incrustar el texto de las preguntas entre etiquetas \textless pre\textgreater \space HTML.
+    \item La opci\'on de explicaci\'on global para todos los \textit{distractors} no funcionaba.
+  \end{itemize}
+  \item Refactorizaci\'on de c\'odigo, evitando la repetici\'on del mismo en la medida de lo posible.
   \item A\~{n}adido manejo de excepciones tras errores de ejecuci\'on.
   \item A\~{n}adida la opci\'on en l\'inea de comandos \textit{--version} para comprobar la versi\'on de la gema. 
   \item A\~{n}adida la opci\'on en l\'inea de comandos \textit{--help} para ver la ayuda. 
 \end{itemize}
+\bigskip
 
 %---------------------------------------------------------------------------------
-% \section{Problemas encontrados y soluciones}
-% \label{sec:2}
-% 
-% A continuaci\'on se detallan los problemas encontrados durante la implementaci\'on del Trabajo de Fin de Grado y las soluciones
-% encontradas para los mismos.
-% 
-% \subsection{Entender el funcionamiento del c\'odigo de la gema}
-% \label{subsec:2.1}
-% \bigskip
-% 
-% {\normalsize {\bfseries Soluci\'on}}
-% 
-% Leer la documentaci\'on de la gema, generar cuestionarios de pruebas y estudiar el c\'odigo fuente.
-% 
-% \subsection{Corregir tests y funcionalidades de la gema}
-% \label{subsec:2.2}
-% \bigskip
-% 
-% {\normalsize {\bfseries Soluci\'on}}
-% 
-% Tras realizar el correspondiente \textit{fork} en GitHub para empezar a implementar mis modificaciones, ejecut\'e los tests de la 
-% gema original para comprobar la ausencia de fallos. Al finalizar, algunos tests fallaron por lo que decid\'{\i} corregirlos. Del 
-% mismo modo, algunas gemas de testing existentes en el Gemfile presentaban incompatibilidades con las nuevas versiones de Ruby, por
-% lo que tambi\'en se corrig\'{\i}o.
-% \bigskip
-% 
-% Del mismo modo, las siguientes funcionalidades de la gema fueron corregidas ya que no funcionaban correctamente:
-% \begin{itemize}
-%   \item La opci\'on que permite indicar si el orden de las respuestas en las preguntas de completar espacios en blaco importa o no.
-%   \item La opci\'on de añadir comentarios opcionales a los textos de las preguntas.
-%   \item La opci\'on \textit{raw} que permite incrustar el texto de las preguntas entre etiquetas \textless pre\textgreater \space HTML.
-%   \item La opci\'on de explicaci\'on global para todos los \textit{distractors} no funcionaba.
-% \end{itemize}
-% 
+\section{Problemas encontrados y soluciones}
+\label{3:sec:1}
+
+A continuaci\'on se detallan los problemas encontrados durante la implementaci\'on de las mejoras del DSL original y las soluciones
+encontradas para los mismos.
+
+\subsection{Entender el funcionamiento del c\'odigo de la gema}
+\label{subsec:3.1.1}
+\bigskip
+
+{\normalsize {\bfseries Soluci\'on}}
+\bigskip
+
+Leer la documentaci\'on de la gema, generar cuestionarios de pruebas y estudiar el c\'odigo fuente.
+
+\subsection{Corregir tests y funcionalidades de la gema}
+\label{subsec:3.1.2}
+\bigskip
+
+{\normalsize {\bfseries Soluci\'on}}
+\bigskip
+
+Tras realizar el correspondiente \textit{fork} en GitHub para empezar a implementar mis modificaciones, ejecut\'e los tests de la 
+gema original para comprobar la ausencia de fallos. Al finalizar, algunos tests fallaron por lo que decid\'{\i} corregirlos. Del 
+mismo modo, algunas gemas de testing existentes en el Gemfile presentaban incompatibilidades con las nuevas versiones de Ruby, por
+lo que tambi\'en se corrig\'{\i}o.
+\bigskip
