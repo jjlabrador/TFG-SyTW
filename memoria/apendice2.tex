@@ -11,3 +11,47 @@ Texto
 \end{footnotesize}
 \end{center}
 
+
+% En el fichero del examen que recibe como entrada la gema, adem\'as de definir las preguntas, se debe especificar a los usuarios que har\'an
+% uso de la aplicaci\'on:
+%
+% \begin{itemize}
+%   \item Por un lado, se deben indicar a los profesores que podr\'an desplegar el examen o consultar las notas de los alumnos. Se indicar\'a
+%   su email de Google en forma de \textit{string}. En caso de ser m\'ultiples profesores, se usar\'a una notaci\'on de \textit{array}.
+%   
+%   [foto]
+%   
+%   \item Por otra parte, se deber\'an indicar los alumnos permitidos para realizar el cuestionario. Se puede usar un \textit{Hash} con 
+%   la informaci\'on necesaria de ellos, o indicar el path de un fichero {\bfseries CSV} con los datos de los mismos.
+%   
+%   [foto]
+%   \bigskip
+%   
+%   El formato del fichero CSV debe ser del siguiente modo:
+%   
+%   [tabla]
+%   
+% \end{itemize}
+
+% Adem\'as, es necesario especificar un fichero \textit{config.yml} que contiene la ventana temporal en la cual estar\'a disponible
+% el cuestionario, el nombre del subdominio de Heroku que se desea usar para desplegar el cuestionario y la informaci\'on relativa a Google Drive:
+% \begin{itemize}
+%   \item Nombre de la hoja de c\'alculo donde se guardar\'an los datos de alumnos y preguntas y respuestas.
+%   \item Nombre de la carpeta que contendr\'a dicha hoja de c\'alculo.
+%   \item Path donde queremos que se cree la carpeta y la hoja de c\'alculo (si no existe alguna carpeta del path, se crear\'a tambi\'en).
+%   \item API keys necesarias para poder usar los servicios de Google, tanto la autenticaci\'on con OAuth como la escritura en Google Drive.
+% \end{itemize}
+% 
+% [foto de config.yml]
+% \bigskip
+% 
+% Finalmente, los ficheros que genera este renderer son:
+% \begin{itemize}
+%   \item El c\'odigo Ruby del servidor.
+%   \item Las vistas necesarias (incluyendo el cuestionario generado en HTML y un template ERB que se usar\'a para crear las copias de los cuestionarios
+%   realizados por los alumnos).
+%   \item Un Gemfile con las dependencias necesarias.
+%   \item Un Rakefile para automatizar tareas (de ejecuci\'on y despliegue de la aplicaci\'on).
+%   \item Una carpeta denominada \textit{config} con los datos de alumnos, profesores, las preguntas y respuestas y una copia del fichero \textit{config.yml}
+%   del cual se hara una lectura de los par\'ametros. De este modo, evitamos que las variables existentes en el c\'odigo contengan la informaci\'on sensible.
+% \end{itemize}

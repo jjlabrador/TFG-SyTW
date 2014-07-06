@@ -4,113 +4,128 @@
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-objetivos
-desarrollo
-resultados
-problemas encontrados y soluciones
-
-
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-\section{Creaci\'on del renderer Sinatra}
-\label{:sec3}
-
 Este otro renderer genera una aplicaci\'on Sinatra con todo lo necesario para ser desplegada en {\bfseries Heroku} o ejecutar localmente. 
-\bigskip
+Se hace uso de {\bfseries Google Drive} para almacenar una copia del cuestionario y para alojar las preguntas y respuestas de los alumnos.
+
+Para usar este renderer es necesario a\~{n}adir especificar algunos par\'ametros m\'as en el fichero Ruby que contiene el cuestionario
+Estos par\'ametros se enumeran a continuaci\'on:
 
 \begin{enumerate}
-  \item Esta aplicaci\'on guardar\'a todos los datos del cuestionario y de los alumnos permitidos para realizarlo en una hoja de c\'alculo de {\bfseries Google Drive}
-  en la cuenta del profesor.
-
-\item Posteriormente, servir\'a el cuestionario a los alumnos especificados (durante un periodo de tiempo establecido previamente). Una vez que los alumnos hayan
-  completado el cuestionario, sus respuestas se guardar\'an en una copia del cuestionario solo visible para los profesores a trav\'es de Google Drive y su
-  nota se guardar\'a adem\'as en la hoja de c\'alculo de Google Drive. De este modo, quedar\'a constancia de la realizaci\'on del mismo.
-  \bigskip
-
-\item Los alumnos podr\'an reintentar el cuestionario todas las veces que deseen mientras se encuentre activo.
-
+  \item La direcci\'on de correo en {\bfseries Gmail} del profesor. Es posible especificar m\'as de una direcci\'on usando una notaci\'on
+  de \textit{Array}.
+  \begin{figure}[!th]
+  \begin{center}
+  \includegraphics[width=0.5\textwidth]{images/teachers.eps}
+  \caption{M\'etodo para especificar los profesores permitidos en la aplicaci\'on}
+  \label{fig:teachers}
+  \end{center}
+  \end{figure}
+  
+  \item El path de un fichero {\bfseries CSV} con los datos de los alumnos.
+  \begin{figure}[!th]
+  \begin{center}
+  \includegraphics[width=0.5\textwidth]{images/students.eps}
+  \caption{M\'etodo para especificar los alumnos permitidos en la aplicaci\'on}
+  \label{fig:students}
+  \end{center}
+  \end{figure}
+  \newpage
+  
+  \item El path de un fichero de configuraci\'on denominado \textit{config.yml} que contiene informaci\'on del cuestionario.
+  \begin{figure}[!th]
+  \begin{center}
+  \includegraphics[width=0.4\textwidth]{images/config.eps}
+  \caption{M\'etodo para especificar la configuraci\'on de la aplicaci\'on}
+  \label{fig:config}
+  \end{center}
+  \end{figure}
+  
 \end{enumerate}
 
-{\bfseries NOTA}: Es responsabilidad del profesor facilitar la nota a los alumnos en el momento que estime oportuno.
+La sintaxis para ejecutar este renderer es la siguiente:
+\begin{verbatim}
+[~/tmp]$ ruql example.rb Sinatra -t templates/htmlform.html.erb
+\end{verbatim}
+
+Tras su ejecuci\'on, se crear\'a una carpeta llamada \textit{app} en el directorio donde nos encontremos. Este directorio contendr\'a lo siguiente:
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[width=0.4\textwidth]{images/app.eps}
+\caption{Listado de ficheros y directorios generado dentro del directorio \textit{app}}
+\label{fig:app}
+\end{center}
+\end{figure}
+  
+Para saber c\'omo rellenar los ficheros de entrada necesario y obtener informaci\'on de los directorios y ficheros generados, v\'ease Ap\'endice \ref{Apendice2}.
+\bigskip
+\bigskip
 \bigskip
 
-En el fichero del examen que recibe como entrada la gema, adem\'as de definir las preguntas, se debe especificar a los usuarios que har\'an
-uso de la aplicaci\'on:
+La aplicaci\'on resultante funciona del siguiente modo:
+\begin{enumerate}
+  \item Una vez ejecutada, el profesor deber\'a autenticarse con su cuenta de Gmail y activar el cuestionario. Hecho esto, se crear\'a en su {\bfseries Google Drive} 
+  una carpeta que contendr\'a una copia de examen y una hoja de c\'alculo con las preguntas y respuestas correctas del cuestonario. Tambi\'en guardar\'a la informaci\'on
+  de los usuarios. 
+  
+  \item Una vez activido, los alumnos podr\'an acceder a realizar el mismo. Cuando lo finalicen, se generar\'a una copia de su examen en la carpeta de Google Drive del
+  profesor y se escribir\'a autom\'aticamente su hoja de c\'alculo para a\~{n}adir la nota que ha sacado el alumno individualmente en cada pregunta y de manera global.
+  De este modo, quedar\'a constancia de la realizaci\'on del mismo.
+ 
+  \item Los alumnos podr\'an reintentar el cuestionario todas las veces que deseen mientras se encuentre activo. \'Este dejar\'a de estar activo cuando finalice la fecha 
+  l\'{\i}mite establecida por el profesor en el fichero de configuraci\'on. Al reintentar el cuestionario, se actualizar\'a Google Drive con las nuevas calificaciones
+  del alumno.
+\end{enumerate}
 
-\begin{itemize}
-  \item Por un lado, se deben indicar a los profesores que podr\'an desplegar el examen o consultar las notas de los alumnos. Se indicar\'a
-  su email de Google en forma de \textit{string}. En caso de ser m\'ultiples profesores, se usar\'a una notaci\'on de \textit{array}.
-  
-  [foto]
-  
-  \item Por otra parte, se deber\'an indicar los alumnos permitidos para realizar el cuestionario. Se puede usar un \textit{Hash} con 
-  la informaci\'on necesaria de ellos, o indicar el path de un fichero {\bfseries CSV} con los datos de los mismos.
-  
-  [foto]
-  \bigskip
-  
-  El formato del fichero CSV debe ser del siguiente modo:
-  
-  [tabla]
-  
-\end{itemize}
+{\bfseries NOTA}: ser\'a responsabilidad del profesor facilitar la nota a los alumnos en el momento que estime oportuno.
+\bigskip
 
 Para resolver el gran problema de la autentificaci\'on de usuarios, se hace uso de OAuth. De este modo, delegamos todo el servicio a Google y evitamos, por tanto,
 posibles brechas de seguridad que den lugar a suplantaciones de identidad o exposici\'on de datos sensibles de los usuarios a terceras personas.
 \bigskip
 
-Adem\'as, es necesario especificar un fichero \textit{config.yml} que contiene la ventana temporal en la cual estar\'a disponible
-el cuestionario, el nombre del subdominio de Heroku que se desea usar para desplegar el cuestionario y la informaci\'on relativa a Google Drive:
-\begin{itemize}
-  \item Nombre de la hoja de c\'alculo donde se guardar\'an los datos de alumnos y preguntas y respuestas.
-  \item Nombre de la carpeta que contendr\'a dicha hoja de c\'alculo.
-  \item Path donde queremos que se cree la carpeta y la hoja de c\'alculo (si no existe alguna carpeta del path, se crear\'a tambi\'en).
-  \item API keys necesarias para poder usar los servicios de Google, tanto la autenticaci\'on con OAuth como la escritura en Google Drive.
-\end{itemize}
-
-[foto de config.yml]
-\bigskip
-
-Finalmente, los ficheros que genera este renderer son:
-\begin{itemize}
-  \item El c\'odigo Ruby del servidor.
-  \item Las vistas necesarias (incluyendo el cuestionario generado en HTML y un template ERB que se usar\'a para crear las copias de los cuestionarios
-  realizados por los alumnos).
-  \item Un Gemfile con las dependencias necesarias.
-  \item Un Rakefile para automatizar tareas (de ejecuci\'on y despliegue de la aplicaci\'on).
-  \item Una carpeta denominada \textit{config} con los datos de alumnos, profesores, las preguntas y respuestas y una copia del fichero \textit{config.yml}
-  del cual se hara una lectura de los par\'ametros. De este modo, evitamos que las variables existentes en el c\'odigo contengan la informaci\'on sensible.
-\end{itemize}
-
-[foto del arbol de directorios y ficheros]
-
 
 %---------------------------------------------------------------------------------
-% \section{Problemas encontrados y soluciones}
-% \label{sec:2}
+\section{Problemas encontrados y soluciones}
+\label{5:sec:1}
 
+\subsection{Timeout corto entre peticiones del navegador al servidor}
+\label{subsec:4.1.1}
+\bigskip
 
-% \subsection{Correcci\'on de preguntas de JavaScript en Ruby}
-% \label{subsec:2.3}
-% \bigskip
-% 
-% bla, bla, bla
-% 
-% \subsection{Timeout corto entre peticiones del navegador al servidor}
-% \label{subsec:2.4}
-% \bigskip
-% 
-% bla, bla, bla
-% 
-% \subsection{Problema de seguridad al evaluar c\'odigo Ruby en el servidor}
-% \label{subsec:2.5}
-% \bigskip
-% 
-% bla, bla, bla
-% 
-% \subsection{Lugar de almacenamiento de las respuestas de los alumnos}
-% \label{subsec:2.5}
-% \bigskip
-% 
-% La idea principal era almacenar todas las preguntas y respuestas de los alumnos en una base de datos pero, viendo la evoluci\'on que ha tenido la
-% herramienta Google Drive y el aumento considerable de su uso por parte de docentes, decid\'{\i} sustituir las tradicionales y siempre mon\'otonas consultas a bases de datos por esta 
-% herramienta de almacenamiento que permite visualizar y administrar f\'acilmente toda la informaci\'on.
+Al inicializar el cuestionario, el servidor tarda en responder ya que es necesario escribir en Google Drive una cantidad de datos considerable. Cuanto termina la escritura, 
+nos debe mostrar una vista en la que se puede comprobar que el cuestionario ha sido inicializado correctamente. Esta vista s\'olo se muestra una vez y \'unicamente al profesor
+que inicializ\'o el cuestionario. El resto de ocasiones, se nos redirige al cuestionario en s\'{\i}. 
+Sin embargo, mientras se est\'a escribiendo en Google Drive el navegador interpreta que el servidor tarda en responder, por lo que le manda una nueva petici\'on  y \'este la 
+despacha en cuanto finaliza la escritura en Google Drive. El problema reside en que atiende a esta nueva petici\'on y, al ver que el cuestionario ya ha sido inicializado,
+nos redirige al cuestionario, salt\'andose la vista que deber\'{\i}a aparecer la primera vez.
+\bigskip
+
+{\normalsize {\bfseries Soluci\'on}}
+\bigskip
+
+Usar como servidor {\bfseries WeBrick} en lugar del que ejecuta Sinatra por defecto ({\bfseries Thin}). WeBrick no permite m\'ultiples peticiones por lo que se nos muestra la 
+vista adecuada al inicializar el cuestionario.
+
+\subsection{Lugar de almacenamiento de las respuestas de los alumnos}
+\label{subsec:4.1.2}
+\bigskip
+
+Estaba claro que la informaci\'on de los cuestionarios hab\'{\i}a que guardarla en alg\'un lado. La idea principal era almacenar todas las preguntas y respuestas de los alumnos
+en una base de datos, pero preocupaba el hecho de que \'esta se alojara en un servidor desconocido y que, por alg\'un motivo, se perdiera dicha informaci\'on sensible.
+\bigskip
+
+{\normalsize {\bfseries Soluci\'on}}
+\bigskip
+
+Viendo la evoluci\'on que ha tenido la herramienta Google Drive y el aumento considerable de su uso por parte de docentes, decid\'{\i} sustituir las tradicionales y siempre mon\'otonas 
+consultas a bases de datos por esta herramienta de almacenamiento que permite visualizar y administrar f\'acilmente toda la informaci\'on. Adem\'as de ser segura, la informaci\'on 
+reside en la cuenta del profesor y \'este la puede exportar donde desee c\'omodamente.
+
+\subsection{Problema de seguridad al evaluar c\'odigo Ruby en el servidor}
+\label{subsec:4.1.3}
+\bigskip
+
+En esta primera versi\'on del renderer, la aplicaci\'on generada eval\'ua el c\'odigo introducido por el alumno sin ning\'un mecanismo de protecci\'on, por lo que introduciendo
+alg\'un script comprometedor en el campo de alguna respuesta se podr\'{\i}a comprometer la informaci\'on de la aplicaci\'on.
+
+Este es un aspecto importante a tratar en pr\'oximas mejoras del renderer.
