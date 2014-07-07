@@ -10,6 +10,8 @@
 \usepackage{algorithmic}
 \usepackage{multirow}
 \usepackage{hyperref}
+\usepackage{makeidx}
+\makeindex
 
 %%%%%%%%%%%%%%%%%% listings
 
@@ -45,6 +47,16 @@
 \newcommand{\AND}{\textbf{y} }
 \newcommand{\OR}{\textbf{o} }
 
+%Comando para el índice de referencias cruzadas
+\newcommand{\cei}[1]
+  {\index{#1}\emph{#1}}
+  
+\newcommand{\ceis}[1]  
+  {\index{#1}{\bfseries {#1}}}
+  
+\newcommand{\ceit}[1]  
+  {\index{#1}{#1}}
+  
 %%%%%%%%%%%%%%%%% Creamos un entorno para listar código fuente %%%%%%%%%%%%%%%
 \newenvironment{sourcecode}
 {\begin{list}{}{\setlength{\leftmargin}{1em}}\item\scriptsize\bfseries}
@@ -235,17 +247,14 @@ para abordar la creciente complejidad de este tipo de aplicaciones en el marco d
 
 En este Trabajo de Fin de Grado se propone el desarrollo de una gema Ruby que facilite la elaboraci\'on y despliegue
 de cuestionarios autoevaluables. 
-Existe un buen número de plataformas y herramientas para la generación de este tipo de cuestionarios.
-Sin embargo,  estas plataformas se limitan a la evaluaci\'on de cuestiones verdadero-falso, multi-elección, respuesta única y variaciones mas o menos simples de estas. Para la correci\'on de preguntas
-propias de las ramas de Ingenier\'{\i}a, como pueden ser la evaluaci\'on de c\'odigo escrito por el alumno, es necesaria la figura del profesor para
-calificar dichas tareas.
-En nuestra propuesta, adem\'as de las t\'{\i}picas preguntas que proveen las plataformas mencionadas anteriormente,
- se cuenta con la posibilidad de añadir preguntas cuyas respuestas son evaluadas por programas escritos por el profesor. 
+Existe un buen n\'umero de plataformas y herramientas para la generaci\'on de este tipo de cuestionarios.
+Sin embargo, estas plataformas se limitan a la evaluaci\'on de cuestiones verdadero-falso, multi-elecci\'on, respuesta \'unica y variaciones 
+m\'as o menos simples de estas. Para la correci\'on de preguntas propias de las ramas de Ingenier\'{\i}a, como pueden ser la evaluaci\'on 
+de c\'odigo escrito por el alumno, es necesaria la figura del profesor para calificar dichas tareas.
 \bigskip
 
-
-%Para su desarrollo se ha partido de un Lenguaje de Dominio Espec\'{\i}fico (DSL) implementado en Ruby por \href{http://www.armandofox.com/geek}{Armando Fox} 
-%denominado \href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} (RuQL).
+En nuestra propuesta, adem\'as de las t\'{\i}picas preguntas que proveen las plataformas mencionadas anteriormente, 
+se cuenta con la posibilidad de a\~{n}adir preguntas cuyas respuestas son evaluadas por programas escritos por el profesor. 
 \bigskip
 
 }
@@ -348,7 +357,7 @@ Keyword1, Keyword2, Keyword2, ...
 \newpage{\pagestyle{empty}\cleardoublepage}
 \thispagestyle{empty}
 
-\chapter{Generando un corrector de exámenes: Sinatra renderer}
+\chapter{Generando un corrector de ex\'amenes: Sinatra renderer}
 \label{chapter:cinco}
 
 \input{cap5.tex}
@@ -398,7 +407,12 @@ Keyword1, Keyword2, Keyword2, ...
 \end{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addcontentsline{toc}{chapter}{Bibliografía}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Índice alfabético}
+\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\bibliographystyle{plain}
 \bibliographystyle{ieeetr}
 
@@ -408,6 +422,7 @@ Keyword1, Keyword2, Keyword2, ...
 \bibliography{memtfg}
 \nocite{*}
 
+\addcontentsline{toc}{bibliography}{Bibliografía}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}

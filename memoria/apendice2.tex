@@ -5,21 +5,23 @@ funcionalidades implementadas en el gema RuQL durante el Trabajo de Fin de Grado
 \section{Instalaci\'on de la gema}
 \label{Apendice2:instalacion}
 
-Para instalar la gema, basta con ejecutar el siguiente comando:
+Para instalar la \ceit{gema}, basta con ejecutar el siguiente comando:
 \begin{verbatim}
 [~]$ gem install ruql
 \end{verbatim}
 
 Si deseamos ejecutar la gema sin instalarla, debemos hacer lo siguiente:
 \begin{itemize}
-  \item Descargar el c\'odigo desde GitHub.
+  \item Descargar el c\'odigo desde \ceit{GitHub}.
   \item Ejecutar el siguiente comando desde la ra\'{\i}z del proyecto:
   \begin{verbatim}
   [~]$ ruby -Ilib bin/ruql [argumentos]
   \end{verbatim}
 \end{itemize}
 
-Para consultar la ayuda sobre qu\'e argumentos opcionales recibe cada renderer, basta con escribir lo siguiente:
+% Poner tareas de Rake
+
+Para consultar la ayuda sobre qu\'e argumentos opcionales recibe cada \ceit{renderer}, basta con escribir lo siguiente:
 \begin{verbatim}
 [~]$ ruql --help
 \end{verbatim}
@@ -29,11 +31,11 @@ si tenemos la gema instalada en nuestra m\'aquina o
 \end{verbatim}
 si la ejecutamos desde el c\'odigo fuente.
 
-Entre ellos destacan las opciones de a\~{n}adir hojas de estilo (\textit{-c}), JavaScripts (\textit{-j}) y especificar un propio template (\textit{-t}) de {\bfseries ERB}.
+Entre ellos destacan las opciones de a\~{n}adir hojas de estilo (\textit{-c}), JavaScripts (\textit{-j}) y especificar un propio \ceit{template} (\textit{-t}) de \ceis{ERB}.
 Si se desea emplear un template propio, \'este debe contener una serie de variables obligatoriamente para que se inserten los recursos necesarios y el renderer funcione
-correctamente. A continuaci\'on se muestra un ejemplo de template con dichas variables necesarias. Adem\'as, ser\'a posible a\~{n}adirle un header y un footer personalizado. 
+correctamente. A continuaci\'on se muestra un ejemplo de template con dichas variables necesarias. Adem\'as, ser\'a posible a\~{n}adirle un \ceit{header} y un \ceit{footer} personalizado. 
 De este modo no ser\'{\i}a necesario elaborar un template completamente nuevo cada vez. Para ello basta con indicarlo en nuestro fichero Ruby. Los m\'etodos \textit{head} y
-\textit{foot} admiten tanto un path (escrito como un {\bfseries s\'{\i}mbolo}) de donde se encuentre el c\'odigo HTML o un {\bfseries string} con el propio HTML:
+\textit{foot} admiten tanto un path (escrito como un \ceis{s\'{\i}mbolo}) de donde se encuentre el \ceit{c\'odigo} \ceit{HTML} o un {\bfseries string} con el propio HTML:
 
 \input{htmlform.tex}
 
@@ -44,9 +46,9 @@ Si no se especifica template, se mostrar\'a un HTML sin apenas estilo. El profes
 \section{HtmlForm renderer}
 \label{Apendice2:htmlform}
 
-A continuaci\'on veremos un ejemplo de cuestionario explicando las peculiaridades de cada tipo de pregunta:
+A continuaci\'on veremos un ejemplo de \ceit{cuestionario} explicando las peculiaridades de cada tipo de pregunta:
 
-El fichero Ruby debe comenzar de esta manera:
+El fichero \ceit{Ruby} debe comenzar de esta manera:
 \begin{verbatim}
 quiz 'Example quiz' do
   head :'examples/header.html'  # Opcional
@@ -59,10 +61,10 @@ end
 \bigskip
 
 %---------------------------------------------------------------------------------
-\subsection{Preguntas FillIn}
+\subsection{Preguntas \ceit{FillIn}}
 \label{subsec:Apendice2.1}
 
-Para que el renderer genere las etiquetas input, se deben especificar tres guiones ('-') como m\'{\i}nimo. Si la cantidad es menor que tres, se mostrar\'an los guiones
+Para que el \ceit{renderer} genere las etiquetas \ceit{input}, se deben especificar tres guiones ('-') como m\'{\i}nimo. Si la cantidad es menor que tres, se mostrar\'an los guiones
 en el cuestionario. Si queremos que se muestren m\'as de tres guiones seguidos, debemos escaparlos. Recuerda adem\'as que el n\'umero de guiones establecer\'a el largo del input.
 \begin{verbatim}
 tag = '<a href="www.google.es"></a> '
@@ -74,7 +76,7 @@ end
 \end{verbatim}
 \bigskip
 
-Ejemplo de pregunta con un \textit{distractor} y un comentario:
+Ejemplo de pregunta con un \cei{distractor} y un comentario:
 \begin{verbatim}
 fill_in :points => 2 do
   text 'The visionary founder of Apple is --------'
@@ -85,7 +87,7 @@ end
 \end{verbatim}
 \bigskip
 
-Ejemplo de pregunta con c\'odigo LaTeX:
+Ejemplo de pregunta con c\'odigo \ceit{LaTeX}:
 \begin{verbatim}
 fill_in do
   text %q{
@@ -98,8 +100,8 @@ end
 \end{verbatim}
 \bigskip
 
-La respuesta a la pregunta puede ser una cadena, una expresi\'on regular, un n\'umero o un objeto JavaScript. En el caso de los tres primeros tipos de respuesta, se usar\'a
-un \textit{Array} si hay m\'as de una respuesta en la pregunta.
+La respuesta a la pregunta puede ser una cadena, una expresi\'on regular, un n\'umero o un objeto \ceit{JavaScript}. En el caso de los tres primeros tipos de respuesta, se usar\'a
+un \cei{Array} si hay m\'as de una respuesta en la pregunta.
 \begin{verbatim}
 fill_in do
   text 'The ---- brown fox jumped over the lazy ----'
@@ -121,7 +123,7 @@ end
 
 Tambi\'en se pueden escribir este tipo de preguntas de dos formas m\'as compactas:
 
-Esta primera forma permite colocar la respuesta al lado de los guiones. S\'olo se admiten respuestas de tipo \textit{String}.
+Esta primera forma permite colocar la respuesta al lado de los guiones. S\'olo se admiten respuestas de tipo \cei{String}.
 \begin{verbatim}
 fill_in do
   text 'The three stooges are -----{larry}, ----{moe}, and -----{curly}.'
@@ -129,7 +131,7 @@ end
 \end{verbatim}
 \bigskip
 
-Esta otra forma permite asociar las respuestas con una clave, que la definiremos en un {\bfseries Hash} que se pasar\'a como respuesta.
+Esta otra forma permite asociar las respuestas con una clave, que la definiremos en un \ceis{Hash} que se pasar\'a como respuesta.
 \begin{verbatim}
 fill_in do
   text "The capital of Tenerife is -----{:santa} Cruz de --------{:tenerife}"
@@ -149,7 +151,7 @@ end
 \end{verbatim}
 
 %---------------------------------------------------------------------------------
-\subsection{Preguntas Drag and Drop FillIn}
+\subsection{Preguntas \ceit{Drag and Drop} FillIn}
 \label{subsec:Apendice2.2}
 
 Son muy similares a las preguntas FillIn normales. S\'olo admiten respuestas de tipo \textit{String} pero admiten los mismos par\'ametros opcionales.
@@ -161,7 +163,7 @@ end
 \end{verbatim}
 
 %---------------------------------------------------------------------------------
-\subsection{Preguntas Multiple Choice}
+\subsection{Preguntas \ceit{Multiple Choice}}
 \label{subsec:Apendice2.3}
 
 Aqu\'{\i} se presenta un ejemplo de este tipo de pregunta. Usando la opci\'on \textit{randomize}, el renderer ordenar\'a al azar todas las respuestas
@@ -189,7 +191,7 @@ truefalse 'The earth is flat.', false, :explanation => 'No, just looks that way'
 \subsection{Preguntas Drag and Drop Multiple Choice}
 \label{subsec:Apendice2.5}
 
-Para las preguntas Multiple Choice de Drag and Drop no hace falta especificar la opci\'on \textit{randomize}, el renderer cambiar\'a el orden de las 
+Para las preguntas Multiple Choice de Drag and Drop no hace falta especificar la opci\'on \textit{randomize}, el \ceit{renderer} cambiar\'a el orden de las 
 respuestas siempre.
 \begin{verbatim}
 drag_drop_choice_answer do
@@ -202,7 +204,7 @@ end
 \subsection{Preguntas Select Multiple}
 \label{subsec:Apendice2.6}
 
-Las preguntas de Select Multiple se definen del siguiente modo:
+Las preguntas de \ceit{Select Multiple} se definen del siguiente modo:
 \begin{verbatim}
 select_multiple do
   text "Which are American political parties?"
@@ -226,16 +228,16 @@ drag_drop_select_multiple do
 end
 \end{verbatim}
 
-Se deber\'a usar una notaci\'on de {\bfseries Array} cuando haya m\'ultiples respuestas para un determinado item. Cuando s\'olo exista una respuesta por item,
-se puede indicar como un {\bfseries String}.
+Se deber\'a usar una notaci\'on de \ceis{Array} cuando haya m\'ultiples respuestas para un determinado item. Cuando s\'olo exista una respuesta por item,
+se puede indicar como un \ceis{String}.
 
 %---------------------------------------------------------------------------------
 \subsection{Preguntas Programming}
 \label{subsec:Apendice2.8}
 
-Para las preguntas de tipo {\bfseries Programming} se puede especificar diversos par\'ametros:
+Para las preguntas de tipo \ceis{Programming} se puede especificar diversos par\'ametros:
 \begin{itemize}
-  \item El lenguaje. Como este renderer valida las respuestas mediante JavaScript, s\'olo se permite este lenguaje.
+  \item El lenguaje. Como este renderer valida las respuestas mediante \ceit{JavaScript}, s\'olo se permite este lenguaje.
   \item Ancho y largo. Si no se especifica, el cuadro de texto para redactar la respuesta ser\'a de 150px de largo y 800px de ancho.
 \end{itemize}
 
@@ -245,7 +247,7 @@ Para las preguntas de tipo {\bfseries Programming} se puede especificar diversos
 
 Para la respuesta, se puede especificar: 
 \begin{itemize}
-  \item Un path indicando donde est\'a el fichero que testea la respuesta introducida por el alumno: para ello, es necesario expresar ese path como un {\bfseries s\'{\i}mbolo}.
+  \item Un path indicando donde est\'a el fichero que testea la respuesta introducida por el alumno: para ello, es necesario expresar ese path como un \ceis{s\'{\i}mbolo}.
   \item Escribir como un {\bfseries String} el c\'odigo JavaScript que testea la entrada del alumno.
 \end{itemize}
 \bigskip
@@ -264,9 +266,9 @@ end
 \label{subsec:Apendice2.9}
 
 \begin{itemize}
-  \item Todas las respuestas se guardar\'an una vez pulsado el bot\'on de \textit{enviar} haciendo uso de {\bfseries Local Storage}. Para cada cuestionario generado, habr\'a 
+  \item Todas las respuestas se guardar\'an una vez pulsado el bot\'on de \textit{enviar} haciendo uso de \ceis{Local Storage}. Para cada cuestionario generado, habr\'a 
   un objeto guardado dentro de Local Storage. Es recomendable borrar el almacenamiento frecuentemente para que no persista en el navegador.
-  \item EL men\'u contextual que muestra las respuestas s\'olo funciona en preguntas de tipo {\bfseries FillIn} cuyas respuestas sean \textit{Strings}, \textit{RegExp} o num\'ericas.
+  \item EL men\'u contextual que muestra las respuestas s\'olo funciona en preguntas de tipo {\bfseries FillIn} cuyas respuestas sean \textit{Strings}, \cei{RegExp} o num\'ericas.
   Para las preguntas de tipo test existe un bot\'on que muestra y oculta las respuestas correctas.
 \end{itemize}
 
@@ -284,8 +286,8 @@ Para generar el cuestionario, ejecutamos el siguiente comando:
 \section{Sinatra renderer}
 \label{Apendice2:sinatra}
 
-Este renderer permite todas los tipos de preguntas mencionados anteriormente con la diferencia de que en las preguntas de c\'odigo (\textit{FillIn} y \textit{Programming}), 
-el lenguaje permitido es {\bfseries Ruby}. A continuaci\'on veremos dos ejemplos:
+Este renderer permite todas los tipos de preguntas mencionados anteriormente con la diferencia de que en las preguntas de c\'odigo (\cei{FillIn} y \cei{Programming}), 
+el lenguaje permitido es \ceis{Ruby}. A continuaci\'on veremos dos ejemplos:
 
 %---------------------------------------------------------------------------------
 \subsection{Preguntas FillIn}
@@ -321,7 +323,7 @@ uso de la aplicaci\'on:
 
 \begin{itemize}
   \item Por un lado, se deben indicar a los profesores que podr\'an desplegar el examen o consultar las notas de los alumnos. Se indicar\'a
-  su email de Google en forma de \textit{string}. En caso de ser m\'ultiples profesores, se usar\'a una notaci\'on de \textit{array}. 
+  su email de Google en forma de \cei{string}. En caso de ser m\'ultiples profesores, se usar\'a una notaci\'on de \cei{array}. 
   \begin{verbatim}
   quiz 'Example quiz' do
     
@@ -333,7 +335,7 @@ uso de la aplicaci\'on:
   end
   \end{verbatim}
   
-  \item Por otra parte, se deber\'an indicar los alumnos permitidos para realizar el cuestionario. Se puede usar un \textit{Hash} con 
+  \item Por otra parte, se deber\'an indicar los alumnos permitidos para realizar el cuestionario. Se puede usar un \cei{Hash} con 
   la informaci\'on necesaria de ellos. 
   \begin{verbatim}
   quiz 'Example quiz' do
@@ -347,7 +349,7 @@ uso de la aplicaci\'on:
   end
   \end{verbatim}
   
-  O indicar el path de un fichero {\bfseries CSV} con los datos de los mismos llamado \textit{students.csv}.
+  O indicar el path de un fichero \ceis{CSV} con los datos de los mismos llamado \textit{students.csv}.
   \begin{verbatim}
   quiz 'Example quiz' do
     
@@ -369,16 +371,16 @@ uso de la aplicaci\'on:
 \end{itemize}
 
 Adem\'as, es necesario especificar un fichero \textit{config.yml} que contiene la ventana temporal en la cual estar\'a disponible
-el cuestionario, el nombre del subdominio de Heroku que se desea usar para desplegar el cuestionario y la informaci\'on relativa a Google Drive:
+el cuestionario, el nombre del subdominio de Heroku que se desea usar para desplegar el cuestionario y la informaci\'on relativa a \ceit{Google Drive}:
 \begin{itemize}
   \item Nombre de la hoja de c\'alculo donde se guardar\'an los datos de alumnos y preguntas y respuestas.
-  \item Nombre de la carpeta que contendr\'a dicha hoja de c\'alculo.
+  \item Nombre de la carpeta que contendr\'a dicha \ceit{hoja de c\'alculo}.
   \item Path donde queremos que se cree la carpeta y la hoja de c\'alculo (si no existe alguna carpeta del path, se crear\'a tambi\'en).
-  \item API keys necesarias para poder usar los servicios de Google, tanto la autenticaci\'on con OAuth como la escritura en Google Drive. 
-  En la siguiente subsecci\'on,  se indicar\'an los pasos a realizar para dar de alta una aplicaci\'on en {\bfseries Google Developers Console}.
+  \item \ceit{API} keys necesarias para poder usar los servicios de Google, tanto la autenticaci\'on con OAuth como la escritura en Google Drive. 
+  En la siguiente subsecci\'on,  se indicar\'an los pasos a realizar para dar de alta una aplicaci\'on en \ceis{Google Developers Console}.
 \end{itemize}
 
-{\bfseries NOTA}: el nombre del subdominio de Heroku solo puede contener letras y n\'umeros. Tampoco puede contener espacios. Sin embargo, puede especificarse
+{\bfseries NOTA}: el nombre del subdominio de \ceit{Heroku} solo puede contener letras y n\'umeros. Tampoco puede contener espacios. Sin embargo, puede especificarse
 con espacios en el fichero \textit{config.yml}, el renderer lo modificar\'a para que Heroku lo acepte.
 \bigskip
 
@@ -391,7 +393,7 @@ con espacios en el fichero \textit{config.yml}, el renderer lo modificar\'a para
 \end{figure}
 \newpage
 
-Para a\~{n}adir este fichero al fichero del cuestionario especificamos el path del fichero en notaci\'on de {\bfseries s\'{\i}mbolo}:
+Para a\~{n}adir este fichero al fichero del cuestionario especificamos el path del fichero en notaci\'on de \ceis{s\'{\i}mbolo}:
 \begin{verbatim}
   quiz 'Example quiz' do
     
@@ -409,7 +411,7 @@ Para a\~{n}adir este fichero al fichero del cuestionario especificamos el path d
 \subsection{Dar de alta una aplicaci\'on en Google Developers Console}
 \label{subsec:Apendice2.13}
 
-Pasos para dar de alta una aplicaci\'on en Google Developers Console:
+Pasos para dar de alta una aplicaci\'on en \ceit{Google Developers Console}:
 \begin{enumerate}
   \item Dirigirse a \href{https://console.developers.google.com/}{Google Developers Console}
   
@@ -468,8 +470,8 @@ Pasos para dar de alta una aplicaci\'on en Google Developers Console:
   \end{figure}
   \newpage
   
-  \item Seleccionamos \textit{Web application} y establecemos la URI a la que Google debe devolvernos los datos. La URI debe ser igual a la de la imagen salvo
-  en el subdominio de Heroku, en el que pondremos el que nos ha dado Heroku o el que hemos especificado en nuestro \textit{config.yml}
+  \item Seleccionamos \textit{Web application} y establecemos la \ceit{URI} a la que \ceit{Google} debe devolvernos los datos. La URI debe ser igual a la de la imagen salvo
+  en el subdominio de \ceit{Heroku}, en el que pondremos el que nos ha dado Heroku o el que hemos especificado en nuestro \textit{config.yml}
   \begin{figure}[!th]
   \begin{center}
   \includegraphics[width=0.7\textwidth]{images/gdc5.eps}
@@ -497,7 +499,7 @@ Pasos para dar de alta una aplicaci\'on en Google Developers Console:
 \subsection{Generando la aplicaci\'on}
 \label{subsec:Apendice2.14}
 
-Para generar la aplicaci\'on, ejecutamos el siguiente comando. Para este renderer es obligatorio el uso de alg\'un template:
+Para generar la \ceit{aplicaci\'on}, ejecutamos el siguiente comando. Para este renderer es obligatorio el uso de alg\'un template:
 \begin{verbatim}
 [~]$ ruql [ruta_fichero_rb] Sinatra -t [ruta_template.html.erb]
 \end{verbatim}
@@ -510,10 +512,10 @@ Finalmente, los ficheros que genera este renderer son:
 \begin{itemize}
   \item El c\'odigo Ruby del servidor ({\bfseries app.rb}).
   \item Un fichero {\bfseries config.ru} para la ejecuci\'on de la aplicaci\'on.
-  \item Las vistas necesarias de la aplicaci\'on (incluyendo el cuestionario generado en HTML y un template ERB que se usar\'a para crear las copias de los cuestionarios
+  \item Las vistas necesarias de la aplicaci\'on (incluyendo el cuestionario generado en HTML y un \ceit{template} \ceit{ERB} que se usar\'a para crear las copias de los cuestionarios
   realizados por los alumnos).
-  \item Un {\bfseries Gemfile} con las dependencias necesarias.
-  \item Un {\bfseries Rakefile} para automatizar tareas (de ejecuci\'on y despliegue de la aplicaci\'on).
+  \item Un \ceis{Gemfile} con las dependencias necesarias.
+  \item Un \ceis{Rakefile} para automatizar tareas (de ejecuci\'on y despliegue de la aplicaci\'on).
   \item Una carpeta denominada \textit{config} con los datos de alumnos, profesores, las preguntas y respuestas y una copia del fichero \textit{config.yml}
   del cual se hara una lectura de los par\'ametros. De este modo, evitamos que las variables existentes en el c\'odigo contengan la informaci\'on sensible.
 \end{itemize}
@@ -564,7 +566,7 @@ En esta secci\'on se explicar\'a visualmente las funciones que realiza la aplica
   \end{figure}
   \newpage
   
-  \item Tanto los alumnos como los profesores ver\'an esta p\'agina para dar permisos a la aplicaci\'on al iniciar sesi\'on con Google:
+  \item Tanto los alumnos como los profesores ver\'an esta p\'agina para dar permisos a la aplicaci\'on al iniciar sesi\'on con \ceit{Google}:
   \begin{figure}[!th]
   \begin{center}
   \includegraphics[width=0.6\textwidth]{images/app5.eps}
@@ -573,7 +575,7 @@ En esta secci\'on se explicar\'a visualmente las funciones que realiza la aplica
   \end{center}
   \end{figure}
   
-  \item Mientras el profesor no haya activado el cuestionario, los alumnos ver\'an esta p\'agina:
+  \item Mientras el profesor no haya activado el \ceit{cuestionario}, los alumnos ver\'an esta p\'agina:
   \begin{figure}[!th]
   \begin{center}
   \includegraphics[width=0.75\textwidth]{images/app6.eps}
@@ -583,7 +585,7 @@ En esta secci\'on se explicar\'a visualmente las funciones que realiza la aplica
   \end{figure}
   \newpage
   
-  \item Cuando el profesor active el cuestionario ver\'a esta p\'agina. Puede ir a Google Drive para comprobar que la hoja de c\'alculo 
+  \item Cuando el profesor active el cuestionario ver\'a esta p\'agina. Puede ir a Google Drive para comprobar que la \ceit{hoja de c\'alculo} 
   se ha creado correctamente o visitar el cuestionario desplegado:
   \begin{figure}[!th]
   \begin{center}
@@ -613,7 +615,7 @@ En esta secci\'on se explicar\'a visualmente las funciones que realiza la aplica
   \end{center}
   \end{figure}
 
-  \item Esto es lo que ver\'a el profesor en su carpeta de Google Drive.
+  \item Esto es lo que ver\'a el profesor en su carpeta de \ceit{Google Drive}.
   \begin{figure}[!th]
   \begin{center}
   \includegraphics[width=0.6\textwidth]{images/app10.eps}
@@ -675,7 +677,7 @@ En esta secci\'on se explicar\'a visualmente las funciones que realiza la aplica
   \end{figure}
   \newpage
   
-  \item En la primera hoja, se a\~{n}adir\'a la informaci\'on del alumno que hizo el cuestionario, su nota y un enlace a la copia del examen que realiz\'o.
+  \item En la primera hoja, se a\~{n}adir\'a la informaci\'on del alumno que hizo el cuestionario, su nota y un enlace a la copia del \ceit{examen} que realiz\'o.
   \begin{figure}[!th]
   \begin{center}
   \includegraphics[width=1.1\textwidth]{images/app16.eps}
@@ -711,6 +713,6 @@ En esta secci\'on se explicar\'a visualmente las funciones que realiza la aplica
 
 \begin{itemize}
   \item Este renderer no permite la opci\'on de mostrar respuestas mientras se realiza el cuestionario.
-  \item El Local Storage tambi\'en funciona en este renderer, sin embargo, al ser un JavaScript, el evento de guardado de respuestas se dispara al perder el foco
-  el input o textarea en el que nos encontramos.
+  \item El \ceit{Local Storage} tambi\'en funciona en este renderer, sin embargo, al ser un \ceit{JavaScript}, el evento de guardado de respuestas se dispara al perder el foco
+  el \ceit{input} o \ceit{textarea} en el que nos encontramos.
 \end{itemize}

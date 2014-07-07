@@ -1,25 +1,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Chapter 4: HtmlForm renderer
+% Chapter 4: Generando HTML para el entrenamiento del alumno: HtmlForm renderer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Este renderer permitir\'a generar un documento HTML5 con un formulario en el que se encuentran todas las
-preguntas listas para ser completadas desde el navegador. Posee adem\'as todos los JavaScripts necesarios
+Este \ceit{renderer} permitir\'a generar un documento \ceit{HTML5} con un \ceit{formulario} en el que se encuentran todas las
+preguntas listas para ser completadas desde el \ceit{navegador}. Posee adem\'as todos los JavaScripts necesarios
 para la correci\'on autom\'aticas de las mismas.
 \bigskip
 
 El objetivo de este renderer es proporcionar al alumno una serie de preguntas para que practique con vistas
-a afrontar un examen oficial. La principal ventaja que ofrece es la portabilidad: al ser un documento HTML puede
-alojarse en cualquier servidor o ejecutarse localmente desde un navegador sin tener que configurar nada previamente.
-Solo es necesario tener conex\'{\i}on a Internet ya que existe un JavaScript que necesita ser descargado mediante 
-un {\bfseries CDN}.
+a afrontar un \ceit{examen} oficial. La principal ventaja que ofrece es la \ceit{portabilidad}: al ser un documento \ceit{HTML} puede
+alojarse en cualquier \ceit{servidor} o ejecutarse localmente desde un \ceit{navegador} sin tener que configurar nada previamente.
+Solo es necesario tener conex\'{\i}on a \ceit{Internet} ya que existe un \ceit{JavaScript} que necesita ser descargado mediante 
+un \ceis{CDN}.
 \bigskip
 
 A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer:
 
 \begin{itemize}
-  \item Permite a\~{n}adir uno o m\'as JavaScripts al cuestionario que se generar\'a.
+  \item Permite a\~{n}adir uno o m\'as JavaScripts al \ceit{cuestionario} que se generar\'a.
   \begin{verbatim}
   [~/tmp]$ ruql example.rb Html5 -j examples/test.js > example.html
   \end{verbatim}
@@ -30,14 +30,14 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   [~/tmp]$ ruql example.rb Html5 -h examples/partial.html > example.html
   \end{verbatim}
   
-  \item Permite la posibilidad de a\~{n}adir m\'as de una hoja de estilo CSS al cuestionario que se generar\'a.
+  \item Permite la posibilidad de a\~{n}adir m\'as de una hoja de estilo \ceit{CSS} al cuestionario que se generar\'a.
   \begin{verbatim}
   [~/tmp]$ ruql example.rb Html5 -c examples/style1.css 
   -c examples/style2.css > example.html
   \end{verbatim}
   
-  \item Permite a\~{n}adir un header y un footer personalizado al cuestionario que se generar\'a. Se deber\'a indicar
-  en el fichero Ruby. Se puede especificar como un \textit{string} o indicar el path donde se encuentra el fichero que contiene 
+  \item Permite a\~{n}adir un \ceit{header} y un \ceit{footer} personalizado al cuestionario que se generar\'a. Se deber\'a indicar
+  en el fichero \ceit{Ruby}. Se puede especificar como un \cei{string} o indicar el path donde se encuentra el fichero que contiene 
   dicho c\'odigo HTML.
   
   \begin{figure}[!th]
@@ -56,7 +56,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   \end{center}
   \end{figure}
 
-  \item Los textos de las preguntas admiten ahora caracteres HTML escapados usando el m\'etodo \textit{escape}.
+  \item Los textos de las preguntas admiten ahora caracteres HTML escapados usando el m\'etodo \cei{escape}.
   \begin{figure}[!th]
   \begin{center}
   \includegraphics[width=1\textwidth]{images/tag.eps}
@@ -66,7 +66,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   \end{figure}
   \newpage
   
-  \item El cuestionario es capaz de renderizar expresiones escritas en {\bfseries LaTeX}.
+  \item El cuestionario es capaz de renderizar expresiones escritas en \ceis{LaTeX}.
   \begin{figure}[H]
   \begin{center}
   \includegraphics[width=0.6\textwidth]{images/latex.eps}
@@ -103,8 +103,8 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   
   \item Las espacios para rellenar las respuestas de las preguntas de completar se ajustan al tama\~{n}o de dicha respuesta.
   Para ello basta especificar tantos guiones '-' como caracteres contenga la respuesta en el fichero Ruby. Es necesario un m\'{\i}nimo
-  de tres guiones, de lo contrario, no se traducir\'an dichos guiones a etiquetas input HTML.
-  En caso de querer mostrar mas de tres guiones sin que sean traducidos a inputs, se deben escapar usando un \textit{backslash} ('\textbackslash')
+  de tres guiones, de lo contrario, no se traducir\'an dichos guiones a etiquetas \ceit{input} HTML.
+  En caso de querer mostrar mas de tres guiones sin que sean traducidos a inputs, se deben escapar usando un \cei{backslash} ('\textbackslash')
   \begin{figure}[!th]
   \begin{center}
   \includegraphics[width=1\textwidth]{images/input.eps}
@@ -122,7 +122,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   \end{center}
   \end{figure}
   
-  \item Cuando en una pregunta existen numerosos huecos para escribir respuestas, en el array de respuestas podr\'a haber alguna de ellas que no mantiene
+  \item Cuando en una pregunta existen numerosos huecos para escribir respuestas, en el \ceit{array} de respuestas podr\'a haber alguna de ellas que no mantiene
   su correspondencia con el \'{\i}ndice que ocupa, por lo que se han a\~{n}adido dos nuevas maneras simplificadas de escribir estas preguntas de completar:
   \begin{itemize}
     \item Colocando la respuesta de la pregunta junto a sus guiones correspondiente. Para este tipo de escritura, solo se admiten respuestas de tipo \textit{String}.
@@ -134,7 +134,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
     \end{center}
     \end{figure}
     
-    \item Usando una notaci\'on de \textit{Hash}: especificando una clave seguida de los guiones de la respuesta y definir su correspondencia en el m\'etodo definido
+    \item Usando una notaci\'on de \cei{Hash}: especificando una clave seguida de los guiones de la respuesta y definir su correspondencia en el m\'etodo definido
     para escribir la respuesta.
     \begin{figure}[!th]
     \begin{center}
@@ -149,7 +149,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   
   \item Se han a\~{n}adido dos nuevos tipos de preguntas:
   \begin{itemize}
-    \item Preguntas de {\bfseries Drag and Drop}: para preguntas de completar y preguntas tipo test (de respuesta \'unica
+    \item Preguntas de \ceis{Drag and Drop}: para preguntas de completar y preguntas tipo test (de respuesta \'unica
     y multirrespuesta).
     \begin{figure}[!th]
     \begin{center}
@@ -205,12 +205,12 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
     respuestas es el m\'aximo de la suma de las longitudes de las respuestas correctas.
     \bigskip
     
-    \item Preguntas de {\bfseries programaci\'on}:
+    \item Preguntas de \ceis{programaci\'on}:
     \begin{itemize}
-      \item Este tipo de preguntas s\'olo admite c\'odigo JavaScript debido a que la correcci\'on de preguntas tambi\'en 
-      tiene lugar en el navegador cliente.
+      \item Este tipo de preguntas s\'olo admite \ceit{c\'odigo} \ceit{JavaScript} debido a que la correcci\'on de preguntas tambi\'en 
+      tiene lugar en el \ceit{navegador} \ceit{cliente}.
       \item La respuesta asignada a este tiempo de preguntas debe ser un c\'odigo JavaScript que valide la respuesta introducida
-      por el alumno. Este c\'odigo puede escribirse en notaci\'on de \textit{string} o especificar el path donde se encuentra el
+      por el alumno. Este c\'odigo puede escribirse en notaci\'on de \cei{string} o especificar el \ceit{path} donde se encuentra el
       fichero que contiene dicho c\'odigo.
       
       \begin{figure}[!th]
@@ -222,7 +222,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
       \end{figure}
       \newpage
       
-      \item Se crear\'a un \textit{textarea} de unas dimensiones definidas por defecto que tambi\'en se pueden personalizar
+      \item Se crear\'a un \cei{textarea} de unas dimensiones definidas por defecto que tambi\'en se pueden personalizar
       y se colorear\'a el c\'odigo escrito para facilitar su lectura.
       
       \begin{figure}[!th]
@@ -236,11 +236,11 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
     \end{itemize}
   \end{itemize}
   
-  \item Validaci\'on autom\'atica mediante JavaScript de las preguntas que han sido rellenadas. Para corregir respuestas de tipo \textit{Regexp}
-  se utiliza {\bfseries XRegExp}, mucho m\'as potente que las expresiones regulares proporcionadas en JavaScript nativo. Esta validaci\'on muestra:
+  \item \ceit{Validaci\'on} autom\'atica mediante JavaScript de las preguntas que han sido rellenadas. Para corregir respuestas de tipo \cei{Regexp}
+  se utiliza \ceis{XRegExp}, mucho m\'as potente que las expresiones regulares proporcionadas en JavaScript nativo. Esta validaci\'on muestra:
   \begin{enumerate}
     \item La nota obtenida en esa pregunta.
-    \item La explicaci\'on asociada a esa respuesta (si se ha especificado en el fichero Ruby).
+    \item La explicaci\'on asociada a esa respuesta (si se ha especificado en el fichero \ceit{Ruby}).
     \begin{figure}[H]
     \begin{center}
     \includegraphics[width=0.7\textwidth]{images/validation1.eps}
@@ -250,7 +250,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
     \end{figure}
     \newpage
     
-    \item La puntuaci\'on total al final de la p\'agina.
+    \item La \ceit{puntuaci\'on} total al final de la p\'agina.
     \begin{figure}[!th]
     \begin{center}
     \includegraphics[width=0.9\textwidth]{images/validation2.eps}
@@ -261,10 +261,10 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
     
   \end{enumerate}
   
-  \item Almacenamiento local de las respuestas introducidas usando {\bfseries Local Storage} de HTML5.
-  \item Men\'u contextual al hacer click derecho sobre el campo de respuesta para ver la respuesta correcta de dicha pregunta.
-  Esta funcionalidad s\'olo est\'a disponible para preguntas de completar, cuyas respuestas sean \textit{strings},
-  \textit{regexps} o num\'ericas.
+  \item \ceit{Almacenamiento local} de las respuestas introducidas usando \ceis{Local Storage} de \ceit{HTML5}.
+  \item \ceit{Men\'u contextual} al hacer click derecho sobre el campo de respuesta para ver la respuesta correcta de dicha pregunta.
+  Esta funcionalidad s\'olo est\'a disponible para preguntas de completar, cuyas respuestas sean \cei{strings},
+  \cei{regexps} o num\'ericas.
   
   \begin{figure}[!th]
   \begin{center}
@@ -284,7 +284,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   \end{center}
   \end{figure}
   
-  \item Internacionalizaci\'on: la gema comprueba el idioma del sistema para ofrecer la traducci\'on adecuada al idioma del usuario
+  \item \ceit{Internacionalizaci\'on}: la gema comprueba el \ceit{idioma} del sistema para ofrecer la traducci\'on adecuada al idioma del usuario
   de diversos mensajes como la correcci\'on de cada pregunta (correcto/incorrecto) o la alerta que anuncia que se ha borrado el
   Local Storage.
   Actualmente solo soporta ingl\'es y espa\~{n}ol. Para cualquier otro idioma, se utiliza el ingl\'es por defecto.
@@ -312,25 +312,25 @@ La sintaxis para ejecutar este renderer es la siguiente:
 \label{subsec:4.1.2}
 \bigskip
 
-Se ha tratado de usar {\bfseries Opal} para traducir preguntas escritas en Ruby a JavaScript y poder validarlas desde el navegador.
-Se consigui\'o en parte, pues no fue posible obtener el c\'odigo de una \textit{Lambda} o un \textit{Proc}, ya que Ruby los evaluaba antes de llegar al
+Se ha tratado de usar \ceis{Opal} para traducir preguntas escritas en \ceit{Ruby} a \ceit{JavaScript} y poder validarlas desde el navegador.
+Se consigui\'o en parte, pues no fue posible obtener el c\'odigo de una \cei{Lambda} o un \cei{Proc}, ya que Ruby los evaluaba antes de llegar al
 JavaScript.
 \bigskip
 
 {\normalsize {\bfseries Soluci\'on}}
 \bigskip
 
-Permitir solamente preguntas de c\'odigo JavaScript en este renderer.
+Permitir solamente preguntas de c\'odigo JavaScript en este \ceit{renderer}.
 
 \subsection{Alojar librer\'{\i}a MathJax en un directorio de la gema}
 \label{subsec:4.1.3}
 \bigskip
 
-Todos los JavaScript y CSS de terceras partes se encuentran alojadas en un directorio denominado \textit{vendor}. Para los JavaScripts y CSS
-propios existe otro directorio llamado \textit{public}. Estos ficheros se insertan en el HTML generado, de modo que no es necesario manejar varios
+Todos los JavaScript y \ceit{CSS} de terceras partes se encuentran alojadas en un directorio denominado \cei{vendor}. Para los JavaScripts y CSS
+propios existe otro directorio llamado \cei{public}. Estos ficheros se insertan en el \ceit{HTML} generado, de modo que no es necesario manejar varios
 ficheros junto con el HTML. 
 
-Sin embargo, el framework {\bfseries MathJax}, usado para insertar texto en LaTeX en el HTML, no se ha podido insertar en el mismo. Consta de un
+Sin embargo, el framework \ceis{MathJax}, usado para insertar texto en \ceit{LaTeX} en el HTML, no se ha podido insertar en el mismo. Consta de un
 amplio n\'umero de ficheros y cada uno de ellos es una dependecia de otro. Adem\'as, existen numerosas im\'agenes por lo que no ha sido posible insertarlo
 en el HTML de salida.
 \bigskip
@@ -338,4 +338,4 @@ en el HTML de salida.
 {\normalsize {\bfseries Soluci\'on}}
 \bigskip
 
-Hacer uso de un {\bfseries CDN} para utilizar este framework.
+Hacer uso de un \ceis{CDN} para utilizar este \ceit{framework}.

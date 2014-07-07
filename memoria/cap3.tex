@@ -4,7 +4,7 @@
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Fruto del estudio del c\'odigo y de ejecuciones sucesivas de la gema se detectaron una serie de errores de funcionamiento,
+Fruto del estudio del c\'odigo y de ejecuciones sucesivas de la \ceit{gema} se detectaron una serie de errores de funcionamiento,
 por lo que antes de implementar mis mejoras propias era conveniente solucionar los problemas existentes.
 Adem\'as, se a\~{n}adieron algunos cambios para mejorar el funcionamiento de la gema. A continuaci\'on se detallan las mejoras
 realizadas:
@@ -14,10 +14,10 @@ realizadas:
   \begin{itemize}
     \item La opci\'on que permite indicar si el orden de las respuestas en las preguntas de completar espacios en blaco importa o no.
     \item La opci\'on de a\~{n}adir comentarios opcionales a los textos de las preguntas.
-    \item La opci\'on \textit{raw} que permite incrustar el texto de las preguntas entre etiquetas \textless pre\textgreater \space HTML.
+    \item La opci\'on \textit{raw} que permite incrustar el texto de las preguntas entre etiquetas \textless pre\textgreater \space \ceit{HTML}.
     \item La opci\'on de explicaci\'on global para todos los \textit{distractors} no funcionaba.
   \end{itemize}
-  \item Refactorizaci\'on de c\'odigo, evitando la repetici\'on del mismo en la medida de lo posible.
+  \item \ceit{Refactorizaci\'on} de c\'odigo, evitando la repetici\'on del mismo en la medida de lo posible.
   \item A\~{n}adido manejo de excepciones tras errores de ejecuci\'on.
   \item A\~{n}adida la opci\'on en l\'inea de comandos \textit{--version} para comprobar la versi\'on de la gema. 
   \item A\~{n}adida la opci\'on en l\'inea de comandos \textit{--help} para ver la ayuda. 
@@ -28,7 +28,7 @@ realizadas:
 \section{Problemas encontrados y soluciones}
 \label{3:sec:1}
 
-A continuaci\'on se detallan los problemas encontrados durante la implementaci\'on de las mejoras del DSL original y las soluciones
+A continuaci\'on se detallan los problemas encontrados durante la implementaci\'on de las mejoras del \ceit{DSL} original y las soluciones
 encontradas para los mismos.
 
 \subsection{Entender el funcionamiento del c\'odigo de la gema}
@@ -47,8 +47,8 @@ Leer la documentaci\'on de la gema, generar cuestionarios de pruebas y estudiar 
 {\normalsize {\bfseries Soluci\'on}}
 \bigskip
 
-Tras realizar el correspondiente \textit{fork} en GitHub para empezar a implementar mis modificaciones, ejecut\'e los tests de la 
+Tras realizar el correspondiente \cei{fork} en \ceit{GitHub} para empezar a implementar mis modificaciones, ejecut\'e los tests de la 
 gema original para comprobar la ausencia de fallos. Al finalizar, algunos tests fallaron por lo que decid\'{\i} corregirlos. Del 
-mismo modo, algunas gemas de testing existentes en el Gemfile presentaban incompatibilidades con las nuevas versiones de Ruby, por
+mismo modo, algunas gemas de \ceit{testing} existentes en el \ceit{Gemfile} presentaban incompatibilidades con las nuevas versiones de \ceit{Ruby}, por
 lo que tambi\'en se corrig\'{\i}o.
 \bigskip
