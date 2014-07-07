@@ -233,14 +233,19 @@ se centra en el aprendizaje y puesta en pr\'actica de metodolog\'{\i}as, aproxim
 para abordar la creciente complejidad de este tipo de aplicaciones en el marco de las metodolog\'{\i}as \'agiles.
 \bigskip
 
-En este Trabajo de Fin de Grado se propone el desarrollo de una gema de Ruby que facilite la elaboraci\'on y despliegue
-de cuestionarios autoevaluables. \'Estos, adem\'as de poseer las t\'{\i}picas preguntas tipo test de respuesta \'unica y 
-multirespuesta, cuentan con la posibilidad de añadir preguntas de programaci\'on. Los resultados de la evaluaci\'on de
-los cuestionarios ser\'an visibles para los profesores.
+En este Trabajo de Fin de Grado se propone el desarrollo de una gema Ruby que facilite la elaboraci\'on y despliegue
+de cuestionarios autoevaluables. 
+Existe un buen número de plataformas y herramientas para la generación de este tipo de cuestionarios.
+Sin embargo,  estas plataformas se limitan a la evaluaci\'on de cuestiones verdadero-falso, multi-elección, respuesta única y variaciones mas o menos simples de estas. Para la correci\'on de preguntas
+propias de las ramas de Ingenier\'{\i}a, como pueden ser la evaluaci\'on de c\'odigo escrito por el alumno, es necesaria la figura del profesor para
+calificar dichas tareas.
+En nuestra propuesta, adem\'as de las t\'{\i}picas preguntas que proveen las plataformas mencionadas anteriormente,
+ se cuenta con la posibilidad de añadir preguntas cuyas respuestas son evaluadas por programas escritos por el profesor. 
 \bigskip
 
-Para su desarrollo se ha partido de un Lenguaje de Dominio Espec\'{\i}fico (DSL) implementado en Ruby por \href{http://www.armandofox.com/geek}{Armando Fox} 
-denominado \href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} (RuQL).
+
+%Para su desarrollo se ha partido de un Lenguaje de Dominio Espec\'{\i}fico (DSL) implementado en Ruby por \href{http://www.armandofox.com/geek}{Armando Fox} 
+%denominado \href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} (RuQL).
 \bigskip
 
 }
@@ -334,7 +339,7 @@ Keyword1, Keyword2, Keyword2, ...
 \newpage{\pagestyle{empty}\cleardoublepage}
 \thispagestyle{empty}
 
-\chapter{HtmlForm renderer}
+\chapter{Generando HTML para el entrenamiento del alumno: HtmlForm renderer}
 \label{chapter:cuatro}
 
 \input{cap4.tex}
@@ -343,7 +348,7 @@ Keyword1, Keyword2, Keyword2, ...
 \newpage{\pagestyle{empty}\cleardoublepage}
 \thispagestyle{empty}
 
-\chapter{Sinatra renderer}
+\chapter{Generando un corrector de exámenes: Sinatra renderer}
 \label{chapter:cinco}
 
 \input{cap5.tex}
