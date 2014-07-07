@@ -35,34 +35,48 @@ propias de las ramas de \ceit{Ingenier\'{\i}a}, como pueden ser la implementaci\
 evaluar dichas tareas.
 
 Otro problema que presenta es su dif\'{\i}cil portabilidad. Estamos hablando de un tipo de plataforma que sigue un
-esquema \ceis{\ref{apend1:cs}}, que no es f\'acilmente migrable a otras m\'aquinas.
+esquema \ceis{\ref{apend1:cs}}, que no es f\'acilmente migrable a otras m\'aquinas. Migrar dicha plataforma a otra m\'aquina implica el hecho de reinstalar el
+software y configurar de nuevo la plataforma. Estos procesos requieren de elevados conocimientos de administraci\'on de sistemas y seguridad para dejar todo 
+perfectamente en configurado, sin brechas de seguridad y en perfecto funcionamiento.
 \bigskip
 
-%XXXX  añadir las ventajas del nuevo ruql comparativamente
-
-% \section{Usuario al que va Destinado Ruql}
-
-Estas desventajas se ven resueltas, haciendo uso de \ceis{\ref{apend1:ruql}}, en la {\bfseries Aplicaci\'on para la Elaboraci\'on y Despliegue de Cuestionarios} que se presentar\'a
-en esta memoria. Esta aplicaci\'on destaca por:
+Todas estas desventajas se ven resueltas haciendo uso de las mejoras desarrolladas para \ceis{\ref{apend1:ruql}}, que se presentar\'an a lo largo de esta memoria, 
+y cuyo objetivo principal es la {\bfseries Elaboraci\'on y Despliegue de Cuestionarios}. Entre sus caracter\'{\i}sticas, destaca:
 \begin{itemize}
   \item Su sencilla instalaci\'on.
-  \item 
+  \item La facilidad de uso.
+  \item La generaci\'on de cuestionarios para autoevaluaci\'on con autocorreci\'on de respuestas.
+  \item La generaci\'on de aplicaciones que permiten:
+  \begin{itemize}
+    \item Desplegar cuestionarios y evaluar a los alumnos.
+    \item Corregir autom\'aticamente sus respuestas.
+    \item Guardar sus respuestas y calificaciones.
+  \end{itemize}
+  \item Portabilidad: tanto de la herramienta como de los cuestionarios y aplicaciones generadas.
 \end{itemize}
 
-Dicha aplicaci\'on est\'a destinada a profesores con ciertos conocimientos en el \'ambito de la programaci\'on y de la inform\'atica, 
-aunque la curva de aprendizaje no es excesiva para el resto del profesorado.
 
 %---------------------------------------------------------------------------------
 \section{¿Qu\'e es \ceit{RuQL}?}
 \label{1:sec:2}
 
-Esta aplicaci\'on de generaci\'on y despliegue de cuestionarios hace uso de una
-\ref{apend1:gema} de \ref{apend1:ruby} creada por \href{http://www.armandofox.com/geek}{Armando Fox} denominada 
-\href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} (RuQL).
-%XXXXXX expandir como fué el proceso de contacto con Armando
+\href{http://github.com/saasbook/ruql}{'Ruby-based Quiz Generator and DSL'} (RuQL) es una \ref{apend1:gema} de \ref{apend1:ruby} creada por 
+\href{http://www.armandofox.com/geek}{Armando Fox}, profesor del Departamento de Ingenier\'{\i}a Inform\'atica y El\'ectrica de la Universidad de Berkeley, 
+California (Estados Unidos).
+\bigskip
 
-Inicialmente, esta gema permit\'{\i}a generar un cuestionario partiendo de un fichero \ceis{Ruby}, 
-donde se redactaban las preguntas y respuestas haciendo uso de un \ceis{\ref{apend1:dsl}}.
+Una vez examinado el estado del arte actual, se acord\'o que la soluci\'on m\'as apropiada para nosotros era la implementaci\'on de un \ceis{\ref{apend1:dsl}} 
+que permitiera redactar f\'acilmente las preguntas y respuestas. En lenguaje de programaci\'on que se iba a usar estaba claro desde el inicio: \underline{Ruby}.
+
+Investigando sobre alg\'un DSL ya implementado en este lenguaje que nos sirviera de gu\'{\i}a, dimos con el \ceit{repositorio} de esta gema.
+
+Tras analizarla detenidamente, llegamos a la conclusi\'on de que era el punto de partida id\'oneo para comenzar nuestro Trabajo de Fin de Grado. Nos pusimos en contacto
+con Armando para indicarle nuestras intenciones y \'el, desde el primer momento, mostr\'o un gran inter\'es por el proyecto. A medida que fuimos avanzando en el desarrollo,
+Armando incorpor\'o nuestros cambios en su gema y me hizo colaborador en su repositorio.
+\bigskip
+
+Inicialmente, esta gema permit\'{\i}a generar un cuestionario partiendo de un fichero \ceis{Ruby}, donde se redactaban las preguntas y respuestas haciendo uso 
+de un DSL.
 
 Pose\'{\i}a una serie de \textit{\ref{apend1:renderer}} que permit\'{\i}an generar los cuestionario en los siguientes formatos:
 \begin{itemize}
@@ -148,13 +162,27 @@ Los tipos de preguntas que se pod\'{\i}an especificar eran:
 Para todos los tipos de preguntas era posible especificar un comentario opcional que acompañar\'{\i}a al texto de la pregunta.
 \newpage
 
+
+%---------------------------------------------------------------------------------
 \subsection{C\'odigo de ejemplo para realizar un cuestionario HTML5}
 \label{subsec:1.2.1}
 \input{ruql2013.tex}
 
+
+%---------------------------------------------------------------------------------
+\section{Perfil del usuario de RuQL}
+\label{1:sec:3}
+
+EL uso de RuQL est\'a especialmente dirigido a un determinado grupo de profesores: nos referimos al perfil de un profesor, principalmente docente en alguna rama de Ingenier\'{\i}a, 
+con conocimientos avanzados en programaci\'on y administraci\'on de sistemas. 
+
+No obstante, la curva de aprendizaje no es excesiva para el resto de profesorado. Teniendo claras unas nociones b\'asicas de inform\'atica, junto con la lectura y 
+asimilaci\'on previa de la documentaci\'on y el funcionamiento de RuQL, se puede llegar a dominar en su totalidad.
+
+
 %---------------------------------------------------------------------------------
 \section{Objetivos y actividades a realizar}
-\label{1:sec:3}
+\label{1:sec:4}
 
 Los objetivos propuestos para alcanzar en este Trabajo de Fin de Grado ha sido los siguientes:
 \begin{itemize}
