@@ -13,7 +13,7 @@ El objetivo de este renderer es proporcionar al alumno una serie de preguntas pa
 a afrontar un \ceit{examen} oficial. La principal ventaja que ofrece es la \ceit{portabilidad}: al ser un documento \ceit{HTML} puede
 alojarse en cualquier \ceit{servidor} o ejecutarse localmente desde un \ceit{navegador} sin tener que configurar nada previamente.
 Solo es necesario tener conex\'{\i}on a \ceit{Internet} ya que existe un \ceit{JavaScript} que necesita ser descargado mediante 
-un \ceis{CDN}.
+un \ceis{\ref{apend1:cdn}}.
 \bigskip
 
 A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer:
@@ -36,7 +36,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   -c examples/style2.css > example.html
   \end{verbatim}
   
-  \item Permite a\~{n}adir un \ceit{header} y un \ceit{footer} personalizado al cuestionario que se generar\'a. Se deber\'a indicar
+  \item Permite a\~{n}adir un \ceit{\ref{apend1:header}} y un \ceit{\ref{apend1:footer}} personalizado al cuestionario que se generar\'a. Se deber\'a indicar
   en el fichero \ceit{Ruby}. Se puede especificar como un \cei{string} o indicar el path donde se encuentra el fichero que contiene 
   dicho c\'odigo HTML.
   
@@ -312,8 +312,8 @@ La sintaxis para ejecutar este renderer es la siguiente:
 \label{subsec:4.1.2}
 \bigskip
 
-Se ha tratado de usar \ceis{Opal} para traducir preguntas escritas en \ceit{Ruby} a \ceit{JavaScript} y poder validarlas desde el navegador.
-Se consigui\'o en parte, pues no fue posible obtener el c\'odigo de una \cei{Lambda} o un \cei{Proc}, ya que Ruby los evaluaba antes de llegar al
+Se ha tratado de usar \ceis{\ref{apend1:opal}} para traducir preguntas escritas en \ceit{Ruby} a \ceit{JavaScript} y poder validarlas desde el navegador.
+Se consigui\'o en parte, pues no fue posible obtener el c\'odigo de una \cei{\ref{apend1:lambda}} o un \cei{\ref{apend1:proc}}, ya que Ruby los evaluaba antes de llegar al
 JavaScript.
 \bigskip
 

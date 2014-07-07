@@ -10,6 +10,21 @@
 \usepackage{algorithmic}
 \usepackage{multirow}
 \usepackage{hyperref}
+
+% Reference name of description list item
+\makeatletter
+\let\orgdescriptionlabel\descriptionlabel
+\renewcommand*{\descriptionlabel}[1]{%
+  \let\orglabel\label
+  \let\label\@gobble
+  \phantomsection
+  \edef\@currentlabel{#1}%
+  %\edef\@currentlabelname{#1}%
+  \let\label\orglabel
+  \orgdescriptionlabel{#1}%
+}
+\makeatother
+
 \usepackage{makeidx}
 \makeindex
 
@@ -407,7 +422,7 @@ Keyword1, Keyword2, Keyword2, ...
 \end{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\cleardoublepage
+\clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Índice alfabético}
 \printindex
