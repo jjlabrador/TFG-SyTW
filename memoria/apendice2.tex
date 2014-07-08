@@ -12,14 +12,35 @@ Para instalar la \ceit{gema}, basta con ejecutar el siguiente comando:
 
 Si deseamos ejecutar la gema sin instalarla, debemos hacer lo siguiente:
 \begin{itemize}
-  \item Descargar el c\'odigo desde \ceit{GitHub}.
+  \item Descargar el c\'odigo desde \href{https://github.com/jjlabrador/ruql}{\ceit{GitHub}}.
   \item Ejecutar el siguiente comando desde la ra\'{\i}z del proyecto:
   \begin{verbatim}
   [~]$ ruby -Ilib bin/ruql [argumentos]
   \end{verbatim}
 \end{itemize}
 
-% Poner tareas de Rake
+Tambi\'en se puede instalar la gema a partir del c\'odigo fuente y no usando el repositorio de gemas de \ceit{Ruby}. Una vez descargado el c\'odigo, ejecutamos los siguientes
+comandos:
+\begin{verbatim}
+[~ruql]$ gem build ruql.gemspec
+\end{verbatim}
+Este comando nos crear\'a el paquete de la gema listo para instalar usando:
+\begin{verbatim}
+[~ruql]$ gem install ./ruql-0.0.5.gem
+\end{verbatim}
+\newpage
+
+Como el repositorio cuenta con un \ceit{Rakefile}, podemos ejecutar la siguiente tarea de \ceit{Rake} que automatiza los comandos descritos anteriormente:
+\begin{verbatim}
+[~ruql]$ rake install
+\end{verbatim}
+
+Este Rakefile, adem\'as, cuenta con numerosas tareas \'utiles para la generaci\'on de cuestionarios.
+\bigskip
+
+{\bfseries NOTA}: a falta de que se lleve a cabo el \cei{Pull-Request}, la instalaci\'on de la gema a partir del c\'odigo fuente es la \'unica manera de tener la \'ultima versi\'on
+de RuQL.
+\bigskip
 
 Para consultar la ayuda sobre qu\'e argumentos opcionales recibe cada \ceit{renderer}, basta con escribir lo siguiente:
 \begin{verbatim}
@@ -86,7 +107,7 @@ fill_in :points => 2 do
   distractor /^steve\s+wozniak/i, :explanation => 'Almost, but not quite.'
 end
 \end{lstlisting}
-\bigskip
+\newpage
 
 Ejemplo de pregunta con c\'odigo \ceit{LaTeX}:
 \begin{lstlisting}
@@ -123,6 +144,7 @@ end
 \bigskip
 
 Tambi\'en se pueden escribir este tipo de preguntas de dos formas m\'as compactas:
+\bigskip
 
 Esta primera forma permite colocar la respuesta al lado de los guiones. S\'olo se admiten respuestas de tipo \cei{String}.
 \begin{lstlisting}
@@ -187,6 +209,7 @@ end
 \begin{lstlisting}
 truefalse 'The earth is flat.', false, :explanation => 'No, just looks that way'
 \end{lstlisting}
+\newpage
 
 %---------------------------------------------------------------------------------
 \subsection{Preguntas Drag and Drop Multiple Choice}
@@ -281,6 +304,7 @@ Para generar el cuestionario, ejecutamos el siguiente comando:
 \begin{verbatim}
 [~]$ ruql [ruta_fichero_rb] HtmlForm -t [ruta_template.html.erb] > [fichero_salida].html
 \end{verbatim}
+\newpage
 
 %---------------------------------------------------------------------------------
 %---------------------------------------------------------------------------------
