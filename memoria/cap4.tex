@@ -16,6 +16,13 @@ Solo es necesario tener conex\'{\i}on a \ceit{Internet} ya que existe un \ceit{J
 un \ceis{\ref{apend1:cdn}}.
 \bigskip
 
+La sintaxis para ejecutar este renderer es la siguiente:
+\begin{verbatim}
+[~/tmp]$ ruql example.rb HtmlForm -t templates/htmlform.html.erb > example.html
+\end{verbatim}
+donde la opci\'on (\textit{-t}) permite especificar un determinado template para incrustar las preguntas del cuestionario.
+\bigskip
+
 A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer:
 
 \begin{itemize}
@@ -298,11 +305,7 @@ A continuaci\'on se enumerar\'an todas las caracter\'{\i}sticas de este renderer
   \end{figure}
 
 \end{itemize}
-
-La sintaxis para ejecutar este renderer es la siguiente:
-\begin{verbatim}
-[~/tmp]$ ruql example.rb HtmlForm -t templates/htmlform.html.erb > example.html
-\end{verbatim}
+\newpage 
 
 %---------------------------------------------------------------------------------
 \section{Problemas encontrados y soluciones}
