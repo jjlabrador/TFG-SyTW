@@ -16,15 +16,15 @@ en una \'epoca en la que estas herramientas de aprendizaje online seguir\'an evo
 En este trabajo se proporciona/extiende un \ceis{Lenguaje de Dominio Espec\'{\i}fico} (\cei{DSL}) para la \ceit{elaboraci\'on} y \ceit{evaluación} de \ceit{cuestionarios} que ofrece varias ventajas 
 con respecto a otras herramientas equivalentes:
 \begin{enumerate}
-\item Portabilidad: la principal ventaja sobre plataformas como Moodle\cite{moodle}.
-\item Respuestas que pueden ser evaluadas mediante \ceit{expresiones regulares} extendidas.
-\item Respuestas que pueden ser evaluadas mediante \ceit{c\'odigo} arbitrario definido por el profesor.
-\item Generaci\'on de c\'odigo para diversas plataformas y formas de uso: generaci\'on de \ceit{HTML} \cei{standalone} para entrenamiento y retroalimentaci\'on del alumno, \ceit{XML} 
-para \ceit{EdX}\cite{edx} y \ceit{AutoQCM} para \ceit{AMC}\cite{amc}.
-\item \ceit{Escalabilidad}: posibilidad de implantar soporte para cualquier otra plataforma o forma de uso que se desee mediante el uso de \ceit{renderers}.
-\item Generaci\'on de una \ceit{aplicaci\'on} \ceit{Sinatra} de \ceit{evaluaci\'on} completa con almacenamiento de ex\'amenes y datos en \ceis{Google Drive}. Una soluci\'on innovadora que
-facilita la gesti\'on de los mismo y evita tener que almacenar preguntas, respuestas, alumnos y calificaciones en bases de datos tradicionales junto con los problemas relacionados con su 
-manipulaci\'on y exportaci\'on a formatos m\'as \'utiles, como puede ser, las hojas de c\'alculo.
+  \item Portabilidad: la principal ventaja sobre plataformas como Moodle\cite{moodle}.
+  \item Respuestas que pueden ser evaluadas mediante \ceit{expresiones regulares} extendidas.
+  \item Respuestas que pueden ser evaluadas mediante \ceit{c\'odigo} arbitrario definido por el profesor.
+  \item Generaci\'on de c\'odigo para diversas plataformas y formas de uso: generaci\'on de \ceit{HTML} \cei{standalone} para entrenamiento y retroalimentaci\'on del alumno, \ceit{XML} 
+  para \ceit{edX}\cite{edx} y \ceit{AutoQCM} para \ceit{AMC}\cite{amc}.
+  \item \ceit{Escalabilidad}: posibilidad de implantar soporte para cualquier otra plataforma o forma de uso que se desee mediante el uso de \ceit{renderers}.
+  \item Generaci\'on de una \ceit{aplicaci\'on} \ceit{Sinatra} de \ceit{evaluaci\'on} completa con almacenamiento de ex\'amenes y datos en \ceis{Google Drive}. Una soluci\'on innovadora que
+  facilita la gesti\'on de los mismo y evita tener que almacenar preguntas, respuestas, alumnos y calificaciones en bases de datos tradicionales junto con los problemas relacionados con su 
+  manipulaci\'on y exportaci\'on a formatos m\'as \'utiles, como puede ser, las hojas de c\'alculo.
 \end{enumerate}
 
 Adem\'as, teniendo en cuenta aspectos \'eticos y legales, se hace uso de \ceis{OAuth} para delegar a \ceit{Google} la acci\'on de la autentificaci\'on. De este modo, se evitan problemas de brechas de 
@@ -37,7 +37,6 @@ rendimiento de esta herramienta. El estado final de la misma puede ser el punto 
 \bigskip
 
 As\'{\i} pues, las principales l\'{\i}neas de desarrollo a continuar ser\'{\i}an las enumeradas a continuaci\'on:
-
 \begin{itemize}
   \item Resolver los problemas de \ceit{seguridad} relacionados con evaluar el c\'odigo escrito por los alumnos.
   \item Dar soporte a preguntas con respuestas de c\'odigo en otros \ceit{lenguajes de programaci\'on}.
