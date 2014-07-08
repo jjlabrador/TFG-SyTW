@@ -11,7 +11,7 @@
 \usepackage{multirow}
 \usepackage{hyperref}
 
-% Reference name of description list item
+% Referenciar nombres de una lista de items
 \makeatletter
 \let\orgdescriptionlabel\descriptionlabel
 \renewcommand*{\descriptionlabel}[1]{%
@@ -25,10 +25,11 @@
 }
 \makeatother
 
+% Indice de referencias cruzadas
 \usepackage{makeidx}
 \makeindex
 
-%%%%%%%%%%%%%%%%%% listings
+%listings
 
 \usepackage{listings}
 \lstset{language=Ruby}
@@ -38,6 +39,9 @@
   numbers=left,
   basicstyle=\footnotesize
 }
+
+% Símbolo del euro
+\usepackage[official]{eurosym}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
