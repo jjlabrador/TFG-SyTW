@@ -4,10 +4,78 @@
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This chapter is compulsory.
-The memory should include an extended summary and conclusions in english. 
+% Desde hace unos años hasta ahora, ha tenido lugar un enorme crecimiento de las \ceit{plataformas} de aprendizaje online. Cada vez
+% cuentan con m\'as adeptos y las instituciones de ense\~{n}anza saben que incorporarlas a sus sistemas educativos es clave
+% para ofrecer un servicio puntero y de calidad.
 
-%---------------------------------------------------------------------------------
-\section{First Section}
-\label{6:sec:1}
+For some years to now, it has taken place a huge growth of the online learning platforms. This platforms are having more followers each time and
+academic institutions know that include them to their educational systems is the key to offer a better quality service.
 
+% \'Esto es lo que se pretende con la herramienta obtenida tras la realizaci\'on de este Trabajo de Fin de Grado: que sea posible
+% su implantaci\'on dentro del marco acad\'emico de la Universidad de La Laguna, partiendo de la premisa de que nos estamos adentrando 
+% en una \'epoca en la que estas herramientas de aprendizaje online seguir\'an evolucionando y teniendo un papel importante en la educaci\'on.
+% \bigskip
+
+That's what we except with our tool developed during the Final Degree Project: that it could be possible to install the tool within University of La Laguna learning system.
+We're in a epoch which online learning tools are evolving and playing an important paper in the education.
+\bigskip
+
+% En este trabajo se proporciona/extiende un \ceis{Lenguaje de Dominio Espec\'{\i}fico} (\cei{DSL}) para la \ceit{elaboraci\'on} y \ceit{evaluación} de \ceit{cuestionarios} que ofrece varias ventajas 
+% con respecto a otras herramientas equivalentes:
+% \begin{enumerate}
+% \item Portabilidad: la principal ventaja sobre plataformas como Moodle\cite{moodle}.
+% \item Respuestas que pueden ser evaluadas mediante \ceit{expresiones regulares} extendidas.
+% \item Respuestas que pueden ser evaluadas mediante \ceit{c\'odigo} arbitrario definido por el profesor.
+% \item Generaci\'on de c\'odigo para diversas plataformas y formas de uso: generaci\'on de \ceit{HTML} \cei{standalone} para entrenamiento y retroalimentaci\'on del alumno, \ceit{XML} 
+% para \ceit{EdX}\cite{edx} y \ceit{AutoQCM} para \ceit{AMC}\cite{amc}.
+% \item \ceit{Escalabilidad}: posibilidad de implantar soporte para cualquier otra plataforma o forma de uso que se desee mediante el uso de \ceit{renderers}.
+% \item Generaci\'on de una \ceit{aplicaci\'on} \ceit{Sinatra} de \ceit{evaluaci\'on} completa con almacenamiento de ex\'amenes y datos en \ceis{Google Drive}. Una soluci\'on innovadora que
+% facilita la gesti\'on de los mismo y evita tener que almacenar preguntas, respuestas, alumnos y calificaciones en bases de datos tradicionales junto con los problemas relacionados con su 
+% manipulaci\'on y exportaci\'on a formatos m\'as \'utiles, como puede ser, las hojas de c\'alculo.
+% \end{enumerate}
+
+This Final Degree Project provides and extends a Domain Specific Language (DSL) for the generation and evaluation of questionaries which offers several improvements regarding to other equivalents 
+tools:
+\begin{enumerate}
+  \item Portability: the main advantage over other platforms like Moodle\cite{moodle}
+  \item Answers that can be evaluated by extended regular expressions.
+  \item Answers that can be evaluated by tests written by the teacher.
+  \item Code generator for several platforms and ways of use: HTML standalone generator for students' training and feedback, XML for edX\cite{edx} and AutoQCM for AMC\cite{amc}.
+  \item Scalability: possibility of introduce support for any other platform or way of use by the creation of renderers.
+  \item Generation of a Sinatra application for a complete evaluation with exams and data storage in Google Drive. An innovation solution that makes the manage of them easier and it avoids has to 
+store questions, answers, students and marks into a database and the handling and exportation to more useful formats like spreadsheets. 
+\end{enumerate}
+
+% Adem\'as, teniendo en cuenta aspectos \'eticos y legales, se hace uso de \ceis{OAuth} para delegar a \ceit{Google} la acci\'on de la autentificaci\'on. De este modo, se evitan problemas de brechas de 
+% seguridad como puede ser la suplantaci\'on de identidad o la exposici\'on de datos sensibles de los usuarios a terceras personas.
+% \bigskip
+
+On the other hand, keeping in mind ethic and legal topics, we use OAuth to delegate the autentication to Google. This way, we avoid security bugs as the phishing or the exposure of sensitive 
+information to third people.
+\bigskip
+
+% Para concluir, podemos afirmar que los objetivos han sido cumplidos, tanto los establecidos de la gu\'{\i}a docente de la asignatura junto con la adquisi\'on de las competencias generales y 
+% espec\'{\i}ficas como los marcados al comienzo de la asignatura. Sin embargo, el desarrollo no finaliza aqu\'{\i}. A\'un queda trabajo por realizar para poder garantizar un eficaz funcionamiento y 
+% rendimiento de esta herramienta. El estado final de la misma puede ser el punto de partida para pr\'oximos Trabajos de Fin de Grado.
+% \bigskip
+
+In conclusion, we can affirm that all the aims has been accomplish: the aims established in the teaching guide with the adquisition of general and specific competences and the aims established at the
+beggining of the subject. However, the development hasn't finished here. Still there're some work to make for guarantee an effective running and performance of this tool. This tool's state can be
+the starting point of another Final Degree Project.
+\bigskip
+
+% As\'{\i} pues, las principales l\'{\i}neas de desarrollo a continuar ser\'{\i}an las enumeradas a continuaci\'on:
+% \begin{itemize}
+%   \item Resolver los problemas de \ceit{seguridad} relacionados con evaluar el c\'odigo escrito por los alumnos.
+%   \item Dar soporte a preguntas con respuestas de c\'odigo en otros \ceit{lenguajes de programaci\'on}.
+%   \item Ofrecer una alternativa de despliegue distinta a \ceit{Heroku}, como podr\'{\i}a ser un \ceit{servidor dedicado} ofrecido por la Universidad de
+%   La Laguna.
+% \end{itemize}
+
+So, the main development lines to continue will be the following:
+
+\begin{itemize}
+  \item Solve the security problem related with the student code evaluation in the server.
+  \item Provide support to questions with answers written in another programming language.
+  \item Provide a deployment alternative different to Heroku. It could be a dedicated server supplied by the University of La Laguna.
+\end{itemize}
