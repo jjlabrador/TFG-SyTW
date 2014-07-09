@@ -1,0 +1,63 @@
+\begin{lstlisting}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= quiz.title %></title>
+    <!-- Bootstrap CSS -->
+    <%= @bootstrap_css %>
+    <style type="text/css" media="all">
+      /* Custom CSS */
+      /* ...........*/
+      /* Inputs size */
+      <%= @sass %>
+    </style>
+    <!-- jQuery ContextMenu CSS -->
+    <%= @context_menu_css %>
+    <!-- Any CSS included by the user -->
+    <%= @css_custom %>
+    <!-- Mathjax -->
+    <%= @mathjax %>
+    <!-- CodeMirror -->
+    <%= @codemirror %>
+  </head>
+  <body>
+   <div class="container">
+      <% if (quiz.get_header)%>
+          <h3><%= quiz.title %></h3>
+          <%= quiz.get_header %>
+          <br></br>
+      <% else %>
+        <!-- HTML Code -->
+      <% end %>
+      <%= yield %>
+      <% if (quiz.get_footer) %>
+        <%= quiz.get_footer %>
+        <br></br>
+      <% else %>
+        <!-- HTML Code -->
+      <% end %>
+    </div>
+    <!-- #### JavaScripts #### -->
+    <!-- jQuery -->
+    <%= @jQuery %>
+    <!-- Internationalization -->
+    <%= @i18n %>
+    <!-- Drag and Drop -->
+    <%= @dragdrop %>
+    <!-- XRegexp -->
+    <%= @xregexp %>
+    <!-- Form validation -->
+    <%= @validation_js %>
+    <!-- jQuery ContextMenu -->
+    <%= @context_menu %>
+    <!-- Any JavaScript included by the user -->
+    <%= @js_custom %>
+    <!-- CodeMirror object -->
+    <%= @codemirror_object %>
+    <!-- JavaScript for Bootstrap -->
+    <%= @bootstrap_js %>
+  </body>
+</html>
+\end{lstlisting}
