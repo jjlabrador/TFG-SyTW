@@ -26,21 +26,21 @@ de estas plataformas, ya que los anima a seguir usando estas herramientas de con
 \bigskip
 
 Otro tipo de plataforma de aprendizaje virtual m\'as orientada a universidades e institutos es \ceis{\ref{apend1:moodle}}\cite{moodle}. Est\'a implamantada
-en numerosos centros de todo el planeta. Es el complemento perfecto para enriquecer las enseñanzas impartidas f\'{\i}sicamente
+en numerosos centros de todo el planeta. Es el complemento para enriquecer las enseñanzas impartidas f\'{\i}sicamente
 con cuestionarios autoevaluativos y compartici\'on de recursos adicionales. Adem\'as, facilita numerosas tareas a los docentes como 
 la correcci\'on y calificaci\'on de ejercicios.
 
-Sin embargo, esta plataforma s\'olo se limita a la evaluaci\'on de cuestiones triviales. Para la correci\'on de preguntas
+En lo que se refiere a cuestionarios, esta plataforma s\'olo se limita a la evaluaci\'on de cuestiones triviales. Para la correci\'on de preguntas
 propias de las ramas de \ceit{Ingenier\'{\i}a}, como pueden ser la implementaci\'on de c\'odigo, es necesaria la figura del profesor para
 evaluar dichas tareas.
 
-Otro problema que presenta es su dif\'{\i}cil portabilidad. Estamos hablando de un tipo de plataforma que sigue un
+Otro problema que presenta es su dif\'{\i}cil administración. Estamos hablando de un tipo de plataforma que sigue un
 esquema \ceis{\ref{apend1:cs}}, que no es f\'acilmente migrable a otras m\'aquinas. Migrar dicha plataforma a otra m\'aquina implica el hecho de reinstalar el
 software y configurar de nuevo la plataforma. Estos procesos requieren de elevados conocimientos de administraci\'on de sistemas y seguridad para dejar todo 
 perfectamente en configurado, sin brechas de seguridad y en perfecto funcionamiento.
 \bigskip
 
-Todas estas desventajas se ven resueltas haciendo uso de las mejoras desarrolladas para \ceis{\ref{apend1:ruql}}, que se presentar\'an a lo largo de esta memoria, 
+Algunos de estos problemas se intentan abordar y solucionar en la herramienta \ceis{\ref{apend1:ruql}}, que se presentar\'an a lo largo de esta memoria
 y cuyo objetivo principal es la {\bfseries Elaboraci\'on y Despliegue de Cuestionarios}. Entre sus caracter\'{\i}sticas, destaca:
 \begin{itemize}
   \item Su sencilla instalaci\'on.
@@ -66,10 +66,9 @@ California (Estados Unidos).
 \bigskip
 
 Una vez examinado el estado del arte actual, se acord\'o que la soluci\'on m\'as apropiada para nosotros era la implementaci\'on de un \ceis{\ref{apend1:dsl}} 
-que permitiera redactar f\'acilmente las preguntas y respuestas. En lenguaje de programaci\'on que se iba a usar estaba claro desde el inicio: \underline{Ruby}.
+que permitiera redactar f\'acilmente las preguntas y respuestas. El lenguaje de programaci\'on que se iba a usar estaba claro desde el inicio: \underline{Ruby}.
 
 Investigando sobre alg\'un DSL ya implementado en este lenguaje que nos sirviera de gu\'{\i}a, dimos con el \ceit{repositorio} de esta gema.
-
 Tras analizarla detenidamente, llegamos a la conclusi\'on de que era el punto de partida id\'oneo para comenzar nuestro Trabajo de Fin de Grado. Nos pusimos en contacto
 con Armando para indicarle nuestras intenciones y \'el, desde el primer momento, mostr\'o un gran inter\'es por el proyecto. A medida que fuimos avanzando en el desarrollo,
 Armando incorpor\'o nuestros cambios en su gema y me hizo colaborador en su repositorio.
@@ -81,7 +80,8 @@ de un DSL.
 Pose\'{\i}a una serie de \textit{\ref{apend1:renderer}} que permit\'{\i}an generar los cuestionario en los siguientes formatos:
 \begin{itemize}
   \item \ceit{\ref{apend1:openedx}}: formato \cei{open source} listo para importar en plataformas de aprendizaje online como \ceis{EdX}\cite{edx}.
-  \item Versi\'on \ceit{HTML5} imprimible: lista para ser impresa y rellenada por los usuarios.
+  \item Versi\'on \ceit{HTML5} imprimible: 
+lista para ser impresa pero que no puede ser rellenada por los usuarios dinámicamente.
   Se le pod\'{\i}a pasar como argumento el path de una hoja de estilo para incorporarla al \ceit{HTML} de salida. Del mismo modo, se
   pod\'{\i}a especificar el path de un \cei{\ref{apend1:template}} predefinido por el profesor de modo que las preguntas se renderizaran en el mismo.
   \item \ceit{\ref{apend1:aqcm}}: formato listo para importar a \ceis{AMC} (\cei{Auto Multiple Choice}), software libre
