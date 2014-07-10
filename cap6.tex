@@ -16,14 +16,14 @@ en una \'epoca en la que estas herramientas de aprendizaje online seguir\'an evo
 En este trabajo se proporciona/extiende un \ceis{Lenguaje de Dominio Espec\'{\i}fico} (\cei{DSL}) para la \ceit{elaboraci\'on} y \ceit{evaluación} de \ceit{cuestionarios} que ofrece varias ventajas 
 con respecto a otras herramientas equivalentes:
 \begin{enumerate}
-  \item Portabilidad: la principal ventaja sobre plataformas como Moodle\cite{moodle}.
+  %\item Portabilidad: la principal ventaja sobre plataformas como Moodle\cite{moodle}.
   \item Respuestas que pueden ser evaluadas mediante \ceit{expresiones regulares} extendidas.
   \item Respuestas que pueden ser evaluadas mediante \ceit{c\'odigo} arbitrario definido por el profesor.
   \item Generaci\'on de c\'odigo para diversas plataformas y formas de uso: generaci\'on de \ceit{HTML} \cei{standalone} para entrenamiento y retroalimentaci\'on del alumno, \ceit{XML} 
   para \ceit{edX}\cite{edx} y \ceit{AutoQCM} para \ceit{AMC}\cite{amc}.
   \item \ceit{Escalabilidad}: posibilidad de implantar soporte para cualquier otra plataforma o forma de uso que se desee mediante el uso de \ceit{renderers}.
   \item Generaci\'on de una \ceit{aplicaci\'on} \ceit{Sinatra} de \ceit{evaluaci\'on} completa con almacenamiento de ex\'amenes y datos en \ceis{Google Drive}. Una soluci\'on innovadora que
-  facilita la gesti\'on de los mismo y evita tener que almacenar preguntas, respuestas, alumnos y calificaciones en bases de datos tradicionales junto con los problemas relacionados con su 
+  facilita la gesti\'on de los mismos y evita tener que almacenar preguntas, respuestas, alumnos y calificaciones en bases de datos tradicionales junto con los problemas relacionados con su 
   manipulaci\'on y exportaci\'on a formatos m\'as \'utiles, como puede ser, las hojas de c\'alculo.
 \end{enumerate}
 
@@ -31,8 +31,7 @@ Adem\'as, teniendo en cuenta aspectos \'eticos y legales, se hace uso de \ceis{O
 seguridad como puede ser la suplantaci\'on de identidad o la exposici\'on de datos sensibles de los usuarios a terceras personas.
 \bigskip
 
-Para concluir, podemos afirmar que los objetivos han sido cumplidos, tanto los establecidos de la gu\'{\i}a docente de la asignatura junto con la adquisi\'on de las competencias generales y 
-espec\'{\i}ficas como los marcados al comienzo de la asignatura. Sin embargo, el desarrollo no finaliza aqu\'{\i}. A\'un queda trabajo por realizar para poder garantizar un eficaz funcionamiento y 
+Para concluir, podemos afirmar que los objetivos marcados al comienzo de este Trabajo de Fin de Grado han sido cumplidos. Sin embargo, el desarrollo no finaliza aqu\'{\i}. A\'un queda trabajo por realizar para poder garantizar un eficaz funcionamiento y 
 rendimiento de esta herramienta. El estado final de la misma puede ser el punto de partida para pr\'oximos Trabajos de Fin de Grado.
 \bigskip
 
@@ -42,4 +41,5 @@ As\'{\i} pues, las principales l\'{\i}neas de desarrollo a continuar ser\'{\i}an
   \item Dar soporte a preguntas con respuestas de c\'odigo en otros \ceit{lenguajes de programaci\'on}.
   \item Ofrecer una alternativa de despliegue distinta a \ceit{Heroku}, como podr\'{\i}a ser un \ceit{servidor dedicado} ofrecido por la Universidad de
   La Laguna.
+  \item  Escribir {\it renderers} que den soporte a otros formatos (MoodleXML, Gift, etc.) utilizados por diversas plataformas educativas
 \end{itemize}
