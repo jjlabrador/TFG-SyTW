@@ -4,4 +4,9 @@
 !*.html
 !*.css
 !*.png
+!*.PNG
+!*.jpg
+!*.gif
+!*.pl
+!*.tex
 !README.md
