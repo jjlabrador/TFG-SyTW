@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Dar de alta una aplicaci&#243;n en Google Developers Console</TITLE>
+<META NAME="description" CONTENT="Dar de alta una aplicaci&#243;n en Google Developers Console">
+<META NAME="keywords" CONTENT="memtfg">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="memtfg.css">
+
+<LINK REL="next" HREF="node57.html">
+<LINK REL="previous" HREF="node55.html">
+<LINK REL="up" HREF="node52.html">
+<LINK REL="next" HREF="node57.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1056"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html1050"
+  HREF="node52.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html1044"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html1052"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html1054"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html1057"
+  HREF="node57.html">Generando la aplicaci&#243;n</A>
+<B> Subir:</B> <A NAME="tex2html1051"
+  HREF="node52.html">Sinatra renderer</A>
+<B> Anterior:</B> <A NAME="tex2html1045"
+  HREF="node55.html">Par&#225;metros adicionales</A>
+ &nbsp; <B>  <A NAME="tex2html1053"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1055"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001334000000000000000"></A>
+<A NAME="subsec:Apendice2.13"></A>
+<BR>
+Dar de alta una aplicaci&#243;n en Google Developers Console
+</H2>
+
+<P>
+Pasos para dar de alta una aplicaci&#243;n en <A NAME="4453"></A>Google Developers Console:
+
+<OL>
+<LI>Dirigirse a https://console.developers.google.com/Google Developers Console
+
+<P>
+</LI>
+<LI>Crear un nuevo proyecto.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:gdc0"></A><A NAME="4113"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura B.2:</STRONG>
+Bot&#243;n para crear un nuevo proyecto</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="gdc0.png"
+ ALT="\includegraphics[width=0.5\textwidth]{images/gdc0.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Elegir un nombre para el proyecto.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:gdc1"></A><A NAME="4120"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura B.3:</STRONG>
+Elegir nombre para el proyecto</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="gdc1.png"
+ ALT="\includegraphics[width=0.7\textwidth]{images/gdc1.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Una vez se ha creado, se nos redireccionar&#225; al mismo. Pinchamos en la secci&#243;n <B>APIS &amp; AUTH</B> y elegimos la opci&#243;n <SPAN  CLASS="textit">APIs</SPAN>.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:gdc2"></A><A NAME="4129"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura B.4:</STRONG>
+Apartado de APIs</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="gdc2.png"
+ ALT="\includegraphics[width=0.3\textwidth]{images/gdc2.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Deberemos activar las siguientes APIs:
+  
+<OL>
+<LI><SPAN  CLASS="textit">Contacts API</SPAN>
+</LI>
+<LI><SPAN  CLASS="textit">Drive API</SPAN>
+</LI>
+<LI><SPAN  CLASS="textit">Drive SDK</SPAN>
+</LI>
+<LI><SPAN  CLASS="textit">Google+ API</SPAN>
+  
+</LI>
+</OL>
+
+<P>
+</LI>
+<LI>Una vez hecho esto, nos iremos al apartado <SPAN  CLASS="textit">Credentials</SPAN> dentro de <B>APIS &amp; AUTH</B> y seleccionaremos <SPAN  CLASS="textit">Create new Client ID</SPAN>.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:gdc3"></A><A NAME="4145"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura B.5:</STRONG>
+Apartado de credenciales</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="gdc3.png"
+ ALT="\includegraphics[width=0.3\textwidth]{images/gdc3.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:gdc4"></A><A NAME="4152"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura B.6:</STRONG>
+Crear nuevo cliente ID</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="gdc4.png"
+ ALT="\includegraphics[width=0.5\textwidth]{images/gdc4.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Seleccionamos <SPAN  CLASS="textit">Web application</SPAN> y establecemos la <A NAME="4455"></A>URI a la que <A NAME="4457"></A>Google debe devolvernos los datos. La URI debe ser igual a la de la imagen salvo
+  en el subdominio de <A NAME="4459"></A>Heroku, en el que pondremos el que nos ha dado Heroku o el que hemos especificado en nuestro <SPAN  CLASS="textit">config.yml</SPAN>
+  
+<DIV ALIGN="CENTER"><A NAME="fig:gdc5"></A><A NAME="4164"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura B.7:</STRONG>
+Pantalla de creaci&#243;n del cliente ID</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="gdc5.png"
+ ALT="\includegraphics[width=0.7\textwidth]{images/gdc5.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Opcionalmente, nos podemos dirigir al apartado <SPAN  CLASS="textit">Consent screen</SPAN> dentro de <B>APIS &amp; AUTH</B> para indicar el nombre que queremos que aparezca
+  en la pantalla de permisos cuando alguien vaya a dar permiso a nuestra aplicaci&#243;n para que use sus datos. Adem&#225;s, se pueden a&#241;adir otros campos tales como
+  logos, URLs, etc.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:gdc6"></A><A NAME="4174"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura B.8:</STRONG>
+Personalizar pantalla de permisos</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="gdc6.png"
+ ALT="\includegraphics[width=1.2\textwidth]{images/gdc6.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+</OL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1056"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html1050"
+  HREF="node52.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html1044"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html1052"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html1054"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html1057"
+  HREF="node57.html">Generando la aplicaci&#243;n</A>
+<B> Subir:</B> <A NAME="tex2html1051"
+  HREF="node52.html">Sinatra renderer</A>
+<B> Anterior:</B> <A NAME="tex2html1045"
+  HREF="node55.html">Par&#225;metros adicionales</A>
+ &nbsp; <B>  <A NAME="tex2html1053"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1055"
+  HREF="node61.html">&#205;ndice de Materias</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Juan Jos&eacute;
+2014-07-10
+</ADDRESS>
+</BODY>
+</HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Tecnolog&#237;a usada</TITLE>
-<META NAME="description" CONTENT="Tecnolog&#237;a usada">
+<TITLE>C&#243;digo de ejemplo para realizar un cuestionario HTML5</TITLE>
+<META NAME="description" CONTENT="C&#243;digo de ejemplo para realizar un cuestionario HTML5">
 <META NAME="keywords" CONTENT="memtfg">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -20,74 +20,142 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <LINK REL="STYLESHEET" HREF="memtfg.css">
 
 <LINK REL="previous" HREF="node6.html">
-<LINK REL="up" HREF="node4.html">
+<LINK REL="up" HREF="node6.html">
 <LINK REL="next" HREF="node8.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html145"
+<A NAME="tex2html325"
   HREF="node8.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
  SRC="./icons/next.png"></A> 
-<A NAME="tex2html141"
-  HREF="node4.html">
+<A NAME="tex2html319"
+  HREF="node6.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
  SRC="./icons/up.png"></A> 
-<A NAME="tex2html137"
+<A NAME="tex2html315"
   HREF="node6.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
  SRC="./icons/prev.png"></A> 
-<A NAME="tex2html143"
+<A NAME="tex2html321"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
- SRC="./icons/contents.png"></A>  
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html323"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
 <BR>
-<B> Siguiente:</B> <A NAME="tex2html146"
-  HREF="node8.html">Desarrollo</A>
-<B> Subir:</B> <A NAME="tex2html142"
-  HREF="node4.html">Introducci&#243;n</A>
-<B> Anterior:</B> <A NAME="tex2html138"
-  HREF="node6.html">Objetivos</A>
- &nbsp; <B>  <A NAME="tex2html144"
+<B> Siguiente:</B> <A NAME="tex2html326"
+  HREF="node8.html">Perfil del usuario de</A>
+<B> Subir:</B> <A NAME="tex2html320"
+  HREF="node6.html">¿Qu&#233; es RuQL?</A>
+<B> Anterior:</B> <A NAME="tex2html316"
+  HREF="node6.html">¿Qu&#233; es RuQL?</A>
+ &nbsp; <B>  <A NAME="tex2html322"
   HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html324"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00430000000000000000"></A>
-<A NAME="1:sec:3"></A>
+<H2><A NAME="SECTION00421000000000000000"></A>
+<A NAME="subsec:1.2.1"></A>
 <BR>
-Tecnolog&#237;a usada
-</H1>
+C&#243;digo de ejemplo para realizar un cuestionario HTML5
+</H2>
+Instalamos la <A NAME="1049"></A>gema:
 
 <P>
-Bla, bla, bla
+<PRE>
+[~]$ gem install ruql
+Fetching: ruql-0.0.4.gem (100%)
+Successfully installed ruql-0.0.4
+1 gem installed
+</PRE>
 
 <P>
+Creamos el fichero <A NAME="1051"></A>Ruby que contendr&#225; las preguntas:
 
-<DIV ALIGN="CENTER"><A NAME="fig:ArbolBinario"></A><A NAME="492"></A>
-<TABLE>
-<CAPTION ALIGN="BOTTOM"><STRONG>Figura:</STRONG>
-Ejemplo</CAPTION>
-<TR><TD>
-<DIV ALIGN="CENTER">
-<IMG
- WIDTH="282" HEIGHT="272" ALIGN="BOTTOM" BORDER="0"
- SRC="img1.png"
- ALT="\includegraphics[width=0.5\textwidth]{images/arbolbinario.eps}">
+<P>
+<PRE>
+[~]$ cd tmp
+[~/tmp]$ mkdir example
+[~/tmp]$ vi example.rb
+[~/tmp]$ cat example.rb
+</PRE>
 
-</DIV></TD></TR>
-</TABLE>
-</DIV>
+<P>
+<BR>
+<PRE>
+quiz 'Example quiz' do
+  
+  fill_in :points => 2 do
+    text 'The capital of California is ---'
+    answer 'sacramento'
+  end
+  
+  choice_answer :randomize => true do
+    text  "What is the largest US state?"
+    explanation "Not big enough." # for distractors without their own explanation
+    answer 'Alaska'
+    distractor 'Hawaii'
+    distractor 'Texas', :explanation => "That's pretty big, but think colder."
+  end
+  
+  select_multiple do
+    text "Which are American political parties?"
+    answer "Democrats"
+    answer "Republicans"
+    answer "Greens", :explanation => "Yes, they're a party!"
+    distractor "Tories", :explanation => "They're British"
+    distractor "Social Democrats"
+  end
+  
+  select_multiple do
+    text "Which are American political parties?"
+    answer "Democrats"
+    answer "Republicans"
+    answer "Greens", :explanation => "Yes, they're a party!"
+    distractor "Tories", :explanation => "They're British"
+    distractor "Social Democrats"
+  end
+  
+  truefalse 'The week has 7 days.', true
+  truefalse 'The earth is flat.', false, :explanation => 'No, just looks that way'
+end
+</PRE>
 
+<P><P>
+<BR>
+
+<P>
+Para generar el <A NAME="1053"></A>HTML versi&#243;n imprimible, ejecutamos el siguiente comando:
+
+<P>
+<PRE>
+[~/tmp]$ ruql example.rb Html5 &gt; example.html
+</PRE>
+
+<P>
+Si deseamos que nuestras preguntas se rendericen usando nuestro propio template, debemos especificarlo con la opci&#243;n -t:
+
+<P>
+<PRE>
+[~/tmp]$ ruql example.rb Html5 -t template.html.erb &gt; example.html
+</PRE>
+
+<P>
+Las especificaciones de c&#243;mo crear nuestro propio template se encuentran en el apartado de Gu&#237;a de usuario (v&#233;ase apartado del Ap&#233;ndice <A HREF="node40.html#Apendice2:instalacion">B.1</A>).
 
 <P>
 <BR><HR>
 <ADDRESS>
-Juan JosÃ©
-2014-05-10
+Juan Jos&eacute;
+2014-07-10
 </ADDRESS>
 </BODY>
 </HTML>

@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>Guía del desarrollador</TITLE>
-<META NAME="description" CONTENT="Guía del desarrollador">
+<TITLE>Generando un corrector de ex&#225;menes: Sinatra renderer</TITLE>
+<META NAME="description" CONTENT="Generando un corrector de ex&#225;menes: Sinatra renderer">
 <META NAME="keywords" CONTENT="memtfg">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,8 +19,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="memtfg.css">
 
-<LINK REL="next" HREF="node28.html">
-<LINK REL="previous" HREF="node22.html">
+<LINK REL="next" HREF="node30.html">
+<LINK REL="previous" HREF="node21.html">
 <LINK REL="up" HREF="memtfg.html">
 <LINK REL="next" HREF="node26.html">
 </HEAD>
@@ -28,55 +28,256 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html359"
+<A NAME="tex2html581"
   HREF="node26.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
  SRC="./icons/next.png"></A> 
-<A NAME="tex2html355"
+<A NAME="tex2html575"
   HREF="memtfg.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
  SRC="./icons/up.png"></A> 
-<A NAME="tex2html349"
+<A NAME="tex2html569"
   HREF="node24.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
  SRC="./icons/prev.png"></A> 
-<A NAME="tex2html357"
+<A NAME="tex2html577"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
- SRC="./icons/contents.png"></A>  
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html579"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
 <BR>
-<B> Siguiente:</B> <A NAME="tex2html360"
-  HREF="node26.html">Otro apendice: Seccion 1</A>
-<B> Subir:</B> <A NAME="tex2html356"
+<B> Siguiente:</B> <A NAME="tex2html582"
+  HREF="node26.html">Problemas encontrados y soluciones</A>
+<B> Subir:</B> <A NAME="tex2html576"
   HREF="memtfg.html">memtfg</A>
-<B> Anterior:</B> <A NAME="tex2html350"
-  HREF="node24.html">Otro apendice: Seccion 2</A>
- &nbsp; <B>  <A NAME="tex2html358"
+<B> Anterior:</B> <A NAME="tex2html570"
+  HREF="node24.html">Alojar librer&#237;a MathJax en</A>
+ &nbsp; <B>  <A NAME="tex2html578"
   HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html580"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001200000000000000000"></A>
-<A NAME="appendix:2"></A>
+<H1><A NAME="SECTION00800000000000000000"></A>
+<A NAME="chapter:cinco"></A>
 <BR>
-Gu&#237;a del desarrollador
+Generando un corrector de ex&#225;menes: Sinatra renderer
 </H1>
+
+<P>
+
+<P>
+Este otro <A NAME="2388"></A>renderer genera una <A NAME="2390"></A>aplicaci&#243;n <A NAME="2392"></A>Sinatra con todo lo necesario para ser desplegada en <A NAME="2394"></A><B>Heroku</B> o ejecutar localmente. 
+Se hace uso de <A NAME="2397"></A><B>Google Drive</B> para almacenar una copia del <A NAME="2400"></A>cuestionario y para alojar las preguntas y respuestas de los alumnos.
+
+<P>
+Para usar este renderer es necesario a&#241;adir especificar algunos par&#225;metros m&#225;s en el fichero <A NAME="2402"></A>Ruby que contiene el cuestionario.
+Estos par&#225;metros se enumeran a continuaci&#243;n:
+
+<P>
+
+<OL>
+<LI>La direcci&#243;n de correo en <A NAME="2404"></A><B>Gmail</B> del profesor. Es posible especificar m&#225;s de una direcci&#243;n usando una notaci&#243;n
+  de <A NAME="2407"></A>Array.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:teachers"></A><A NAME="2302"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 5.1:</STRONG>
+M&#233;todo para especificar los profesores permitidos en la aplicaci&#243;n</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="teachers.png"
+ ALT="\includegraphics[width=0.5\textwidth]{images/teachers.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>El <A NAME="2409"></A>path de un fichero <A NAME="2415"></A><B><A HREF="node38.html#apend1:csv">$CSV$</A></B> con los datos de los alumnos.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:students"></A><A NAME="2311"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 5.2:</STRONG>
+M&#233;todo para especificar los alumnos permitidos en la aplicaci&#243;n</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="students.png"
+ ALT="\includegraphics[width=0.5\textwidth]{images/students.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>El path de un fichero de configuraci&#243;n denominado <A NAME="2420"></A><SPAN  CLASS="textit">config.yml</SPAN> que contiene informaci&#243;n del cuestionario.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:config"></A><A NAME="2319"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 5.3:</STRONG>
+M&#233;todo para especificar la configuraci&#243;n de la aplicaci&#243;n</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="config.png"
+ ALT="\includegraphics[width=0.4\textwidth]{images/config.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+</OL>
+
+<P>
+Para saber c&#243;mo rellenar estos par&#225;metros, v&#233;ase Ap&#233;ndice <A HREF="node55.html#subsec:Apendice2.12">B.3.3</A>.
+
+<P><P>
+<BR>
+
+<P>
+La sintaxis para ejecutar este renderer es la siguiente:
+<PRE>
+[~/tmp]$ ruql example.rb Sinatra -t templates/htmlform.html.erb
+</PRE>
+
+<P>
+Tras su ejecuci&#243;n, se crear&#225; una carpeta llamada <A NAME="2422"></A><SPAN  CLASS="textit">app</SPAN> en el directorio donde nos encontremos. Este <A NAME="2424"></A>directorio contendr&#225; lo siguiente:
+
+<DIV ALIGN="CENTER"><A NAME="fig:app"></A><A NAME="2382"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 5.4:</STRONG>
+Listado de ficheros y directorios generado dentro del directorio <SPAN  CLASS="textit">app</SPAN></CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="app.png"
+ ALT="\includegraphics[width=0.4\textwidth]{images/app.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Para obtener informaci&#243;n de los directorios y ficheros generados, v&#233;ase Ap&#233;ndice <A HREF="node58.html#subsec:Apendice2.15">B.3.6</A>.
+
+<P><P>
+<BR>
+
+<P><P>
+<BR>
+
+<P><P>
+<BR>
+
+<P>
+La <A NAME="2426"></A>aplicaci&#243;n resultante funciona del siguiente modo:
+
+<OL>
+<LI>Una vez ejecutada, el <A NAME="2428"></A>profesor deber&#225; autenticarse con su cuenta de <A NAME="2430"></A>Gmail y activar el cuestionario. Hecho esto, se crear&#225; en su <A NAME="2432"></A><B>Google Drive</B> 
+  una carpeta que contendr&#225; una copia de <A NAME="2435"></A>examen y una hoja de c&#225;lculo con las preguntas y respuestas correctas del cuestonario. Tambi&#233;n guardar&#225; la informaci&#243;n
+  de los usuarios. 
+
+<P>
+</LI>
+<LI>Una vez activido, los alumnos podr&#225;n acceder a realizar el mismo. Cuando lo finalicen, se generar&#225; una copia de su examen en la carpeta de Google Drive del
+  profesor y se escribir&#225; autom&#225;ticamente su hoja de c&#225;lculo para a&#241;adir la nota que ha sacado el alumno individualmente en cada pregunta y de manera global.
+  De este modo, quedar&#225; constancia de la realizaci&#243;n del mismo.
+
+<P>
+</LI>
+<LI>Los alumnos podr&#225;n reintentar el cuestionario todas las veces que deseen mientras se encuentre activo. &#201;ste dejar&#225; de estar activo cuando finalice la fecha 
+  l&#237;mite establecida por el profesor en el fichero de configuraci&#243;n. Al reintentar el cuestionario, se actualizar&#225; Google Drive con las nuevas calificaciones
+  del alumno.
+</LI>
+</OL>
+
+<P>
+<B>NOTA</B>: ser&#225; responsabilidad del profesor facilitar la nota a los alumnos en el momento que estime oportuno.
+
+<P><P>
+<BR>
+
+<P>
+Para resolver el gran problema de la <A NAME="2437"></A>autentificaci&#243;n de usuarios, se hace uso de OAuth. De este modo, delegamos todo el servicio a Google y evitamos, por tanto,
+posibles brechas de seguridad que den lugar a suplantaciones de identidad o exposici&#243;n de datos sensibles de los usuarios a terceras personas. Para poder usarlo
+es necesario dar de alta en <A NAME="2439"></A><B>Google Developers Console</B> una aplicaci&#243;n. Este proceso se explicar&#225; en el apartado del Ap&#233;ndice <A HREF="node56.html#subsec:Apendice2.13">B.3.4</A>.
+
+<P><P>
+<BR>
+
+<P>
+Un ejemplo completo del funcionamiento de la aplicaci&#243;n se encuentra en el apartado del Ap&#233;ndice <A HREF="node59.html#subsec:Apendice2.16">B.3.7</A>.
+
+<P>
 <BR><HR>
 <!--Table of Child-Links-->
 <A NAME="CHILD_LINKS"><STRONG>Subsecciones</STRONG></A>
 
 <UL CLASS="ChildLinks">
-<LI><A NAME="tex2html361"
-  HREF="node26.html">Otro apendice: Seccion 1</A>
-<LI><A NAME="tex2html362"
-  HREF="node27.html">Otro apendice: Seccion 2</A>
-</UL>
+<LI><A NAME="tex2html583"
+  HREF="node26.html">Problemas encontrados y soluciones</A>
+<UL>
+<LI><A NAME="tex2html584"
+  HREF="node27.html">Timeout corto entre peticiones del navegador al servidor</A>
+<LI><A NAME="tex2html585"
+  HREF="node28.html">Lugar de almacenamiento de las respuestas de los alumnos</A>
+<LI><A NAME="tex2html586"
+  HREF="node29.html">Problema de seguridad al evaluar c&#243;digo Ruby en el servidor</A>
+</UL></UL>
 <!--End of Table of Child-Links-->
-<BR><HR>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html581"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html575"
+  HREF="memtfg.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html569"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html577"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html579"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html582"
+  HREF="node26.html">Problemas encontrados y soluciones</A>
+<B> Subir:</B> <A NAME="tex2html576"
+  HREF="memtfg.html">memtfg</A>
+<B> Anterior:</B> <A NAME="tex2html570"
+  HREF="node24.html">Alojar librer&#237;a MathJax en</A>
+ &nbsp; <B>  <A NAME="tex2html578"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html580"
+  HREF="node61.html">&#205;ndice de Materias</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-Juan Jos&eacute; Labrador Gonz&aacute;lez
-2014-05-10
+Juan Jos&eacute;
+2014-07-10
 </ADDRESS>
 </BODY>
 </HTML>

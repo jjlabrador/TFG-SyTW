@@ -30,12 +30,107 @@ TD.eqno			{ }	/* equation-number cells */
 /* document-specific styles come next */
 SPAN.itshape		{   }
 PRE.preform		{   }
-DIV.footnotesize		{   }
 DIV.LARGE		{   }
 DIV.large		{   }
 DIV.center		{   }
 DIV.flushright		{   }
 DIV.navigation		{   }
+SPAN.bfseries		{   }
 SPAN.textbf		{ font-weight: bold  }
 SPAN.arabic		{   }
 SPAN.textit		{ font-style: italic  }
+#txt3038		{ text-decoration: underline;  }
+#txt3044		{ text-decoration: underline;  }
+#txt3048		{ text-decoration: underline;  }
+#txt3057		{ text-decoration: underline;  }
+#txt3069		{ text-decoration: underline;  }
+#txt3072		{ text-decoration: underline;  }
+#txt3076		{ text-decoration: underline;  }
+#txt3078		{ text-decoration: underline;  }
+#txt3081		{ text-decoration: underline;  }
+#txt3084		{ text-decoration: underline;  }
+#txt3087		{ text-decoration: underline;  }
+#txt3095		{ text-decoration: underline;  }
+#txt3105		{ text-decoration: underline;  }
+#txt3113		{ text-decoration: underline;  }
+#txt3115		{ text-decoration: underline;  }
+#txt3117		{ text-decoration: underline;  }
+#txt3125		{ text-decoration: underline;  }
+#txt3127		{ text-decoration: underline;  }
+#txt3130		{ text-decoration: underline;  }
+#txt3132		{ text-decoration: underline;  }
+#txt3135		{ text-decoration: underline;  }
+#txt3143		{ text-decoration: underline;  }
+#txt3145		{ text-decoration: underline;  }
+#txt3149		{ text-decoration: underline;  }
+#txt3156		{ text-decoration: underline;  }
+#txt3159		{ text-decoration: underline;  }
+#txt3167		{ text-decoration: underline;  }
+#txt3175		{ text-decoration: underline;  }
+#txt3181		{ text-decoration: underline;  }
+#txt3185		{ text-decoration: underline;  }
+#txt3188		{ text-decoration: underline;  }
+#txt3191		{ text-decoration: underline;  }
+#txt3200		{ text-decoration: underline;  }
+#txt3204		{ text-decoration: underline;  }
+#txt3207		{ text-decoration: underline;  }
+#txt3214		{ text-decoration: underline;  }
+#txt3220		{ text-decoration: underline;  }
+#txt3222		{ text-decoration: underline;  }
+#txt3226		{ text-decoration: underline;  }
+#txt3234		{ text-decoration: underline;  }
+#txt3241		{ text-decoration: underline;  }
+#txt3246		{ text-decoration: underline;  }
+#txt3248		{ text-decoration: underline;  }
+#txt3255		{ text-decoration: underline;  }
+#txt3259		{ text-decoration: underline;  }
+#txt3263		{ text-decoration: underline;  }
+#txt3271		{ text-decoration: underline;  }
+#txt5829		{ text-decoration: underline;  }
+#txt5835		{ text-decoration: underline;  }
+#txt5841		{ text-decoration: underline;  }
+#txt5853		{ text-decoration: underline;  }
+#txt5865		{ text-decoration: underline;  }
+#txt5871		{ text-decoration: underline;  }
+#txt5877		{ text-decoration: underline;  }
+#txt5883		{ text-decoration: underline;  }
+#txt5889		{ text-decoration: underline;  }
+#txt5895		{ text-decoration: underline;  }
+#txt5901		{ text-decoration: underline;  }
+#txt5913		{ text-decoration: underline;  }
+#txt5925		{ text-decoration: underline;  }
+#txt5937		{ text-decoration: underline;  }
+#txt5943		{ text-decoration: underline;  }
+#txt5949		{ text-decoration: underline;  }
+#txt595		{ text-decoration: underline;  }
+#txt5961		{ text-decoration: underline;  }
+#txt5967		{ text-decoration: underline;  }
+#txt5973		{ text-decoration: underline;  }
+#txt5979		{ text-decoration: underline;  }
+#txt5985		{ text-decoration: underline;  }
+#txt5997		{ text-decoration: underline;  }
+#txt6003		{ text-decoration: underline;  }
+#txt6009		{ text-decoration: underline;  }
+#txt6021		{ text-decoration: underline;  }
+#txt6027		{ text-decoration: underline;  }
+#txt6039		{ text-decoration: underline;  }
+#txt6051		{ text-decoration: underline;  }
+#txt6063		{ text-decoration: underline;  }
+#txt6069		{ text-decoration: underline;  }
+#txt6075		{ text-decoration: underline;  }
+#txt6081		{ text-decoration: underline;  }
+#txt6093		{ text-decoration: underline;  }
+#txt6099		{ text-decoration: underline;  }
+#txt6105		{ text-decoration: underline;  }
+#txt6117		{ text-decoration: underline;  }
+#txt6129		{ text-decoration: underline;  }
+#txt6135		{ text-decoration: underline;  }
+#txt6141		{ text-decoration: underline;  }
+#txt6153		{ text-decoration: underline;  }
+#txt6165		{ text-decoration: underline;  }
+#txt6171		{ text-decoration: underline;  }
+#txt6177		{ text-decoration: underline;  }
+#txt6189		{ text-decoration: underline;  }
+#txt6195		{ text-decoration: underline;  }
+#txt6201		{ text-decoration: underline;  }
+#txt6213		{ text-decoration: underline;  }

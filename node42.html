@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Preguntas FillIn</TITLE>
+<META NAME="description" CONTENT="Preguntas FillIn">
+<META NAME="keywords" CONTENT="memtfg">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="memtfg.css">
+
+<LINK REL="next" HREF="node43.html">
+<LINK REL="previous" HREF="node41.html">
+<LINK REL="up" HREF="node41.html">
+<LINK REL="next" HREF="node43.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html856"
+  HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html850"
+  HREF="node41.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html844"
+  HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html852"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html854"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html857"
+  HREF="node43.html">Preguntas Drag and Drop</A>
+<B> Subir:</B> <A NAME="tex2html851"
+  HREF="node41.html">HtmlForm renderer</A>
+<B> Anterior:</B> <A NAME="tex2html845"
+  HREF="node41.html">HtmlForm renderer</A>
+ &nbsp; <B>  <A NAME="tex2html853"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html855"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001321000000000000000"></A><A NAME="4365"></A>
+<A NAME="subsec:Apendice2.1"></A>
+<BR>
+Preguntas FillIn
+</H2>
+
+<P>
+Para que el <A NAME="4367"></A>renderer genere las etiquetas <A NAME="4369"></A>input, se deben especificar tres guiones ('-') como m&#237;nimo. Si la cantidad es menor que tres, se mostrar&#225;n los guiones
+en el cuestionario. Si queremos que se muestren m&#225;s de tres guiones seguidos, debemos escaparlos. Recuerda adem&#225;s que el n&#250;mero de guiones establecer&#225; el largo del input.
+<BR>
+<PRE>
+tag = '<a href="www.google.es"></a> '
+fill_in do
+  text "<i>Example of escaped HTML and three hyphens not evaluated:</i><br> 
+  #{escape(tag)}" + "is a \\-\\-\\- ---- " + '\-\-\-'
+  answer /^link$/
+end
+</PRE>
+<BR>
+
+<P><P>
+<BR>
+
+<P>
+Ejemplo de pregunta con un <A NAME="4371"></A><SPAN  CLASS="textit">distractor</SPAN> y un comentario:
+<BR>
+<PRE>
+fill_in :points => 2 do
+  text 'The visionary founder of Apple is --------'
+  comment 'Question too easy'
+  answer /^ste(ve|phen)\s+jobs #comment $/imx
+  distractor /^steve\s+wozniak/i, :explanation => 'Almost, but not quite.'
+end
+</PRE>
+<BR>
+
+<P>
+Ejemplo de pregunta con c&#243;digo <A NAME="4373"></A>LaTeX:
+<BR>
+<PRE>
+fill_in do
+  text %q{
+    When x = 2, the solution of $\sqrt{3x+3}+(1+x)^2$ is:
+    ----
+  }
+  answer 12
+  distractor 11, :explanation => "Try again!"
+end
+</PRE>
+<BR>
+
+<P><P>
+<BR>
+
+<P>
+La respuesta a la pregunta puede ser una cadena, una expresi&#243;n regular, un n&#250;mero o un objeto <A NAME="4375"></A>JavaScript. En el caso de los tres primeros tipos de respuesta, se usar&#225;
+un <A NAME="4377"></A><SPAN  CLASS="textit">Array</SPAN> si hay m&#225;s de una respuesta en la pregunta.
+<BR>
+<PRE>
+fill_in do
+  text 'The ---- brown fox jumped over the lazy ----'
+  answer [/fox/, /dog/]
+end
+</PRE>
+<BR>
+
+<P><P>
+<BR>
+
+<P>
+Se puede usar la opci&#243;n <SPAN  CLASS="textit">order</SPAN> para especificar si las respuestas dadas se corresponden con el orden dado en la pregunta. Por defecto est&#225; a <B>true</B>.
+<BR>
+<PRE>
+fill_in do
+  text 'The ---- brown fox jumped over the lazy ----'
+  answer [/fox/, /dog/], :order => false
+end
+</PRE>
+<BR>
+
+<P>
+<B>NOTA</B>: en caso de especificar en el Array dos respuestas iguales para dos huecos diferentes, forzosamente es necesario especificar <SPAN  CLASS="textit">order</SPAN> a <B>true</B>.
+
+<P><P>
+<BR>
+
+<P>
+Tambi&#233;n se pueden escribir este tipo de preguntas de dos formas m&#225;s compactas:
+
+<P><P>
+<BR>
+
+<P>
+Esta primera forma permite colocar la respuesta al lado de los guiones. S&#243;lo se admiten respuestas de tipo <A NAME="4379"></A><SPAN  CLASS="textit">String</SPAN>.
+<BR>
+<PRE>
+fill_in do
+  text 'The three stooges are -----{larry}, ----{moe}, and -----{curly}.'
+end
+</PRE>
+<BR>
+
+<P><P>
+<BR>
+
+<P>
+Esta otra forma permite asociar las respuestas con una clave, que la definiremos en un <A NAME="4381"></A><B>Hash</B> que se pasar&#225; como respuesta.
+<BR>
+<PRE>
+fill_in do
+  text "The capital of Tenerife is -----{:santa} Cruz de --------{:tenerife}"
+  answer :santa => /Santa/i, :tenerife => /Tenerife/i
+end
+</PRE>
+<BR>
+
+<P><P>
+<BR>
+
+<P>
+Por &#250;ltimo, tenemos las respuestas de tipo <B>objeto JavaScript</B>. La opci&#243;n <SPAN  CLASS="textit">order</SPAN> debe ser siempre <B>true</B>:
+<BR>
+<PRE>
+fill_in do
+  text %q{
+    Diga dos numeros x = ---- e  y = ---- que multiplicados den 100
+  }
+  answer JavaScript.new(%q{result = function(x,y) { return (x * y === 100); }})
+end
+</PRE>
+<BR>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html856"
+  HREF="node43.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html850"
+  HREF="node41.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html844"
+  HREF="node41.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html852"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html854"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html857"
+  HREF="node43.html">Preguntas Drag and Drop</A>
+<B> Subir:</B> <A NAME="tex2html851"
+  HREF="node41.html">HtmlForm renderer</A>
+<B> Anterior:</B> <A NAME="tex2html845"
+  HREF="node41.html">HtmlForm renderer</A>
+ &nbsp; <B>  <A NAME="tex2html853"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html855"
+  HREF="node61.html">&#205;ndice de Materias</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Juan Jos&eacute;
+2014-07-10
+</ADDRESS>
+</BODY>
+</HTML>

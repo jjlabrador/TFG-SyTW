@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Preguntas Programming</TITLE>
+<META NAME="description" CONTENT="Preguntas Programming">
+<META NAME="keywords" CONTENT="memtfg">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="memtfg.css">
+
+<LINK REL="next" HREF="node50.html">
+<LINK REL="previous" HREF="node48.html">
+<LINK REL="up" HREF="node41.html">
+<LINK REL="next" HREF="node50.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html954"
+  HREF="node50.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html948"
+  HREF="node41.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html942"
+  HREF="node48.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html950"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html952"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html955"
+  HREF="node50.html">Otras consideraciones</A>
+<B> Subir:</B> <A NAME="tex2html949"
+  HREF="node41.html">HtmlForm renderer</A>
+<B> Anterior:</B> <A NAME="tex2html943"
+  HREF="node48.html">Preguntas Drag and Drop</A>
+ &nbsp; <B>  <A NAME="tex2html951"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html953"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001328000000000000000"></A>
+<A NAME="subsec:Apendice2.8"></A>
+<BR>
+Preguntas Programming
+</H2>
+
+<P>
+Para las preguntas de tipo <A NAME="4398"></A><B>Programming</B> se puede especificar diversos par&#225;metros:
+
+<UL>
+<LI>El lenguaje. Como este renderer valida las respuestas mediante <A NAME="4401"></A>JavaScript, s&#243;lo se permite este lenguaje.
+</LI>
+<LI>Ancho y largo. Si no se especifica, el cuadro de texto para redactar la respuesta ser&#225; de 150px de largo y 800px de ancho.
+</LI>
+</UL>
+
+<P>
+<B>NOTA</B>: el par&#225;metro <SPAN  CLASS="textit">order</SPAN> siempre debe ser <B>true</B>. Est&#225; configurado para ello por defecto.
+
+<P><P>
+<BR>
+
+<P><P>
+<BR>
+
+<P>
+Para la respuesta, se puede especificar: 
+
+<UL>
+<LI>Un path indicando donde est&#225; el fichero que testea la respuesta introducida por el alumno: para ello, es necesario expresar ese path como un <A NAME="4407"></A><B>s&#237;mbolo</B>.
+</LI>
+<LI>Escribir como un <B>String</B> el c&#243;digo JavaScript que testea la entrada del alumno.
+</LI>
+</UL>
+
+<P><P>
+<BR>
+
+<P>
+A continuaci&#243;n se muestra un ejemplo especificando un path donde se encuentra el fichero JavaScript con el que se comprueba la respuesta introducida del alumno:
+<BR>
+<PRE>
+programming :language => 'JavaScript', :height => 150, :width => 800  do
+  text %q{Write a JavaScript function named `suma` with two arguments that
+  return the sum of them}
+  answer JavaScript.new(:'examples/test_suma.js')
+end
+</PRE>
+<BR>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Juan Jos&eacute;
+2014-07-10
+</ADDRESS>
+</BODY>
+</HTML>

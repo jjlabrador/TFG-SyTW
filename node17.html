@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>First Section</TITLE>
-<META NAME="description" CONTENT="First Section">
+<TITLE>Mejoras del DSL original</TITLE>
+<META NAME="description" CONTENT="Mejoras del DSL original">
 <META NAME="keywords" CONTENT="memtfg">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,57 +19,155 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="memtfg.css">
 
-<LINK REL="previous" HREF="node16.html">
-<LINK REL="up" HREF="node16.html">
+<LINK REL="next" HREF="node21.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="memtfg.html">
 <LINK REL="next" HREF="node18.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html265"
+<A NAME="tex2html467"
   HREF="node18.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
  SRC="./icons/next.png"></A> 
-<A NAME="tex2html261"
-  HREF="node16.html">
+<A NAME="tex2html461"
+  HREF="memtfg.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
  SRC="./icons/up.png"></A> 
-<A NAME="tex2html257"
+<A NAME="tex2html455"
   HREF="node16.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
  SRC="./icons/prev.png"></A> 
-<A NAME="tex2html263"
+<A NAME="tex2html463"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
- SRC="./icons/contents.png"></A>  
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html465"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
 <BR>
-<B> Siguiente:</B> <A NAME="tex2html266"
-  HREF="node18.html">Presupuesto</A>
-<B> Subir:</B> <A NAME="tex2html262"
-  HREF="node16.html">Summary and Conclusions</A>
-<B> Anterior:</B> <A NAME="tex2html258"
-  HREF="node16.html">Summary and Conclusions</A>
- &nbsp; <B>  <A NAME="tex2html264"
+<B> Siguiente:</B> <A NAME="tex2html468"
+  HREF="node18.html">Problemas encontrados y soluciones</A>
+<B> Subir:</B> <A NAME="tex2html462"
+  HREF="memtfg.html">memtfg</A>
+<B> Anterior:</B> <A NAME="tex2html456"
+  HREF="node16.html">Resultados</A>
+ &nbsp; <B>  <A NAME="tex2html464"
   HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html466"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION00810000000000000000"></A>
-<A NAME="6:sec:1"></A>
+<H1><A NAME="SECTION00600000000000000000"></A>
+<A NAME="chapter:tres"></A>
 <BR>
-First Section
+Mejoras del DSL original
 </H1>
 
 <P>
 
+<P>
+Fruto del estudio del c&#243;digo y de ejecuciones sucesivas de la <A NAME="1561"></A>gema se detectaron una serie de errores de funcionamiento,
+por lo que antes de implementar mis mejoras propias era conveniente solucionar los problemas existentes.
+Adem&#225;s, se a&#241;adieron algunos cambios para mejorar el funcionamiento de la gema. A continuaci&#243;n se detallan las mejoras
+realizadas:
+
+<P>
+
+<UL>
+<LI>Correcci&#243;n de errores en el funcionamiento de la gema. Las opciones enumeradas a continuaci&#243;n no funcionaban correctamente:
+  
+<UL>
+<LI>La opci&#243;n que permite indicar si el orden de las respuestas en las preguntas de completar espacios en blaco importa o no.
+</LI>
+<LI>La opci&#243;n de a&#241;adir comentarios opcionales a los textos de las preguntas.
+</LI>
+<LI>La opci&#243;n <SPAN  CLASS="textit">raw</SPAN> que permite incrustar el texto de las preguntas entre etiquetas &lt;pre&gt; <A NAME="1563"></A>HTML.
+</LI>
+<LI>La opci&#243;n de explicaci&#243;n global para todos los <SPAN  CLASS="textit">distractors</SPAN> no funcionaba.
+  
+</LI>
+</UL>
+</LI>
+<LI><A NAME="1565"></A>Refactorizaci&#243;n de c&#243;digo, evitando la repetici&#243;n del mismo en la medida de lo posible.
+</LI>
+<LI>A&#241;adido manejo de excepciones tras errores de ejecuci&#243;n.
+</LI>
+<LI>A&#241;adida la opci&#243;n en l&#237;nea de comandos <SPAN  CLASS="textit">-version</SPAN> para comprobar la versi&#243;n de la gema. 
+  <PRE>
+  [~/tmp]$ ruql --version
+</PRE>
+
+<P>
+</LI>
+<LI>A&#241;adida la opci&#243;n en l&#237;nea de comandos <SPAN  CLASS="textit">-help</SPAN> para ver la ayuda. 
+  <PRE>
+  [~/tmp]$ ruql --help
+</PRE>
+</LI>
+</UL>
+
+<P><P>
+<BR>
 
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsecciones</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html469"
+  HREF="node18.html">Problemas encontrados y soluciones</A>
+<UL>
+<LI><A NAME="tex2html470"
+  HREF="node19.html">Entender el funcionamiento del c&#243;digo de la gema</A>
+<LI><A NAME="tex2html471"
+  HREF="node20.html">Corregir tests y funcionalidades de la gema</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html467"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html461"
+  HREF="memtfg.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html455"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html463"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html465"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html468"
+  HREF="node18.html">Problemas encontrados y soluciones</A>
+<B> Subir:</B> <A NAME="tex2html462"
+  HREF="memtfg.html">memtfg</A>
+<B> Anterior:</B> <A NAME="tex2html456"
+  HREF="node16.html">Resultados</A>
+ &nbsp; <B>  <A NAME="tex2html464"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html466"
+  HREF="node61.html">&#205;ndice de Materias</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-Juan José
-2014-05-10
+Juan Jos&eacute;
+2014-07-10
 </ADDRESS>
 </BODY>
 </HTML>

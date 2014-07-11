@@ -7,8 +7,8 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
   Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
 <HTML>
 <HEAD>
-<TITLE>T</TITLE>
-<META NAME="description" CONTENT="T">
+<TITLE>Cuestionario de entrenamiento para alumnos: HtmlForm renderer</TITLE>
+<META NAME="description" CONTENT="Cuestionario de entrenamiento para alumnos: HtmlForm renderer">
 <META NAME="keywords" CONTENT="memtfg">
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
@@ -19,57 +19,676 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 
 <LINK REL="STYLESHEET" HREF="memtfg.css">
 
-<LINK REL="previous" HREF="node20.html">
-<LINK REL="up" HREF="node20.html">
+<LINK REL="next" HREF="node25.html">
+<LINK REL="previous" HREF="node17.html">
+<LINK REL="up" HREF="memtfg.html">
 <LINK REL="next" HREF="node22.html">
 </HEAD>
 
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html311"
+<A NAME="tex2html524"
   HREF="node22.html">
 <IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
  SRC="./icons/next.png"></A> 
-<A NAME="tex2html307"
-  HREF="node20.html">
+<A NAME="tex2html518"
+  HREF="memtfg.html">
 <IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
  SRC="./icons/up.png"></A> 
-<A NAME="tex2html303"
+<A NAME="tex2html512"
   HREF="node20.html">
 <IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
  SRC="./icons/prev.png"></A> 
-<A NAME="tex2html309"
+<A NAME="tex2html520"
   HREF="node1.html">
 <IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
- SRC="./icons/contents.png"></A>  
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html522"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
 <BR>
-<B> Siguiente:</B> <A NAME="tex2html312"
-  HREF="node22.html">Guía de usuario final</A>
-<B> Subir:</B> <A NAME="tex2html308"
-  HREF="node20.html">Glosario de t&#233;rminos</A>
-<B> Anterior:</B> <A NAME="tex2html304"
-  HREF="node20.html">Glosario de t&#233;rminos</A>
- &nbsp; <B>  <A NAME="tex2html310"
+<B> Siguiente:</B> <A NAME="tex2html525"
+  HREF="node22.html">Problemas encontrados y soluciones</A>
+<B> Subir:</B> <A NAME="tex2html519"
+  HREF="memtfg.html">memtfg</A>
+<B> Anterior:</B> <A NAME="tex2html513"
+  HREF="node20.html">Corregir tests y funcionalidades</A>
+ &nbsp; <B>  <A NAME="tex2html521"
   HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html523"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
 <BR>
 <BR></DIV>
 <!--End of Navigation Panel-->
 
-<H1><A NAME="SECTION001010000000000000000"></A>
-<A NAME="Apendice1:T"></A>
+<H1><A NAME="SECTION00700000000000000000"></A>
+<A NAME="chapter:cuatro"></A>
 <BR>
-T
+Cuestionario de entrenamiento para alumnos: HtmlForm renderer
 </H1>
 
 <P>
-T&#233;rminos
+
+<P>
+Este <A NAME="1921"></A>renderer permitir&#225; generar un documento <A NAME="1923"></A>HTML5 con un <A NAME="1925"></A>formulario en el que se encuentran todas las
+preguntas listas para ser completadas desde el <A NAME="1927"></A>navegador. Posee adem&#225;s todos los JavaScripts necesarios
+para la correci&#243;n autom&#225;ticas de las mismas.
+
+<P><P>
+<BR>
+
+<P>
+El objetivo de este renderer es proporcionar al alumno una serie de preguntas para que practique con vistas
+a afrontar un <A NAME="1929"></A>examen oficial. La principal ventaja que ofrece es la <A NAME="1931"></A>portabilidad: al ser un documento <A NAME="1933"></A>HTML puede
+alojarse en cualquier <A NAME="1935"></A>servidor o ejecutarse localmente desde un <A NAME="1937"></A>navegador sin tener que configurar nada previamente.
+Solo es necesario tener conex&#237;on a <A NAME="1939"></A>Internet ya que existe un <A NAME="1941"></A>JavaScript que necesita ser descargado mediante 
+un <A NAME="1947"></A><B><A HREF="node38.html#apend1:cdn">$CDN$</A></B>.
+
+<P><P>
+<BR>
+
+<P>
+La sintaxis para ejecutar este renderer es la siguiente:
+<PRE>
+[~/tmp]$ ruql example.rb HtmlForm -t templates/htmlform.html.erb &gt; example.html
+</PRE>
+donde la opci&#243;n (<SPAN  CLASS="textit">-t</SPAN>) permite especificar un determinado template para incrustar las preguntas del cuestionario.
+
+<P><P>
+<BR>
+
+<P>
+A continuaci&#243;n se enumerar&#225;n todas las caracter&#237;sticas de este renderer:
+
+<P>
+
+<UL>
+<LI>Permite a&#241;adir uno o m&#225;s JavaScripts al <A NAME="1952"></A>cuestionario que se generar&#225;.
+  <PRE>
+  [~/tmp]$ ruql example.rb Html5 -j examples/test.js &gt; example.html
+</PRE>
+
+<P>
+</LI>
+<LI>Permite a&#241;adir uno o m&#225;s ficheros de fragmentos de c&#243;digo HTML en la cabecera 
+  del cuestionario que se generar&#225;.
+  <PRE>
+  [~/tmp]$ ruql example.rb Html5 -h examples/partial.html &gt; example.html
+</PRE>
+
+<P>
+</LI>
+<LI>Permite la posibilidad de a&#241;adir m&#225;s de una hoja de estilo <A NAME="1954"></A>CSS al cuestionario que se generar&#225;.
+  <PRE>
+  [~/tmp]$ ruql example.rb Html5 -c examples/style1.css 
+  -c examples/style2.css &gt; example.html
+</PRE>
+
+<P>
+</LI>
+<LI>Permite a&#241;adir un <A NAME="1959"></A><A HREF="node38.html#apend1:header">$Header$</A> y un <A NAME="1966"></A><A HREF="node38.html#apend1:footer">$Footer$</A> personalizado al cuestionario que se generar&#225;. Se deber&#225; indicar
+  en el fichero <A NAME="1970"></A>Ruby. Se puede especificar como un <A NAME="1972"></A><SPAN  CLASS="textit">string</SPAN> o indicar el path donde se encuentra el fichero que contiene 
+  dicho c&#243;digo HTML.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:header"></A><A NAME="1674"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.1:</STRONG>
+C&#243;digo para incluir un header personalizado</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="header.png"
+ ALT="\includegraphics[width=0.4\textwidth]{images/header.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:footer"></A><A NAME="1681"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.2:</STRONG>
+C&#243;digo para incluir un footer personalizado</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="footer.png"
+ ALT="\includegraphics[width=0.4\textwidth]{images/footer.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Los textos de las preguntas admiten ahora caracteres HTML escapados usando el m&#233;todo <A NAME="1974"></A><SPAN  CLASS="textit">escape</SPAN>.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:tag"></A><A NAME="1689"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.3:</STRONG>
+Ejemplo de pregunta con HTML escapado</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="tag.png"
+ ALT="\includegraphics[width=1\textwidth]{images/tag.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>El cuestionario es capaz de renderizar expresiones escritas en <A NAME="1976"></A><B>LaTeX</B>.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:latex"></A><A NAME="1697"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.4:</STRONG>
+Ejemplo de pregunta con c&#243;digo LaTeX</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="latex.png"
+ ALT="\includegraphics[width=0.6\textwidth]{images/latex.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:latex2"></A><A NAME="1704"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.5:</STRONG>
+Ejemplo de pregunta con c&#243;digo LaTeX renderizada</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="latex2.png"
+ ALT="\includegraphics[width=0.8\textwidth]{images/latex2.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Las preguntas de completar permiten ahora respuestas n&#250;mericas y de c&#243;digo JavaScript.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:numeric_answer"></A><A NAME="1711"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.6:</STRONG>
+Ejemplo de pregunta con respuesta num&#233;rica</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="numeric_answer.png"
+ ALT="\includegraphics[width=0.6\textwidth]{images/numeric_answer.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:javascript_answer"></A><A NAME="1718"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.7:</STRONG>
+Ejemplo de pregunta con respuesta de tipo JavaScript</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="javascript_answer.png"
+ ALT="\includegraphics[width=1\textwidth]{images/javascript_answer.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Las espacios para rellenar las respuestas de las preguntas de completar se ajustan al tama&#241;o de dicha respuesta.
+  Para ello basta especificar tantos guiones '-' como caracteres contenga la respuesta en el fichero Ruby. Es necesario un m&#237;nimo
+  de tres guiones, de lo contrario, no se traducir&#225;n dichos guiones a etiquetas <A NAME="1979"></A>input HTML.
+  En caso de querer mostrar mas de tres guiones sin que sean traducidos a inputs, se deben escapar usando un <A NAME="1981"></A><SPAN  CLASS="textit">backslash</SPAN> ('&#92;')
+  
+<DIV ALIGN="CENTER"><A NAME="fig:input"></A><A NAME="1729"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.8:</STRONG>
+Ejemplo de pregunta con respuestas de m&#250;ltiples longitudes</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="input.png"
+ ALT="\includegraphics[width=1\textwidth]{images/input.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:input2"></A><A NAME="1736"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.9:</STRONG>
+Pregunta con respuestas de m&#250;ltiples longitudes</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="input2.png"
+ ALT="\includegraphics[width=0.8\textwidth]{images/input2.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Cuando en una pregunta existen numerosos huecos para escribir respuestas, en el <A NAME="1983"></A>array de respuestas podr&#225; haber alguna de ellas que no mantiene
+  su correspondencia con el &#237;ndice que ocupa, por lo que se han a&#241;adido dos nuevas maneras simplificadas de escribir estas preguntas de completar:
+  
+<UL>
+<LI>Colocando la respuesta de la pregunta junto a sus guiones correspondiente. Para este tipo de escritura, solo se admiten respuestas de tipo <SPAN  CLASS="textit">String</SPAN>.
+    
+<DIV ALIGN="CENTER"><A NAME="fig:simplificated1"></A><A NAME="1748"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.10:</STRONG>
+Ejemplo del primer tipo de pregunta simplificada</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="simplificated1.png"
+ ALT="\includegraphics[width=1\textwidth]{images/simplificated1.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Usando una notaci&#243;n de <A NAME="1985"></A><SPAN  CLASS="textit">Hash</SPAN>: especificando una clave seguida de los guiones de la respuesta y definir su correspondencia en el m&#233;todo definido
+    para escribir la respuesta.
+    
+<DIV ALIGN="CENTER"><A NAME="fig:simplificated2"></A><A NAME="1756"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.11:</STRONG>
+Ejemplo del segundo tipo de pregunta simplificada</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="simplificated2.png"
+ ALT="\includegraphics[width=1\textwidth]{images/simplificated2.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI>Se han a&#241;adido dos nuevos tipos de preguntas:
+  
+<UL>
+<LI>Preguntas de <A NAME="1987"></A><B>Drag and Drop</B>: para preguntas de completar y preguntas tipo test (de respuesta &#250;nica
+    y multirrespuesta).
+    
+<DIV ALIGN="CENTER"><A NAME="fig:dd1"></A><A NAME="1767"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.12:</STRONG>
+Ejemplo de pregunta de completar con Drag and Drop</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="dd1.png"
+ ALT="\includegraphics[width=0.8\textwidth]{images/dd1.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dd1r"></A><A NAME="1774"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.13:</STRONG>
+Pregunta de completar con Drag and Drop</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="dd1r.png"
+ ALT="\includegraphics[width=0.8\textwidth]{images/dd1r.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dd2"></A><A NAME="1781"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.14:</STRONG>
+Ejemplo de pregunta tipo test de respuesta &#250;nica con Drag and Drop</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="dd2.png"
+ ALT="\includegraphics[width=1\textwidth]{images/dd2.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dd2r"></A><A NAME="1788"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.15:</STRONG>
+Pregunta tipo test de respuesta &#250;nica con Drag and Drop</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="dd2r.png"
+ ALT="\includegraphics[width=1\textwidth]{images/dd2r.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dd3"></A><A NAME="1795"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.16:</STRONG>
+Ejemplo de pregunta de tipo test multirrespuesta con Drag and Drop</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="dd3.png"
+ ALT="\includegraphics[width=1\textwidth]{images/dd3.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dd3r"></A><A NAME="1802"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.17:</STRONG>
+Pregunta de tipo test multirrespuesta con Drag and Drop</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="dd3r.png"
+ ALT="\includegraphics[width=0.6\textwidth]{images/dd3r.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<B>NOTA</B>: en este &#250;ltimo tipo de pregunta Drag and Drop, la longitud del contenedor donde se insertan las 
+    respuestas es el m&#225;ximo de la suma de las longitudes de las respuestas correctas.
+    
+<P><P>
+<BR>
+
+<P>
+</LI>
+<LI>Preguntas de <A NAME="1990"></A><B>programaci&#243;n</B>:
+    
+<UL>
+<LI>Este tipo de preguntas s&#243;lo admite <A NAME="1993"></A>c&#243;digo <A NAME="1995"></A>JavaScript debido a que la correcci&#243;n de preguntas tambi&#233;n 
+      tiene lugar en el <A NAME="1997"></A>navegador <A NAME="1999"></A>cliente.
+</LI>
+<LI>La respuesta asignada a este tiempo de preguntas debe ser un c&#243;digo JavaScript que valide la respuesta introducida
+      por el alumno. Este c&#243;digo puede escribirse en notaci&#243;n de <A NAME="2001"></A><SPAN  CLASS="textit">string</SPAN> o especificar el <A NAME="2003"></A>path donde se encuentra el
+      fichero que contiene dicho c&#243;digo.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:programming1"></A><A NAME="1818"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.18:</STRONG>
+Ejemplo de pregunta de programaci&#243;n</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="programming1.png"
+ ALT="\includegraphics[width=1.1\textwidth,height=0.1\textwidth]{images/programming1.eps}">
+      
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>Se crear&#225; un <A NAME="2005"></A><SPAN  CLASS="textit">textarea</SPAN> de unas dimensiones definidas por defecto que tambi&#233;n se pueden personalizar
+      y se colorear&#225; el c&#243;digo escrito para facilitar su lectura.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:programming1r"></A><A NAME="1826"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.19:</STRONG>
+Ejemplo de pregunta de programaci&#243;n renderizada</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="programming1r.png"
+ ALT="\includegraphics[width=0.9\textwidth]{images/programming1r.eps}">
+      
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI><A NAME="2007"></A>Validaci&#243;n autom&#225;tica mediante JavaScript de las preguntas que han sido rellenadas. Para corregir respuestas de tipo <A NAME="2009"></A><SPAN  CLASS="textit">Regexp</SPAN>
+  se utiliza <A NAME="2011"></A><B>XRegExp</B>, mucho m&#225;s potente que las expresiones regulares proporcionadas en JavaScript nativo. Esta validaci&#243;n muestra:
+  
+<OL>
+<LI>La nota obtenida en esa pregunta.
+</LI>
+<LI>La explicaci&#243;n asociada a esa respuesta (si se ha especificado en el fichero <A NAME="2014"></A>Ruby).
+    
+<DIV ALIGN="CENTER"><A NAME="fig:validation1"></A><A NAME="1840"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.20:</STRONG>
+Ejemplo de pregunta corregida</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="validation1.png"
+ ALT="\includegraphics[width=0.7\textwidth]{images/validation1.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI>La <A NAME="2016"></A>puntuaci&#243;n total al final de la p&#225;gina.
+    
+<DIV ALIGN="CENTER"><A NAME="fig:validation2"></A><A NAME="1848"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.21:</STRONG>
+Puntuaci&#243;n total</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="validation2.png"
+ ALT="\includegraphics[width=0.9\textwidth]{images/validation2.eps}">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+</OL>
+
+<P>
+</LI>
+<LI><A NAME="2018"></A>Almacenamiento local de las respuestas introducidas usando <A NAME="2020"></A><B>Local Storage</B> de <A NAME="2023"></A>HTML5.
+</LI>
+<LI><A NAME="2025"></A>Men&#250; contextual al hacer click derecho sobre el campo de respuesta para ver la respuesta correcta de dicha pregunta.
+  Esta funcionalidad s&#243;lo est&#225; disponible para preguntas de completar, cuyas respuestas sean <A NAME="2027"></A><SPAN  CLASS="textit">strings</SPAN>,
+  <A NAME="2029"></A><SPAN  CLASS="textit">regexps</SPAN> o num&#233;ricas.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:show_answer"></A><A NAME="1862"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.22:</STRONG>
+Ejemplo de mostrar respuesta correcta en pregunta de completar</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="show_answer.png"
+ ALT="\includegraphics[width=0.8\textwidth]{images/show_answer.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Para las preguntas tipo test existe un bot&#243;n que marca las respuestas correctas.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:show_answer1"></A><A NAME="1869"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.23:</STRONG>
+Ejemplo de mostrar respuesta correcta en pregunta tipo test</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="show_answer1.png"
+ ALT="\includegraphics[width=0.65\textwidth]{images/show_answer1.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+<LI><A NAME="2031"></A>Internacionalizaci&#243;n: la gema comprueba el <A NAME="2033"></A>idioma del sistema para ofrecer la traducci&#243;n adecuada al idioma del usuario
+  de diversos mensajes como la correcci&#243;n de cada pregunta (correcto/incorrecto) o la alerta que anuncia que se ha borrado el
+  Local Storage.
+  Actualmente solo soporta ingl&#233;s y espa&#241;ol. Para cualquier otro idioma, se utiliza el ingl&#233;s por defecto.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:i18n"></A><A NAME="1913"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura 4.24:</STRONG>
+Mensaje en espa&#241;ol de Local Storage borrado</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="i18n.png"
+ ALT="\includegraphics[width=0.7\textwidth]{images/i18n.eps}">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+</UL>
 
 <P>
 <BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsecciones</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html526"
+  HREF="node22.html">Problemas encontrados y soluciones</A>
+<UL>
+<LI><A NAME="tex2html527"
+  HREF="node23.html">Correcci&#243;n de preguntas de Ruby en JavaScript</A>
+<LI><A NAME="tex2html528"
+  HREF="node24.html">Alojar librer&#237;a MathJax en un directorio de la gema</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html524"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html518"
+  HREF="memtfg.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html512"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html520"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html522"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html525"
+  HREF="node22.html">Problemas encontrados y soluciones</A>
+<B> Subir:</B> <A NAME="tex2html519"
+  HREF="memtfg.html">memtfg</A>
+<B> Anterior:</B> <A NAME="tex2html513"
+  HREF="node20.html">Corregir tests y funcionalidades</A>
+ &nbsp; <B>  <A NAME="tex2html521"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html523"
+  HREF="node61.html">&#205;ndice de Materias</A></B> </DIV>
+<!--End of Navigation Panel-->
 <ADDRESS>
-Juan Jos&eacute; Labrador Gonz&aacute;lez
-2014-05-10
+Juan Jos&eacute;
+2014-07-10
 </ADDRESS>
 </BODY>
 </HTML>

@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Par&#225;metros adicionales</TITLE>
+<META NAME="description" CONTENT="Par&#225;metros adicionales">
+<META NAME="keywords" CONTENT="memtfg">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="memtfg.css">
+
+<LINK REL="next" HREF="node56.html">
+<LINK REL="previous" HREF="node54.html">
+<LINK REL="up" HREF="node52.html">
+<LINK REL="next" HREF="node56.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1042"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html1036"
+  HREF="node52.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html1030"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html1038"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html1040"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html1043"
+  HREF="node56.html">Dar de alta una</A>
+<B> Subir:</B> <A NAME="tex2html1037"
+  HREF="node52.html">Sinatra renderer</A>
+<B> Anterior:</B> <A NAME="tex2html1031"
+  HREF="node54.html">Preguntas Programming</A>
+ &nbsp; <B>  <A NAME="tex2html1039"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1041"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION001333000000000000000"></A>
+<A NAME="subsec:Apendice2.12"></A>
+<BR>
+Par&#225;metros adicionales
+</H2>
+
+<P>
+En el fichero Ruby que recibe como entrada la gema, adem&#225;s de definir las preguntas, se debe especificar a los usuarios que har&#225;n
+uso de la aplicaci&#243;n:
+
+<P>
+
+<UL>
+<LI>Por un lado, se deben indicar a los profesores que podr&#225;n desplegar el examen o consultar las notas de los alumnos. Se indicar&#225;
+  su email de Google en forma de <A NAME="4424"></A><SPAN  CLASS="textit">string</SPAN>. En caso de ser m&#250;ltiples profesores, se usar&#225; una notaci&#243;n de <A NAME="4426"></A><SPAN  CLASS="textit">array</SPAN>. 
+  <BR>
+<PRE>
+quiz 'Example quiz' do
+    
+    teachers 'jjlabradorglez@gmail.com'
+    
+    .
+    .
+    .
+end
+</PRE>
+<BR>
+
+<P>
+</LI>
+<LI>Por otra parte, se deber&#225;n indicar los alumnos permitidos para realizar el cuestionario. Se puede usar un <A NAME="4428"></A><SPAN  CLASS="textit">Hash</SPAN> con 
+  la informaci&#243;n necesaria de ellos. 
+  <BR>
+<PRE>
+quiz 'Example quiz' do
+    
+    students :'jjlabradorglez@gmail.com' => {:surname => 'Labrador Gonzalez', 
+               :name => 'Juan Jose'}, 
+             :'tutu@gmail.com' => {:surname => 'Chuchu', :name => 'Tutu'}
+    .
+    .
+    .
+end
+</PRE>
+<BR>
+
+<P>
+O indicar el path de un fichero <A NAME="4430"></A><B>CSV</B> con los datos de los mismos llamado <SPAN  CLASS="textit">students.csv</SPAN>.
+  <BR>
+<PRE>
+quiz 'Example quiz' do
+    
+    students :'examples/students.csv''
+    
+    .
+    .
+    .
+end
+</PRE>
+<BR>
+
+<P>
+El formato del fichero CSV debe ser del siguiente modo:
+  <PRE>
+  casiano.rodriguez.leon@gmail.com, Rodriguez Leon, Casiano
+  tutu@gmail.com, Chuchu, Tutu
+  youwapp@gmail.com, Developers, YouWapp
+</PRE>
+
+<P>
+</LI>
+</UL>
+<BR/>
+<P>
+Adem&#225;s, es necesario especificar un fichero <SPAN  CLASS="textit">config.yml</SPAN> que contiene la ventana temporal en la cual estar&#225; disponible
+el cuestionario, el nombre del subdominio de Heroku que se desea usar para desplegar el cuestionario y la informaci&#243;n relativa a <A NAME="4433"></A>Google Drive:
+
+<UL>
+<LI>Nombre de la hoja de c&#225;lculo donde se guardar&#225;n los datos de alumnos y preguntas y respuestas.
+</LI>
+<LI>Nombre de la carpeta que contendr&#225; dicha <A NAME="4435"></A>hoja de c&#225;lculo.
+</LI>
+<LI>Path donde queremos que se cree la carpeta y la hoja de c&#225;lculo (si no existe alguna carpeta del path, se crear&#225; tambi&#233;n).
+</LI>
+<LI><A NAME="4437"></A>API keys necesarias para poder usar los servicios de Google, tanto la autenticaci&#243;n con OAuth como la escritura en Google Drive. 
+  En la siguiente subsecci&#243;n,  se indicar&#225;n los pasos a realizar para dar de alta una aplicaci&#243;n en <A NAME="4439"></A><B>Google Developers Console</B>.
+</LI>
+</UL>
+
+<P>
+<B>NOTA</B>: el nombre del subdominio de <A NAME="4442"></A>Heroku solo puede contener letras y n&#250;meros. Tampoco puede contener espacios. Sin embargo, puede especificarse
+con espacios en el fichero <SPAN  CLASS="textit">config.yml</SPAN>, el renderer lo modificar&#225; para que Heroku lo acepte.
+
+<P><P>
+<BR>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:config_yml"></A><A NAME="4359"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figura B.1:</STRONG>
+Ejemplo de fichero <SPAN  CLASS="textit">config.yml</SPAN> con la informaci&#243;n necesaria</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="config_yml.png"
+ ALT="\includegraphics[width=1.2\textwidth]{images/config_yml.eps}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Para a&#241;adir este fichero al fichero del cuestionario especificamos el path del fichero en notaci&#243;n de <A NAME="4448"></A><B>s&#237;mbolo</B>:
+<BR>
+<PRE>
+quiz 'Example quiz' do
+    
+    .
+    .
+    
+    config :'examples/config.yml'
+    .
+    .
+end
+</PRE>
+<BR>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1042"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html1036"
+  HREF="node52.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html1030"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html1038"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html1040"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html1043"
+  HREF="node56.html">Dar de alta una</A>
+<B> Subir:</B> <A NAME="tex2html1037"
+  HREF="node52.html">Sinatra renderer</A>
+<B> Anterior:</B> <A NAME="tex2html1031"
+  HREF="node54.html">Preguntas Programming</A>
+ &nbsp; <B>  <A NAME="tex2html1039"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1041"
+  HREF="node61.html">&#205;ndice de Materias</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Juan Jos&eacute;
+2014-07-10
+</ADDRESS>
+</BODY>
+</HTML>

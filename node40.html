@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Instalaci&#243;n de la gema</TITLE>
+<META NAME="description" CONTENT="Instalaci&#243;n de la gema">
+<META NAME="keywords" CONTENT="memtfg">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="memtfg.css">
+
+<LINK REL="next" HREF="node41.html">
+<LINK REL="previous" HREF="node39.html">
+<LINK REL="up" HREF="node39.html">
+<LINK REL="next" HREF="node41.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html818"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html812"
+  HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html806"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html814"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html816"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html819"
+  HREF="node41.html">HtmlForm renderer</A>
+<B> Subir:</B> <A NAME="tex2html813"
+  HREF="node39.html">Gu&#237;a de usuario</A>
+<B> Anterior:</B> <A NAME="tex2html807"
+  HREF="node39.html">Gu&#237;a de usuario</A>
+ &nbsp; <B>  <A NAME="tex2html815"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html817"
+  HREF="node61.html">&#205;ndice de Materias</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION001310000000000000000"></A>
+<A NAME="Apendice2:instalacion"></A>
+<BR>
+Instalaci&#243;n de la gema
+</H1>
+
+<P>
+Para instalar la <A NAME="3864"></A>gema, basta con ejecutar el siguiente comando:
+<PRE>
+[~]$ gem install ruql
+</PRE>
+
+<P>
+Si deseamos ejecutar la gema sin instalarla, debemos hacer lo siguiente:
+
+<UL>
+<LI>Descargar el c&#243;digo desde https://github.com/jjlabrador/ruql<A NAME="3866"></A>GitHub.
+</LI>
+<LI>Ejecutar el siguiente comando desde la ra&#237;z del proyecto:
+  <PRE>
+  [~]$ ruby -Ilib bin/ruql [argumentos]
+</PRE>
+</LI>
+</UL>
+
+<P>
+Tambi&#233;n se puede instalar la gema a partir del c&#243;digo fuente y no usando el repositorio de gemas de <A NAME="3868"></A>Ruby. Una vez descargado el c&#243;digo, ejecutamos los siguientes
+comandos:
+<PRE>
+[~ruql]$ gem build ruql.gemspec
+</PRE>
+Este comando nos crear&#225; el paquete de la gema listo para instalar usando:
+<PRE>
+[~ruql]$ gem install ./ruql-0.0.5.gem
+</PRE>
+
+<P>
+Como el repositorio cuenta con un <A NAME="3870"></A>Rakefile, podemos ejecutar la siguiente tarea de <A NAME="3872"></A>Rake que automatiza los comandos descritos anteriormente:
+<PRE>
+[~ruql]$ rake install
+</PRE>
+
+<P>
+Este Rakefile, adem&#225;s, cuenta con numerosas tareas &#250;tiles para la generaci&#243;n de cuestionarios.
+
+<P><P>
+<BR>
+
+<P>
+<B>NOTA</B>: a falta de que se lleve a cabo el <A NAME="3874"></A><SPAN  CLASS="textit">Pull-Request</SPAN>, la instalaci&#243;n de la gema a partir del c&#243;digo fuente es la &#250;nica manera de tener la &#250;ltima versi&#243;n
+de RuQL.
+
+<P><P>
+<BR>
+
+<P>
+Para consultar la ayuda sobre qu&#233; argumentos opcionales recibe cada <A NAME="3876"></A>renderer, basta con escribir lo siguiente:
+<PRE>
+[~]$ ruql --help
+</PRE>
+si tenemos la gema instalada en nuestra m&#225;quina o
+<PRE>
+[~]$ ruby -Ilib bin/ruql --help
+</PRE>
+si la ejecutamos desde el c&#243;digo fuente.
+
+<P><P>
+<BR>
+
+<P>
+Entre ellos destacan las opciones de a&#241;adir hojas de estilo (<SPAN  CLASS="textit">-c</SPAN>), JavaScripts (<SPAN  CLASS="textit">-j</SPAN>) y especificar un propio <A NAME="3878"></A>template (<SPAN  CLASS="textit">-t</SPAN>) de <A NAME="3884"></A><B><A HREF="node38.html#apend1:erb">$ERB$</A></B>.
+Si se desea emplear un template propio, &#233;ste debe contener una serie de variables obligatoriamente para que se inserten los recursos necesarios y el renderer funcione
+correctamente. A continuaci&#243;n se muestra un ejemplo de template con dichas variables necesarias. Adem&#225;s, ser&#225; posible a&#241;adirle un <A NAME="3889"></A>header y un <A NAME="3891"></A>footer personalizado. 
+De este modo no ser&#237;a necesario elaborar un template completamente nuevo cada vez. Para ello basta con indicarlo en nuestro fichero Ruby. Los m&#233;todos <SPAN  CLASS="textit">head</SPAN> y
+<SPAN  CLASS="textit">foot</SPAN> admiten tanto un path (escrito como un <A NAME="3897"></A><B>s&#237;mbolo</B>) de donde se encuentre el <A NAME="3902"></A>c&#243;digo <A NAME="3904"></A>HTML o un <B>string</B> con el propio HTML:
+
+<P>
+<BR>
+<PRE>
+&lthtml&gt
+  &lthead&gt
+    &ltmeta charset="utf-8"&gt
+    &ltmeta http-equiv="X-UA-Compatible" content="IE=edge"&gt
+    &ltmeta name="viewport" content="width=device-width, initial-scale=1"&gt
+    &lttitle&gt<%= quiz.title %>&l/title&gt
+    <!-- Bootstrap CSS -->
+    <%= @bootstrap_css %>
+    &ltstyle type="text/css" media="all"&gt
+      /* Custom CSS */
+      /* ...........*/
+      /* Inputs size */
+      <%= @sass %>
+    &lt/style&gt
+    <!-- jQuery ContextMenu CSS -->
+    <%= @context_menu_css %>
+    <!-- Any CSS included by the user -->
+    <%= @css_custom %>
+    <!-- Mathjax -->
+    <%= @mathjax %>
+    <!-- CodeMirror -->
+    <%= @codemirror %>
+  &lt/head&gt
+  &ltbody&gt
+   &ltdiv class="container"&gt
+      <% if (quiz.get_header)%>
+          &lth3&gt<%= quiz.title %>&l/h3&gt
+          <%= quiz.get_header %>
+          &ltbr&gt&l/br&gt
+      <% else %>
+        <!-- HTML Code -->
+      <% end %>
+      <%= yield %>
+      <% if (quiz.get_footer) %>
+        <%= quiz.get_footer %>
+        &ltbr&gt&lt/br&gt
+      <% else %>
+        <!-- HTML Code -->
+      <% end %>
+    &lt/div&gt
+    <!-- #### JavaScripts #### -->
+    <!-- jQuery -->
+    <%= @jQuery %>
+    <!-- Internationalization -->
+    <%= @i18n %>
+    <!-- Drag and Drop -->
+    <%= @dragdrop %>
+    <!-- XRegexp -->
+    <%= @xregexp %>
+    <!-- Form validation -->
+    <%= @validation_js %>
+    <!-- jQuery ContextMenu -->
+    <%= @context_menu %>
+    <!-- Any JavaScript included by the user -->
+    <%= @js_custom %>
+    <!-- CodeMirror object -->
+    <%= @codemirror_object %>
+    <!-- JavaScript for Bootstrap -->
+    <%= @bootstrap_js %>
+  &lt/body&gt
+&lt/html&gt
+</PRE>
+<BR>
+
+<P>
+Si no se especifica template, se mostrar&#225; un HTML sin apenas estilo. El profesor se deber&#225; encargar de adecuarlo a su gusto posteriormente. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html818"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="./icons/next.png"></A> 
+<A NAME="tex2html812"
+  HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="./icons/up.png"></A> 
+<A NAME="tex2html806"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="./icons/prev.png"></A> 
+<A NAME="tex2html814"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="./icons/contents.png"></A> 
+<A NAME="tex2html816"
+  HREF="node61.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="./icons/index.png"></A> 
+<BR>
+<B> Siguiente:</B> <A NAME="tex2html819"
+  HREF="node41.html">HtmlForm renderer</A>
+<B> Subir:</B> <A NAME="tex2html813"
+  HREF="node39.html">Gu&#237;a de usuario</A>
+<B> Anterior:</B> <A NAME="tex2html807"
+  HREF="node39.html">Gu&#237;a de usuario</A>
+ &nbsp; <B>  <A NAME="tex2html815"
+  HREF="node1.html">&#205;ndice General</A></B> 
+ &nbsp; <B>  <A NAME="tex2html817"
+  HREF="node61.html">&#205;ndice de Materias</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Juan Jos&eacute;
+2014-07-10
+</ADDRESS>
+</BODY>
+</HTML>
